@@ -2,8 +2,49 @@ from fastapi import FastAPI, Request, HTTPException, Depends, Body
 from datetime import datetime, UTC
 import sqlite3
 import random
+import os
+import logging
+from logging.handlers import TimedRotatingFileHandler
+
+# Create logs directory if it doesn't exist
+LOG_DIR = "../../logs"
+os.makedirs(LOG_DIR, exist_ok=True)
+
+# Define log file path with date suffix
+log_file = os.path.join(LOG_DIR, "service.log")
+
+# Set up rotating file handler (daily rotation)
+handler = TimedRotatingFileHandler(
+    log_file,
+    when="midnight",     # Rotate at midnight
+    interval=1,
+    backupCount=7,       # Keep logs for 7 days
+    encoding="utf-8"
+)
+
+# Set log format
+formatter = logging.Formatter(
+    "[%(asctime)s] [%(levelname)s] %(message)s",
+    datefmt="%Y-%m-%d %H:%M:%S"
+)
+handler.setFormatter(formatter)
+
+# Set up the root logger
+logger = logging.getLogger()
+logger.setLevel(logging.INFO)
+logger.addHandler(handler)
 
 DB_PATH = "api_control.db"
+
+#FILE_STORAGE_DIR = os.getenv("FILE_STORAGE_DIR")
+
+#if not FILE_STORAGE_DIR:
+#    raise RuntimeError("Environment variable 'FILE_STORAGE_DIR' is not set")
+
+#if not os.path.exists(FILE_STORAGE_DIR):
+#    os.makedirs(FILE_STORAGE_DIR)
+
+FILE_STORAGE_DIR = "C:\\Users\\egonzalez\\rocrates"
 
 app = FastAPI()
 
@@ -58,6 +99,7 @@ def execute_algorithm(
     timestamp = datetime.now(UTC).strftime("%Y%m%d%H%M%S")
     random_suffix = random.randint(1000, 9999)
     ticket_id = f"{timestamp}-{random_suffix}"
+    logger.info(f"New request arrived to execute algorithm. New ticket generated: {ticket_id}")
     return {
         "ticket_id": ticket_id
     }
