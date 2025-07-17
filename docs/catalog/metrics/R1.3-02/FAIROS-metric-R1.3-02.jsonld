@@ -1,0 +1,156 @@
+[
+  {
+    "@id": "https://orcid.org/0000-0003-4112-6825",
+    "@type": [
+      "http://www.w3.org/2006/vcard/ns#Individual"
+    ],
+    "http://www.w3.org/2006/vcard/ns#fn": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#string",
+        "@value": "Esteban Gonzalez"
+      }
+    ],
+    "http://www.w3.org/2006/vcard/ns#hasEmail": [
+      {
+        "@id": "mailto:egonzalez@fi.upm.es"
+      }
+    ]
+  },
+  {
+    "@id": "https://ror.org/03n6nwv02",
+    "@type": [
+      "http://www.w3.org/2006/vcard/ns#Organisation",
+      "http://www.w3.org/2006/vcard/ns#Organization"
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "https://ror.org/03n6nwv02>"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "Universidad Politécnica de Madrid"
+      }
+    ],
+    "http://www.w3.org/2006/vcard/ns#url": [
+      {
+        "@id": "https://www.upm.es/"
+      }
+    ]
+  },
+  {
+    "@id": "https://github.com/OSTrails/assessment-component-metadata-records/tree/main/metric/FAIROS-metric-R1.3-02.ttl",
+    "@type": [
+      "http://www.w3.org/ns/dqv#Metric"
+    ],
+    "http://purl.org/dc/terms/creator": [
+      {
+        "@id": "https://ror.org/03n6nwv02"
+      }
+    ],
+    "http://purl.org/dc/terms/description": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#string",
+        "@value": "This metric ensures that data is provided in a file format that is recognized and recommended by the intended research community, supporting usability and interoperability.\n\n**What is being measured?**\n\nWhether the data is made available in a file format that is standard, widely used, and accepted within the target discipline or domain.\n\n**Why should we measure it?**\nUsing community-recommended file formats ensures that data can be read, interpreted, and reused by researchers and tools within the relevant field. It improves interoperability, reduces the need for data conversion, and supports long-term accessibility and FAIR data reuse.\n\n**What must be provided for the measurement?**\n\nThe Research Object.\n\n**What are considered valid results?**\n\nThe format is open, well-documented, and supported by community tools.\n\nThe test fails if:"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@id": "https://github.com/OSTrails/assessment-component-metadata-records/tree/main/metric/FAIROS-metric-R1.3-02.ttl"
+      }
+    ],
+    "http://purl.org/dc/terms/license": [
+      {
+        "@id": "http://creativecommons.org/licenses/by/4.0/"
+      }
+    ],
+    "http://purl.org/dc/terms/publisher": [
+      {
+        "@id": "https://oeg.fi.upm.es"
+      },
+      {
+        "@id": "https://ror.org/03n6nwv02"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#string",
+        "@value": "Data is available in a file format recommended by the target research community."
+      }
+    ],
+    "http://vivoweb.org/ontology/core#abbreviation": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#string",
+        "@value": "FAIROS-metric-R1.3-02"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#string",
+        "@value": "FAIROS-metric-R1.3-02"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#contactPoint": [
+      {
+        "@id": "https://orcid.org/0000-0003-4112-6825"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#keyword": [
+      {
+        "@language": "en",
+        "@value": "file formats"
+      },
+      {
+        "@language": "en",
+        "@value": "research community"
+      },
+      {
+        "@language": "en",
+        "@value": "open formats"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#theme": [
+      {
+        "@id": "http://www.fairsharing.org/ontology/subject/SRAO_0000401"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#version": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#string",
+        "@value": "0.0.1"
+      }
+    ],
+    "https://w3id.org/dpv#IsApplicableFor": [
+      {
+        "@id": "https://vocabularies.coar-repositories.org/resource_types/c_1843/"
+      }
+    ],
+    "https://w3id.org/ftr#status": [
+      {
+        "@language": "en",
+        "@value": "Active"
+      }
+    ],
+    "https://w3id.org/ftr#supportedBy": [
+      {
+        "@id": "https://w3id.org/FAIROS"
+      }
+    ]
+  },
+  {
+    "@id": "https://oeg.fi.upm.es",
+    "@type": [
+      "http://www.w3.org/2006/vcard/ns#Organization"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "Ontology Engineering Group"
+      }
+    ],
+    "http://www.w3.org/2006/vcard/ns#url": [
+      {
+        "@id": "https://oeg.fi.upm.es/"
+      }
+    ]
+  }
+]

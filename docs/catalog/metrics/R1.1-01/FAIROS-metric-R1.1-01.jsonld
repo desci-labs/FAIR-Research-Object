@@ -1,0 +1,159 @@
+[
+  {
+    "@id": "https://orcid.org/0000-0003-4112-6825",
+    "@type": [
+      "http://www.w3.org/2006/vcard/ns#Individual"
+    ],
+    "http://www.w3.org/2006/vcard/ns#fn": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#string",
+        "@value": "Esteban Gonzalez"
+      }
+    ],
+    "http://www.w3.org/2006/vcard/ns#hasEmail": [
+      {
+        "@id": "mailto:egonzalez@fi.upm.es"
+      }
+    ]
+  },
+  {
+    "@id": "https://ror.org/03n6nwv02",
+    "@type": [
+      "http://www.w3.org/2006/vcard/ns#Organization"
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "https://ror.org/03n6nwv02>"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "Universidad Politécnica de Madrid"
+      }
+    ],
+    "http://www.w3.org/2006/vcard/ns#url": [
+      {
+        "@id": "https://www.upm.es/"
+      }
+    ]
+  },
+  {
+    "@id": "https://github.com/OSTrails/assessment-component-metadata-records/tree/main/metric/FAIROS-metric-R1.1-01.ttl",
+    "@type": [
+      "http://www.w3.org/ns/dqv#Metric"
+    ],
+    "http://purl.org/dc/terms/creator": [
+      {
+        "@id": "https://ror.org/03n6nwv02"
+      }
+    ],
+    "http://purl.org/dc/terms/description": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#string",
+        "@value": "This metric ensures that metadata includes explicit license information, specifying the terms under which the data can be reused.\n\n**What is being measured?**\n\nWhether the Research Object contains clear, standardized license information that defines the conditions for accessing, using, and reusing the data.\n\n**Why should we measure it?**\nIncluding license information is essential for ensuring legal clarity and responsible reuse of the Research Object. \n\n**What must be provided for the measurement?**\nThe metadata record.\n\n**What are considered valid results?**\n\nThe Research Object includes a license declaration using a standardized and recognizable format (e.g., Creative Commons, Open Data Commons, custom institutional license). The license must be referenced by a persistent and resolvable URI (e.g., https://creativecommons.org/licenses/by/4.0/)."
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@id": "https://github.com/OSTrails/assessment-component-metadata-records/tree/main/metric/FAIROS-metric-R1.1-01.ttl"
+      }
+    ],
+    "http://purl.org/dc/terms/license": [
+      {
+        "@id": "http://creativecommons.org/licenses/by/4.0/"
+      }
+    ],
+    "http://purl.org/dc/terms/publisher": [
+      {
+        "@id": "https://oeg.fi.upm.es"
+      },
+      {
+        "@id": "https://ror.org/03n6nwv02"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#string",
+        "@value": "Metadata includes license information under which data can be reused."
+      }
+    ],
+    "http://vivoweb.org/ontology/core#abbreviation": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#string",
+        "@value": "FAIROS-metric-R1.1-01"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#string",
+        "@value": "FAIROS-metric-R1.1-01"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#contactPoint": [
+      {
+        "@id": "https://orcid.org/0000-0003-4112-6825"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#keyword": [
+      {
+        "@language": "en",
+        "@value": "license"
+      },
+      {
+        "@language": "en",
+        "@value": "legal"
+      },
+      {
+        "@language": "en",
+        "@value": "responsible reuse"
+      },
+      {
+        "@language": "en",
+        "@value": "access conditions"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#theme": [
+      {
+        "@id": "http://www.fairsharing.org/ontology/subject/SRAO_0000401"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#version": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#string",
+        "@value": "0.0.1"
+      }
+    ],
+    "https://w3id.org/dpv#IsApplicableFor": [
+      {
+        "@id": "https://vocabularies.coar-repositories.org/resource_types/c_1843/"
+      }
+    ],
+    "https://w3id.org/ftr#status": [
+      {
+        "@language": "en",
+        "@value": "Active"
+      }
+    ],
+    "https://w3id.org/ftr#supportedBy": [
+      {
+        "@id": "https://w3id.org/FAIROS"
+      }
+    ]
+  },
+  {
+    "@id": "https://oeg.fi.upm.es",
+    "@type": [
+      "http://www.w3.org/2006/vcard/ns#Organization"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "Ontology Engineering Group"
+      }
+    ],
+    "http://www.w3.org/2006/vcard/ns#url": [
+      {
+        "@id": "https://oeg.fi.upm.es/"
+      }
+    ]
+  }
+]

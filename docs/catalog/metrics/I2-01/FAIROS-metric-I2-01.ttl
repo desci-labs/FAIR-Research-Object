@@ -1,0 +1,65 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix ftr: <https://w3id.org/ftr#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix doap: <http://usefulinc.com/ns/doap#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dqv: <http://www.w3.org/ns/dqv#> .
+@prefix vivo: <http://vivoweb.org/ontology/core#> .
+@prefix dpv: <https://w3id.org/dpv#> .
+
+<https://github.com/OSTrails/assessment-component-metadata-records/tree/main/metric/FAIROS-metric-I2-01.ttl> a dqv:Metric ;
+    dcterms:identifier <https://github.com/OSTrails/assessment-component-metadata-records/tree/main/metric/FAIROS-metric-I2-01.ttl> ;
+    dcterms:title "(Meta)data use vocabularies that follow FAIR principles"^^xsd:string ;
+    rdfs:label "FAIROS-metric-I2-01"^^xsd:string ;
+    vivo:abbreviation "FAIROS-metric-I2-01"^^xsd:string ;
+    dcterms:description """This metric ensures that the vocabularies used in metadata or data themselves adhere to the FAIR principles, promoting interoperability, transparency, and reuse.
+
+**What is being measured?**
+
+Whether the vocabularies or ontologies referenced in the Research Object  (meta)data follow FAIR principles.
+
+**Why should we measure it?**
+
+Using FAIR-compliant vocabularies ensures that terms and classifications used in metadata and data can be understood, retrieved, and reused by machines and humans. 
+
+**What must be provided for the measurement?**
+
+A metadata or data record that references external vocabularies or ontologies.
+
+**What are considered valid results?**
+
+The vocabularies or ontologies referenced follow the FAIR principles (e.g, persistent identifiers published with resolvable identifiers, license and provenance information included, etc.)"""^^xsd:string ;
+    dcat:keyword "FAIR"@en , "persistent identifiers"@en , "provenance"@en ;
+    dcat:theme  <http://www.fairsharing.org/ontology/subject/SRAO_0000401>; 
+    dcat:version "0.0.1"^^xsd:string ;
+    
+    dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
+    ftr:status "Active"@en ;
+    
+    
+    
+    ftr:supportedBy  <https://w3id.org/FAIROS>; 
+    dpv:IsApplicableFor<https://vocabularies.coar-repositories.org/resource_types/c_1843/>;
+    dcterms:creator <https://ror.org/03n6nwv02> ;
+    dcterms:publisher <https://oeg.fi.upm.es>, <https://ror.org/03n6nwv02> ;
+
+    dcat:contactPoint <https://orcid.org/0000-0003-4112-6825>  . 
+
+<https://ror.org/03n6nwv02> a vcard:Organisation .
+    
+
+<https://orcid.org/0000-0003-4112-6825> a vcard:Individual ;
+    vcard:fn "Esteban Gonzalez"^^xsd:string ;
+    vcard:hasEmail <mailto:egonzalez@fi.upm.es> . 
+
+<https://oeg.fi.upm.es> a vcard:Organization ;
+    rdfs:label "Ontology Engineering Group" ;
+	vcard:url <https://oeg.fi.upm.es/> .
+
+<https://ror.org/03n6nwv02> a vcard:Organization ;
+    dcterms:identifier  "https://ror.org/03n6nwv02>" ;
+    rdfs:label "Universidad Politécnica de Madrid" ;
+	vcard:url <https://www.upm.es/> .

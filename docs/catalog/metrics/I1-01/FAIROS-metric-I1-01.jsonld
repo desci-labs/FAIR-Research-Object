@@ -1,0 +1,152 @@
+[
+  {
+    "@id": "https://github.com/OSTrails/assessment-component-metadata-records/tree/main/metric/FAIROS-metric-I1-01.ttl",
+    "@type": [
+      "http://www.w3.org/ns/dqv#Metric"
+    ],
+    "http://purl.org/dc/terms/creator": [
+      {
+        "@id": "https://ror.org/03n6nwv02"
+      }
+    ],
+    "http://purl.org/dc/terms/description": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#string",
+        "@value": "This metric ensures that metadata in the Research Object  is expressed using a formal knowledge representation language to enable machine-actionability and interoperability.\n\n**What is being measured?**\n\nWhether the metadata is encoded using a formal and machine-interpretable knowledge representation language, such as RDF, OWL, SKOS.\n\n**Why should we measure it?**\n\nRepresenting metadata in formal languages enables machines to interpret and integrate Research Objects across systems.\n\n**What must be provided for the measurement?**\n\nThe metadata record.\n\n**What are considered valid results?**\n\nThe metadata is represented using a formal knowledge representation language (e.g., RDF, OWL, SKOS). The structure and semantics conform to recognized standards and can be parsed by standard tools."
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@id": "https://github.com/OSTrails/assessment-component-metadata-records/tree/main/metric/FAIROS-metric-I1-01.ttl"
+      }
+    ],
+    "http://purl.org/dc/terms/license": [
+      {
+        "@id": "http://creativecommons.org/licenses/by/4.0/"
+      }
+    ],
+    "http://purl.org/dc/terms/publisher": [
+      {
+        "@id": "https://oeg.fi.upm.es"
+      },
+      {
+        "@id": "https://ror.org/03n6nwv02"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#string",
+        "@value": "Metadata is represented using a formal knowledge representation language."
+      }
+    ],
+    "http://vivoweb.org/ontology/core#abbreviation": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#string",
+        "@value": "FAIROS-metric-I1-01"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#string",
+        "@value": "FAIROS-metric-I1-01"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#contactPoint": [
+      {
+        "@id": "https://orcid.org/0000-0003-4112-6825"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#keyword": [
+      {
+        "@language": "en",
+        "@value": "semantic standards"
+      },
+      {
+        "@language": "en",
+        "@value": "knowledge representation"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#theme": [
+      {
+        "@id": "http://www.fairsharing.org/ontology/subject/SRAO_0000401"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#version": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#string",
+        "@value": "0.0.1"
+      }
+    ],
+    "https://w3id.org/dpv#IsApplicableFor": [
+      {
+        "@id": "https://vocabularies.coar-repositories.org/resource_types/c_1843/"
+      }
+    ],
+    "https://w3id.org/ftr#status": [
+      {
+        "@language": "en",
+        "@value": "Active"
+      }
+    ],
+    "https://w3id.org/ftr#supportedBy": [
+      {
+        "@id": "https://w3id.org/FAIROS"
+      }
+    ]
+  },
+  {
+    "@id": "https://ror.org/03n6nwv02",
+    "@type": [
+      "http://www.w3.org/2006/vcard/ns#Organisation",
+      "http://www.w3.org/2006/vcard/ns#Organization"
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "https://ror.org/03n6nwv02>"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "Universidad Politécnica de Madrid"
+      }
+    ],
+    "http://www.w3.org/2006/vcard/ns#url": [
+      {
+        "@id": "https://www.upm.es/"
+      }
+    ]
+  },
+  {
+    "@id": "https://orcid.org/0000-0003-4112-6825",
+    "@type": [
+      "http://www.w3.org/2006/vcard/ns#Individual"
+    ],
+    "http://www.w3.org/2006/vcard/ns#fn": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#string",
+        "@value": "Esteban Gonzalez"
+      }
+    ],
+    "http://www.w3.org/2006/vcard/ns#hasEmail": [
+      {
+        "@id": "mailto:egonzalez@fi.upm.es"
+      }
+    ]
+  },
+  {
+    "@id": "https://oeg.fi.upm.es",
+    "@type": [
+      "http://www.w3.org/2006/vcard/ns#Organization"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "Ontology Engineering Group"
+      }
+    ],
+    "http://www.w3.org/2006/vcard/ns#url": [
+      {
+        "@id": "https://oeg.fi.upm.es/"
+      }
+    ]
+  }
+]
