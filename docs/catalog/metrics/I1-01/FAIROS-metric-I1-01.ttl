@@ -63,3 +63,5 @@ The metadata is represented using a formal knowledge representation language (e.
     dcterms:identifier  "https://ror.org/03n6nwv02>" ;
     rdfs:label "Universidad Politécnica de Madrid" ;
 	vcard:url <https://www.upm.es/> .
+
+<https://w3id.org/FAIROS/test/FUJI-I1-01> a ftr:Test .

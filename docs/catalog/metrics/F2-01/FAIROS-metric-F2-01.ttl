@@ -57,3 +57,7 @@ Valid results occur when the metadata contains a defined minimum set of core ele
     dcterms:identifier  "https://ror.org/03n6nwv02>" ;
     rdfs:label "Universidad Politécnica de Madrid" ;
 	vcard:url <https://www.upm.es/> .
+
+<https://w3id.org/FAIROS/test/FUJI-F2-01> a ftr:Test .
+<https://w3id.org/FAIROS/test/FUJI-F2-02> a ftr:Test .
+<https://w3id.org/FAIROS/test/ROCRATE-F2-01> a ftr:Test .

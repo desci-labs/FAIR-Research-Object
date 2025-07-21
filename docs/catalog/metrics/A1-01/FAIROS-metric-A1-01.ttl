@@ -62,3 +62,7 @@ Valid results occur when the metadata includes a clear access level designation.
     dcterms:identifier  "https://ror.org/03n6nwv02>" ;
     rdfs:label "Universidad Politécnica de Madrid" ;
 	vcard:url <https://www.upm.es/> .
+
+<https://w3id.org/FAIROS/metric/A1-01> a dqv:Metric ; 
+    <http://semanticscience.org/resource/SIO_000234> <https://w3id.org/FAIROS/test/FUJI-A1-01> ;
+    <http://semanticscience.org/resource/SIO_000234> <https://w3id.org/FAIROS/test/FUJI-A1-01> .

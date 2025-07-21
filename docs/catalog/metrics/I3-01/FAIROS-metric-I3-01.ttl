@@ -63,3 +63,8 @@ The metadata includes explicit links (preferably using persistent identifiers) t
     dcterms:identifier  "https://ror.org/03n6nwv02>" ;
     rdfs:label "Universidad Politécnica de Madrid" ;
 	vcard:url <https://www.upm.es/> .
+
+
+<https://w3id.org/FAIROS/test/FUJI-I3-01> a ftr:Test .
+<https://w3id.org/FAIROS/test/FUJI-I3-02> a ftr:Test .
+<https://w3id.org/FAIROS/test/FUJI-I3-03> a ftr:Test .

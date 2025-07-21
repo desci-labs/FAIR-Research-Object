@@ -63,3 +63,7 @@ The metadata includes a clear and informative description of the Research Object
     dcterms:identifier  "https://ror.org/03n6nwv02>" ;
     rdfs:label "Universidad Politécnica de Madrid" ;
 	vcard:url <https://www.upm.es/> .
+
+
+<https://w3id.org/FAIROS/test/FUJI-R1-01> a ftr:Test .
+<https://w3id.org/FAIROS/test/FUJI-R1-02> a ftr:Test .

@@ -41,7 +41,11 @@ Valid results occur when the resource is assigned a globally unique identifier."
     
     
     
-    ftr:supportedBy  <https://w3id.org/FAIROS>; 
+    ftr:supportedBy  <https://w3id.org/FAIROS>;
+    ftr:supportedBy  <https://www.f-uji.net/>;
+    <http://semanticscience.org/resource/SIO_000234> <https://w3id.org/FAIROS/test/FUJI-F1-01> ;
+    <http://semanticscience.org/resource/SIO_000234> <https://w3id.org/FAIROS/test/ROCRATE-F1-01> ;
+
     dpv:IsApplicableFor<https://vocabularies.coar-repositories.org/resource_types/c_1843/>;
     dcterms:creator <https://ror.org/03n6nwv02> ;
     dcterms:publisher <https://oeg.fi.upm.es>, <https://ror.org/03n6nwv02> ;
@@ -58,3 +62,6 @@ Valid results occur when the resource is assigned a globally unique identifier."
     dcterms:identifier  "https://ror.org/03n6nwv02>" ;
     rdfs:label "Universidad Politécnica de Madrid" ;
 	vcard:url <https://www.upm.es/> .
+
+ <https://w3id.org/FAIROS/test/FUJI-F1-01> a ftr:Test .
+ <https://w3id.org/FAIROS/test/ROCRATE-F1-01> a ftr:Test .

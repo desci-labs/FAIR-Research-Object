@@ -112,6 +112,12 @@
     ]
   },
   {
+    "@id": "https://w3id.org/FAIROS/test/FUJI-I1-02",
+    "@type": [
+      "https://w3id.org/ftr#Test"
+    ]
+  },
+  {
     "@id": "https://ror.org/03n6nwv02",
     "@type": [
       "http://www.w3.org/2006/vcard/ns#Organisation",

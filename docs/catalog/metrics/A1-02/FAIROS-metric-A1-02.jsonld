@@ -1,5 +1,19 @@
 [
   {
+    "@id": "https://w3id.org/FAIROS/metric/A1-02",
+    "@type": [
+      "http://www.w3.org/ns/dqv#Metric"
+    ],
+    "http://semanticscience.org/resource/SIO_000234": [
+      {
+        "@id": "https://w3id.org/FAIROS/test/FUJI-A1-03"
+      },
+      {
+        "@id": "https://w3id.org/FAIROS/test/FUJI-A1-04"
+      }
+    ]
+  },
+  {
     "@id": "https://orcid.org/0000-0003-4112-6825",
     "@type": [
       "http://www.w3.org/2006/vcard/ns#Individual"
@@ -13,28 +27,6 @@
     "http://www.w3.org/2006/vcard/ns#hasEmail": [
       {
         "@id": "mailto:egonzalez@fi.upm.es"
-      }
-    ]
-  },
-  {
-    "@id": "https://ror.org/03n6nwv02",
-    "@type": [
-      "http://www.w3.org/2006/vcard/ns#Organisation",
-      "http://www.w3.org/2006/vcard/ns#Organization"
-    ],
-    "http://purl.org/dc/terms/identifier": [
-      {
-        "@value": "https://ror.org/03n6nwv02>"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@value": "Universidad Politécnica de Madrid"
-      }
-    ],
-    "http://www.w3.org/2006/vcard/ns#url": [
-      {
-        "@id": "https://www.upm.es/"
       }
     ]
   },
@@ -130,6 +122,28 @@
     "https://w3id.org/ftr#supportedBy": [
       {
         "@id": "https://w3id.org/FAIROS"
+      }
+    ]
+  },
+  {
+    "@id": "https://ror.org/03n6nwv02",
+    "@type": [
+      "http://www.w3.org/2006/vcard/ns#Organisation",
+      "http://www.w3.org/2006/vcard/ns#Organization"
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "https://ror.org/03n6nwv02>"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "Universidad Politécnica de Madrid"
+      }
+    ],
+    "http://www.w3.org/2006/vcard/ns#url": [
+      {
+        "@id": "https://www.upm.es/"
       }
     ]
   },

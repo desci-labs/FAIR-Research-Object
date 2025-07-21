@@ -61,3 +61,7 @@ The metadata includes structured and machine-readable provenance information usi
     dcterms:identifier  "https://ror.org/03n6nwv02>" ;
     rdfs:label "Universidad Politécnica de Madrid" ;
 	vcard:url <https://www.upm.es/> .
+
+<https://w3id.org/FAIROS/test/FUJI-R1.2-01> a ftr:Test .
+<https://w3id.org/FAIROS/test/FUJI-R1.2-02> a ftr:Test .
+<https://w3id.org/FAIROS/test/ROCRATE-R1.2-01> a ftr:Test .

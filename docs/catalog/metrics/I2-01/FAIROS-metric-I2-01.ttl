@@ -63,3 +63,6 @@ The vocabularies or ontologies referenced follow the FAIR principles (e.g, persi
     dcterms:identifier  "https://ror.org/03n6nwv02>" ;
     rdfs:label "Universidad Politécnica de Madrid" ;
 	vcard:url <https://www.upm.es/> .
+
+<https://w3id.org/FAIROS/test/FUJI-I2-01> a ftr:Test .
+<https://w3id.org/FAIROS/test/ROCRATE-I2-01> a ftr:Test .

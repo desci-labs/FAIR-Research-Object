@@ -60,3 +60,7 @@ Valid results occur when the metadata explicitly includes a reference to the dat
     dcterms:identifier  "https://ror.org/03n6nwv02>" ;
     rdfs:label "Universidad Politécnica de Madrid" ;
 	vcard:url <https://www.upm.es/> .
+
+<https://w3id.org/FAIROS/test/FUJI-F3-01> a ftr:Test .
+<https://w3id.org/FAIROS/test/FUJI-F3-02> a ftr:Test .
+<https://w3id.org/FAIROS/test/ROCRATE-F3-01> a ftr:Test .

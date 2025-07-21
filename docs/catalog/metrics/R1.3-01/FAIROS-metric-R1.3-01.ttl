@@ -60,3 +60,5 @@ The metadata adheres to a documented and widely accepted standard used in the ta
     dcterms:identifier  "https://ror.org/03n6nwv02>" ;
     rdfs:label "Universidad Politécnica de Madrid" ;
 	vcard:url <https://www.upm.es/> .
+
+<https://w3id.org/FAIROS/test/FUJI-R1.3-01> a ftr:Test .

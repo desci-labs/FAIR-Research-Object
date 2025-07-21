@@ -62,3 +62,5 @@ The metadata uses terms or elements from recognized semantic resources, with der
     dcterms:identifier  "https://ror.org/03n6nwv02>" ;
     rdfs:label "Universidad Politécnica de Madrid" ;
 	vcard:url <https://www.upm.es/> .
+
+<https://w3id.org/FAIROS/test/FUJI-I1-02> a ftr:Test .

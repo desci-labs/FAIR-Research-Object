@@ -64,3 +64,7 @@ The test fails if:"""^^xsd:string ;
     dcterms:identifier  "https://ror.org/03n6nwv02>" ;
     rdfs:label "Universidad Politécnica de Madrid" ;
 	vcard:url <https://www.upm.es/> .
+
+<https://w3id.org/FAIROS/test/FUJI-R1.3-02> a ftr:Test .
+<https://w3id.org/FAIROS/test/FUJI-R1.3-03> a ftr:Test .
+<https://w3id.org/FAIROS/test/FUJI-R1.3-04> a ftr:Test .
