@@ -1,0 +1,44 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix ftr: <https://w3id.org/ftr#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix doap: <http://usefulinc.com/ns/doap#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dqv: <http://www.w3.org/ns/dqv#> .
+@prefix vivo: <http://vivoweb.org/ontology/core#> .
+@prefix dpv: <https://w3id.org/dpv#> .
+
+<https://github.com/OSTrails/assessment-component-metadata-records/tree/main/test/ROCRATE-test-R1.2-01.ttl> a ftr:Test ;
+    dcterms:identifier <https://github.com/OSTrails/assessment-component-metadata-records/tree/main/test/ROCRATE-test-R1.2-01.ttl> ;
+    dcterms:title "Verification of provenance metadata fields."^^xsd:string ;
+    rdfs:label "ROCRATE-test-R1.2-01"^^xsd:string ;
+    vivo:abbreviation "ROCRATE-test-R1.2-01"^^xsd:string ;
+    dcterms:description """This test verifies that all elements of the RO have the following fields: ["author", "datePublished", "citation"]"""^^xsd:string ;
+    dcat:keyword "Research Object"@en  ;
+    dcat:theme  <http://www.fairsharing.org/ontology/subject/SRAO_0000401>; 
+    dcat:version "0.0.1"^^xsd:string ;
+    
+    dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
+    ftr:status "Active"@en ;
+    dcat:endpointURL <https://fairos.linkeddata.es> ;
+    
+    doap:repository <https://github.com/oeg-upm/FAIR-Research-Object/> ;
+    ftr:supportedBy  <https://w3id.org/FARIOS>; 
+    dpv:IsApplicableFor<https://vocabularies.coar-repositories.org/resource_types/c_1843/>;
+    dcterms:creator <https://ror.org/03n6nwv02> ;
+    dcterms:publisher <https://oeg.fi.upm.es>, <https://ror.org/03n6nwv02> .
+    
+
+<https://oeg.fi.upm.es> a vcard:Organization ;
+    rdfs:label "Ontology Engineering Group" ;
+	vcard:url <https://oeg.fi.upm.es/> .
+
+<https://ror.org/03n6nwv02> a vcard:Organization ;
+    dcterms:identifier  "https://ror.org/03n6nwv02>" ;
+    rdfs:label "Universidad Politécnica de Madrid" ;
+	vcard:url <https://www.upm.es/> .
+
+<https://w3id.org/FAIROS/metric/R1.3-01> a dqv:Metric ; 
+    <http://semanticscience.org/resource/SIO_000234> <https://w3id.org/FAIROS/test/FUJI-R1.3-01> .
