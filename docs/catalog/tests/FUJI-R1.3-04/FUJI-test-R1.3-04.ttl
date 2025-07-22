@@ -10,8 +10,8 @@
 @prefix vivo: <http://vivoweb.org/ontology/core#> .
 @prefix dpv: <https://w3id.org/dpv#> .
 
-<https://github.com/OSTrails/assessment-component-metadata-records/tree/main/test/FUJI-test-R1.3-04.ttl> a ftr:Test ;
-    dcterms:identifier <https://github.com/OSTrails/assessment-component-metadata-records/tree/main/test/FUJI-test-R1.3-04.ttl> ;
+<https://w3id.org/FAIROS/test/FUJI-R1.3-04> a ftr:Test ;
+    dcterms:identifier <https://w3id.org/FAIROS/test/FUJI-R1.3-04> ;
     dcterms:title "Data is available in a scientific file format"^^xsd:string ;
     rdfs:label "FUJI-test-R1.3-04"^^xsd:string ;
     vivo:abbreviation "FUJI-test-R1.3-04"^^xsd:string ;

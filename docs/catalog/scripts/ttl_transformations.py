@@ -26,28 +26,28 @@ WHERE {
     ?s a ftr:Test .
     ?s dcterms:title ?title .
     ?s rdfs:label ?label .
-    ?s dcterms:description ?description .
-    ?s dcterms:license ?license .
-    ?s dcterms:publisher ?publisher_uri .
-    ?publisher_uri rdfs:label ?publisher_label .
-    ?s dcat:keyword ?keywords .
-    ?s dcat:version ?version .
-    ?s dqv:inDimension ?dimension .
-    ?s dcat:endpointDescription ?endpoint_desc .
-    ?s dcat:endpointURL ?endpoint_url .
-    ?s dpv:isApplicableFor ?applicable_for .
-    ?s ftr:supportedBy ?supported_by .
+    OPTIONAL { ?s dcterms:description ?description . }
+    OPTIONAL { ?s dcterms:license ?license . }
+    OPTIONAL { ?s dcterms:publisher ?publisher_uri . }
+    OPTIONAL { ?publisher_uri rdfs:label ?publisher_label . }
+    OPTIONAL { ?s dcat:keyword ?keywords . }
+    OPTIONAL { ?s dcat:version ?version . }
+    OPTIONAL { ?s dqv:inDimension ?dimension . }    
+    OPTIONAL { ?s dcat:endpointDescription ?endpoint_desc . }
+    OPTIONAL { ?s dcat:endpointURL ?endpoint_url . }
+    OPTIONAL { ?s dpv:isApplicableFor ?applicable_for . }
+    OPTIONAL { ?s ftr:supportedBy ?supported_by . }
     OPTIONAL { ?s owl:sameAs ?same_as . }
-    ?dimension rdfs:label ?label_dimension .
-    ?dimension dcterms:description ?desc_dimension .
-    ?metric a dqv:Metric .
-    ?repository doap:repository ?repo .
-    ?repo foaf:homePage ?web_repository .
-    ?s dcterms:creator ?creator_orcid .
-    ?creator_orcid vcard:fn ?creator_name .
-    ?s dcat:contactPoint ?contact_orcid .
-    ?contact_orcid vcard:fn ?contact_name .
-    ?contact_orcid vcard:hasEmail ?contact_mail .
+    OPTIONAL { ?dimension rdfs:label ?label_dimension . }
+    OPTIONAL { ?dimension dcterms:description ?desc_dimension . }
+    OPTIONAL { ?metric a dqv:Metric . }
+    OPTIONAL { ?repository doap:repository ?repo . }
+    OPTIONAL { ?repo foaf:homePage ?web_repository . }
+    OPTIONAL { ?s dcterms:creator ?creator_orcid . }
+    OPTIONAL { ?creator_orcid vcard:fn ?creator_name . }
+    OPTIONAL { ?s dcat:contactPoint ?contact_orcid . }
+    OPTIONAL { ?contact_orcid vcard:fn ?contact_name . }
+    OPTIONAL { ?contact_orcid vcard:hasEmail ?contact_mail . }
 }
 """
 
@@ -648,7 +648,7 @@ def iterate_paths(path_source, path_destination, template, pquery, type_doc):
     # B : benchmark
     match type_doc:
         case "T":
-            subfolder = 'test'
+            subfolder = 'tests'
         case "M":
             subfolder = 'metrics'
         case "B":
@@ -726,7 +726,6 @@ def catalog_process(path_mustache_catalog, path_source):
     rendered_output = renderer.render(
         template_content, {'tests': tests_sorted,
                            'metrics': metrics_sorted, 'benchmarks': benchmarks_sorted})
-
     # path_catalog = os.path.join(path_source, 'doc', 'catalog.html')
     path_catalog = os.path.join(path_source, 'catalog.html')
     print("Path catalog: " + path_catalog)
@@ -738,7 +737,7 @@ def item_to_list(path, plist, pquery, type_doc):
 
     match type_doc:
         case "T":
-            subfolder = 'test'
+            subfolder = 'tests'
         case "M":
             subfolder = 'metrics'
         case "B":
@@ -768,6 +767,7 @@ def ttl_to_item_catalogue(path_ttl, pquery):
     keywords = []
 
     for row in results:
+        
         data = {
             'identifier': row.s,
             'title': row.title,

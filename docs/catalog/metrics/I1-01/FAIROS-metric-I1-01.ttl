@@ -10,8 +10,8 @@
 @prefix vivo: <http://vivoweb.org/ontology/core#> .
 @prefix dpv: <https://w3id.org/dpv#> .
 
-<https://github.com/OSTrails/assessment-component-metadata-records/tree/main/metric/FAIROS-metric-I1-01.ttl> a dqv:Metric ;
-    dcterms:identifier <https://github.com/OSTrails/assessment-component-metadata-records/tree/main/metric/FAIROS-metric-I1-01.ttl> ;
+<https://w3id.org/FAIROS/metric/FAIROS-I1-01> a dqv:Metric ;
+    dcterms:identifier <https://w3id.org/FAIROS/metric/FAIROS-I1-01> ;
     dcterms:title "Metadata is represented using a formal knowledge representation language."^^xsd:string ;
     rdfs:label "FAIROS-metric-I1-01"^^xsd:string ;
     vivo:abbreviation "FAIROS-metric-I1-01"^^xsd:string ;

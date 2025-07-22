@@ -10,8 +10,8 @@
 @prefix vivo: <http://vivoweb.org/ontology/core#> .
 @prefix dpv: <https://w3id.org/dpv#> .
 
-<https://github.com/OSTrails/assessment-component-metadata-records/tree/main/test/FUJI-test-F2-01.ttl> a ftr:Test ;
-    dcterms:identifier <https://github.com/OSTrails/assessment-component-metadata-records/tree/main/test/FUJI-test-F2-01.ttl> ;
+<https://w3id.org/FAIROS/test/FUJI-test-F2-01> a ftr:Test ;
+    dcterms:identifier <https://w3id.org/FAIROS/test/FUJI-test-F2-01> ;
     dcterms:title "Metadata is available through standard web protocols"^^xsd:string ;
     rdfs:label "FUJI-test-F2-01"^^xsd:string ;
     vivo:abbreviation "FUJI-test-F2-01"^^xsd:string ;

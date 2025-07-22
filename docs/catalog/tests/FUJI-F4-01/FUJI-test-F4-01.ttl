@@ -10,10 +10,10 @@
 @prefix vivo: <http://vivoweb.org/ontology/core#> .
 @prefix dpv: <https://w3id.org/dpv#> .
 
-<https://github.com/OSTrails/assessment-component-metadata-records/tree/main/test/FUJI-test-F4-01.ttl> a ftr:Test ;
-    dcterms:identifier <https://github.com/OSTrails/assessment-component-metadata-records/tree/main/test/FUJI-test-F4-01.ttl> ;
+<https://w3id.org/FAIROS/test/FUJI-F4-01> a ftr:Test ;
+    dcterms:identifier <https://w3id.org/FAIROS/test/FUJI-F4-01> ;
     dcterms:title "Metadata is programmatically retrievable via standard web mechanisms"^^xsd:string ;
-    rdfs:label "Metadata is programmatically retrievable via standard web mechanisms"^^xsd:string ;
+    rdfs:label "FUJI-test-F4-01"^^xsd:string ;
     vivo:abbreviation "FUJI-test-F4-01"^^xsd:string ;
     dcterms:description """Metadata of the object is retrievable programmatically through at least one of the following methods:1) Structured data embedded in the landing page of the data object., 2)Typed Links of metadata document or Signposting header links., 3) Content negotiation with a PID provider service (e.g., DataCite)."""^^xsd:string ;
     dcat:keyword "metadata"@en , "persistent identifier"@en , "signposting"@en , "PID provider"@en ;

@@ -17,28 +17,7 @@
     ]
   },
   {
-    "@id": "https://ror.org/03n6nwv02",
-    "@type": [
-      "http://www.w3.org/2006/vcard/ns#Organization"
-    ],
-    "http://purl.org/dc/terms/identifier": [
-      {
-        "@value": "https://ror.org/03n6nwv02>"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@value": "Universidad Politécnica de Madrid"
-      }
-    ],
-    "http://www.w3.org/2006/vcard/ns#url": [
-      {
-        "@id": "https://www.upm.es/"
-      }
-    ]
-  },
-  {
-    "@id": "https://github.com/OSTrails/assessment-component-metadata-records/tree/main/test/FUJI-test-F1-02.ttl",
+    "@id": "https://w3id.org/FAIROS/test/FUJI-F1-02",
     "@type": [
       "https://w3id.org/ftr#Test"
     ],
@@ -55,7 +34,7 @@
     ],
     "http://purl.org/dc/terms/identifier": [
       {
-        "@id": "https://github.com/OSTrails/assessment-component-metadata-records/tree/main/test/FUJI-test-F1-02.ttl"
+        "@id": "https://w3id.org/FAIROS/test/FUJI-F1-02"
       }
     ],
     "http://purl.org/dc/terms/license": [
@@ -155,17 +134,6 @@
     ]
   },
   {
-    "@id": "https://w3id.org/FAIROS/metric/F1-02",
-    "@type": [
-      "http://www.w3.org/ns/dqv#Metric"
-    ],
-    "http://semanticscience.org/resource/SIO_000234": [
-      {
-        "@id": "https://w3id.org/FAIROS/test/FUJI-F1-02"
-      }
-    ]
-  },
-  {
     "@id": "https://oeg.fi.upm.es",
     "@type": [
       "http://www.w3.org/2006/vcard/ns#Organization"
@@ -178,6 +146,38 @@
     "http://www.w3.org/2006/vcard/ns#url": [
       {
         "@id": "https://oeg.fi.upm.es/"
+      }
+    ]
+  },
+  {
+    "@id": "https://ror.org/03n6nwv02",
+    "@type": [
+      "http://www.w3.org/2006/vcard/ns#Organization"
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "https://ror.org/03n6nwv02>"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "Universidad Politécnica de Madrid"
+      }
+    ],
+    "http://www.w3.org/2006/vcard/ns#url": [
+      {
+        "@id": "https://www.upm.es/"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/FAIROS/metric/F1-02",
+    "@type": [
+      "http://www.w3.org/ns/dqv#Metric"
+    ],
+    "http://semanticscience.org/resource/SIO_000234": [
+      {
+        "@id": "https://w3id.org/FAIROS/test/FUJI-F1-02"
       }
     ]
   }

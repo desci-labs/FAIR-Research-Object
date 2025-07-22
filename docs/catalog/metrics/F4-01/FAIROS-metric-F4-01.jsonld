@@ -1,11 +1,5 @@
 [
   {
-    "@id": "https://w3id.org/FAIROS/test/ROCRATE-F3-01",
-    "@type": [
-      "https://w3id.org/ftr#Test"
-    ]
-  },
-  {
     "@id": "https://orcid.org/0000-0003-4112-6825",
     "@type": [
       "http://www.w3.org/2006/vcard/ns#Individual"
@@ -29,31 +23,15 @@
     ]
   },
   {
-    "@id": "https://w3id.org/FAIROS/test/FUJI-F4-01",
+    "@id": "https://w3id.org/FAIROS/test/ROCRATE-F3-01",
     "@type": [
       "https://w3id.org/ftr#Test"
     ]
   },
   {
-    "@id": "https://ror.org/03n6nwv02",
+    "@id": "https://w3id.org/FAIROS/test/FUJI-F4-01",
     "@type": [
-      "http://www.w3.org/2006/vcard/ns#Organisation",
-      "http://www.w3.org/2006/vcard/ns#Organization"
-    ],
-    "http://purl.org/dc/terms/identifier": [
-      {
-        "@value": "https://ror.org/03n6nwv02>"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@value": "Universidad Politécnica de Madrid"
-      }
-    ],
-    "http://www.w3.org/2006/vcard/ns#url": [
-      {
-        "@id": "https://www.upm.es/"
-      }
+      "https://w3id.org/ftr#Test"
     ]
   },
   {
@@ -73,7 +51,7 @@
     ]
   },
   {
-    "@id": "https://github.com/OSTrails/assessment-component-metadata-records/tree/main/metric/FAIROS-metric-F4-01.ttl",
+    "@id": "https://w3id.org/FAIROS/metric/FAIROS-F4-01",
     "@type": [
       "http://www.w3.org/ns/dqv#Metric"
     ],
@@ -90,7 +68,7 @@
     ],
     "http://purl.org/dc/terms/identifier": [
       {
-        "@id": "https://github.com/OSTrails/assessment-component-metadata-records/tree/main/metric/FAIROS-metric-F4-01.ttl"
+        "@id": "https://w3id.org/FAIROS/metric/FAIROS-F4-01"
       }
     ],
     "http://purl.org/dc/terms/license": [
@@ -168,6 +146,28 @@
     "https://w3id.org/ftr#supportedBy": [
       {
         "@id": "https://w3id.org/FAIROS"
+      }
+    ]
+  },
+  {
+    "@id": "https://ror.org/03n6nwv02",
+    "@type": [
+      "http://www.w3.org/2006/vcard/ns#Organisation",
+      "http://www.w3.org/2006/vcard/ns#Organization"
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "https://ror.org/03n6nwv02>"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "Universidad Politécnica de Madrid"
+      }
+    ],
+    "http://www.w3.org/2006/vcard/ns#url": [
+      {
+        "@id": "https://www.upm.es/"
       }
     ]
   }

@@ -10,8 +10,8 @@
 @prefix vivo: <http://vivoweb.org/ontology/core#> .
 @prefix dpv: <https://w3id.org/dpv#> .
 
-<https://github.com/OSTrails/assessment-component-metadata-records/tree/main/metric/FAIROS-metric-F1-02.ttl> a dqv:Metric ;
-    dcterms:identifier <https://github.com/OSTrails/assessment-component-metadata-records/tree/main/metric/FAIROS-metric-F1-02.ttl> ;
+<https://w3id.org/FAIROS/metric/FAIROS-F1-02> a dqv:Metric ;
+    dcterms:identifier <https://w3id.org/FAIROS/metric/metric/FAIROS-F1-02> ;
     dcterms:title "To ensure both the metadata and the data (if separate) have persistent, unique identifiers."^^xsd:string ;
     rdfs:label "FAIROS-metric-F1-02"^^xsd:string ;
     vivo:abbreviation "FAIROS-metric-F1-02"^^xsd:string ;

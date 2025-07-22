@@ -17,7 +17,7 @@
     ]
   },
   {
-    "@id": "https://github.com/OSTrails/assessment-component-metadata-records/tree/main/metric/FAIROS-metric-R1.3-01.ttl",
+    "@id": "https://w3id.org/FAIROS/metric/FAIROS-R1.3-01",
     "@type": [
       "http://www.w3.org/ns/dqv#Metric"
     ],
@@ -34,7 +34,7 @@
     ],
     "http://purl.org/dc/terms/identifier": [
       {
-        "@id": "https://github.com/OSTrails/assessment-component-metadata-records/tree/main/metric/FAIROS-metric-R1.3-01.ttl"
+        "@id": "https://w3id.org/FAIROS/metric/FAIROS-R1.3-01"
       }
     ],
     "http://purl.org/dc/terms/license": [
@@ -112,6 +112,22 @@
     ]
   },
   {
+    "@id": "https://oeg.fi.upm.es",
+    "@type": [
+      "http://www.w3.org/2006/vcard/ns#Organization"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "Ontology Engineering Group"
+      }
+    ],
+    "http://www.w3.org/2006/vcard/ns#url": [
+      {
+        "@id": "https://oeg.fi.upm.es/"
+      }
+    ]
+  },
+  {
     "@id": "https://ror.org/03n6nwv02",
     "@type": [
       "http://www.w3.org/2006/vcard/ns#Organization"
@@ -136,22 +152,6 @@
     "@id": "https://w3id.org/FAIROS/test/FUJI-R1.3-01",
     "@type": [
       "https://w3id.org/ftr#Test"
-    ]
-  },
-  {
-    "@id": "https://oeg.fi.upm.es",
-    "@type": [
-      "http://www.w3.org/2006/vcard/ns#Organization"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@value": "Ontology Engineering Group"
-      }
-    ],
-    "http://www.w3.org/2006/vcard/ns#url": [
-      {
-        "@id": "https://oeg.fi.upm.es/"
-      }
     ]
   }
 ]

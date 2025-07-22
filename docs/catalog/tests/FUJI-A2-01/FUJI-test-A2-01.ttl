@@ -10,8 +10,8 @@
 @prefix vivo: <http://vivoweb.org/ontology/core#> .
 @prefix dpv: <https://w3id.org/dpv#> .
 
-<https://github.com/OSTrails/assessment-component-metadata-records/tree/main/test/FUJI-test-A2-01.ttl> a ftr:Test ;
-    dcterms:identifier <https://github.com/OSTrails/assessment-component-metadata-records/tree/main/test/FUJI-test-A2-01.ttl> ;
+<https://w3id.org/FAIROS/test/FUJI-A2-01> a ftr:Test ;
+    dcterms:identifier <https://w3id.org/FAIROS/test/FUJI-A2-01> ;
     dcterms:title "Repository supports long-term preservation of metadata for deprecated or deleted objects"^^xsd:string ;
     rdfs:label "FUJI-test-A2-01"^^xsd:string ;
     vivo:abbreviation "FUJI-test-A2-01"^^xsd:string ;

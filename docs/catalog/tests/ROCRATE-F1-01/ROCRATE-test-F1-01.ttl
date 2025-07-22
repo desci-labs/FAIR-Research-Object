@@ -10,8 +10,8 @@
 @prefix vivo: <http://vivoweb.org/ontology/core#> .
 @prefix dpv: <https://w3id.org/dpv#> .
 
-<https://github.com/OSTrails/assessment-component-metadata-records/tree/main/test/ROCRATE-test-F1-01.ttl> a ftr:Test ;
-    dcterms:identifier <https://github.com/OSTrails/assessment-component-metadata-records/tree/main/test/ROCRATE-test-F1-01.ttl> ;
+<https://w3id.org/FAIROS/test/ROCRATE-F1-01.ttl> a ftr:Test ;
+    dcterms:identifier <https://w3id.org/FAIROS/test/ROCRATE-F1-01> ;
     dcterms:title "Presence of a persistent identifier"^^xsd:string ;
     rdfs:label "ROCRATE-test-F1-01"^^xsd:string ;
     vivo:abbreviation "ROCRATE-test-F1-01"^^xsd:string ;

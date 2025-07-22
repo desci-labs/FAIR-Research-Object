@@ -10,8 +10,8 @@
 @prefix vivo: <http://vivoweb.org/ontology/core#> .
 @prefix dpv: <https://w3id.org/dpv#> .
 
-<https://github.com/OSTrails/assessment-component-metadata-records/tree/main/test/FUJI-test-A1-05.ttl> a ftr:Test ;
-    dcterms:identifier <https://github.com/OSTrails/assessment-component-metadata-records/tree/main/test/FUJI-test-A1-05.ttl> ;
+<https://w3id.org/FAIROS/test/FUJI-A1-05> a ftr:Test ;
+    dcterms:identifier <https://w3id.org/FAIROS/test/FUJI-A1-05> ;
     dcterms:title "The data URI’s scheme is based on a shared application protocol."^^xsd:string ;
     rdfs:label "FUJI-test-A1-05"^^xsd:string ;
     vivo:abbreviation "FUJI-test-A1-05"^^xsd:string ;

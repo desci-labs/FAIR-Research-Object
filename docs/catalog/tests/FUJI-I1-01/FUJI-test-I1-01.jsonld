@@ -17,7 +17,7 @@
     ]
   },
   {
-    "@id": "https://github.com/OSTrails/assessment-component-metadata-records/tree/main/test/FUJI-test-I1-01.ttl",
+    "@id": "https://w3id.org/FAIROS/test/FUJI-I1-01",
     "@type": [
       "https://w3id.org/ftr#Test"
     ],
@@ -34,7 +34,7 @@
     ],
     "http://purl.org/dc/terms/identifier": [
       {
-        "@id": "https://github.com/OSTrails/assessment-component-metadata-records/tree/main/test/FUJI-test-I1-01.ttl"
+        "@id": "https://w3id.org/FAIROS/test/FUJI-I1-01"
       }
     ],
     "http://purl.org/dc/terms/license": [
@@ -116,6 +116,22 @@
     ]
   },
   {
+    "@id": "https://oeg.fi.upm.es",
+    "@type": [
+      "http://www.w3.org/2006/vcard/ns#Organization"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "Ontology Engineering Group"
+      }
+    ],
+    "http://www.w3.org/2006/vcard/ns#url": [
+      {
+        "@id": "https://oeg.fi.upm.es/"
+      }
+    ]
+  },
+  {
     "@id": "https://ror.org/03n6nwv02",
     "@type": [
       "http://www.w3.org/2006/vcard/ns#Organization"
@@ -144,22 +160,6 @@
     "http://semanticscience.org/resource/SIO_000234": [
       {
         "@id": "https://w3id.org/FAIROS/test/FUJI-I1-01"
-      }
-    ]
-  },
-  {
-    "@id": "https://oeg.fi.upm.es",
-    "@type": [
-      "http://www.w3.org/2006/vcard/ns#Organization"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@value": "Ontology Engineering Group"
-      }
-    ],
-    "http://www.w3.org/2006/vcard/ns#url": [
-      {
-        "@id": "https://oeg.fi.upm.es/"
       }
     ]
   }

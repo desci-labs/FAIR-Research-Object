@@ -21,13 +21,7 @@
     ]
   },
   {
-    "@id": "https://w3id.org/FAIROS/test/FUJI-I1-02",
-    "@type": [
-      "https://w3id.org/ftr#Test"
-    ]
-  },
-  {
-    "@id": "https://github.com/OSTrails/assessment-component-metadata-records/tree/main/test/ROCRATE-test-I2-01.ttl",
+    "@id": "https://w3id.org/FAIROS/test/ROCRATE-I2-01",
     "@type": [
       "https://w3id.org/ftr#Test"
     ],
@@ -44,7 +38,7 @@
     ],
     "http://purl.org/dc/terms/identifier": [
       {
-        "@id": "https://github.com/OSTrails/assessment-component-metadata-records/tree/main/test/ROCRATE-test-I2-01.ttl"
+        "@id": "https://w3id.org/FAIROS/test/ROCRATE-I2-01"
       }
     ],
     "http://purl.org/dc/terms/license": [
@@ -144,6 +138,12 @@
       {
         "@id": "https://oeg.fi.upm.es/"
       }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/FAIROS/test/FUJI-I1-02",
+    "@type": [
+      "https://w3id.org/ftr#Test"
     ]
   }
 ]

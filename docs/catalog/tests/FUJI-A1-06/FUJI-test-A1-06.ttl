@@ -10,8 +10,8 @@
 @prefix vivo: <http://vivoweb.org/ontology/core#> .
 @prefix dpv: <https://w3id.org/dpv#> .
 
-<https://github.com/OSTrails/assessment-component-metadata-records/tree/main/test/FUJI-test-A1-06.ttl> a ftr:Test ;
-    dcterms:identifier <https://github.com/OSTrails/assessment-component-metadata-records/tree/main/test/FUJI-test-A1-06.ttl> ;
+<https://w3id.org/FAIROS/test/FUJI-A1-06> a ftr:Test ;
+    dcterms:identifier <https://w3id.org/FAIROS/test/FUJI-A1-06> ;
     dcterms:title "The data is accessible through the identifier provided."^^xsd:string ;
     rdfs:label "FUJI-test-A1-06"^^xsd:string ;
     vivo:abbreviation "FUJI-test-A1-06"^^xsd:string ;
