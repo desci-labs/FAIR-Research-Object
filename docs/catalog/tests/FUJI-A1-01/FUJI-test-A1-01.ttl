@@ -12,10 +12,10 @@
 
 <https://w3id.org/FAIROS/test/FUJI-A1-01> a ftr:Test ;
     dcterms:identifier <https://w3id.org/FAIROS/test/FUJI-A1-01> ;
-    dcterms:title "Metadata specifies data access level and conditions"^^xsd:string ;
+    dcterms:title "Information about access restrictions or rights can be identified in metadata"^^xsd:string ;
     rdfs:label "FUJI-test-A1-01"^^xsd:string ;
     vivo:abbreviation "FUJI-test-A1-01"^^xsd:string ;
-    dcterms:description """Metadata includes the level of data access (e.g., public, embargoed, restricted) and its access conditions using appropriate metadata fields"""^^xsd:string ;
+    dcterms:description """Information about access restrictions or rights can be identified in metadata"""^^xsd:string ;
     dcat:keyword "metadata"@en , "data access"@en , "access conditions"@en ;
     dcat:theme  <http://www.fairsharing.org/ontology/subject/SRAO_0000401>; 
     dcat:version "0.0.1"^^xsd:string ;
@@ -45,5 +45,5 @@
     rdfs:label "Universidad Politécnica de Madrid" ;
 	vcard:url <https://www.upm.es/> .
 
-<https://w3id.org/FAIROS/metric/A1-01> a dqv:Metric ; 
+<https://w3id.org/FAIROS/metric/FAIROS-A1-01> a dqv:Metric ; 
     <http://semanticscience.org/resource/SIO_000234> <https://w3id.org/FAIROS/test/FUJI-A1-01> .

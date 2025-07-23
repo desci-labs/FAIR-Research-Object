@@ -12,7 +12,7 @@
 
 <https://w3id.org/FAIROS/test/FUJI-test-F2-02> a ftr:Test ;
     dcterms:identifier <https://w3id.org/FAIROS/test/FUJI-test-F2-02> ;
-    dcterms:title "Core citation metadata is provided (creator, title, date, publisher, identifier)"^^xsd:string ;
+    dcterms:title "Core descriptive metadata is available"^^xsd:string ;
     rdfs:label "FUJI-test-F2-02"^^xsd:string ;
     vivo:abbreviation "FUJI-test-F2-02"^^xsd:string ;
     dcterms:description """Minimum core citation metadata is specified ( creator, title, publication date, publisher, and identifier)"""^^xsd:string ;
@@ -46,5 +46,5 @@
     rdfs:label "Universidad Politécnica de Madrid" ;
 	vcard:url <https://www.upm.es/> .
 
-<https://w3id.org/FAIROS/metric/F2-01> a dqv:Metric ; 
-    <http://semanticscience.org/resource/SIO_000234> <https://w3id.org/FAIROS/test/FUJI-F2-01> .
+<https://w3id.org/FAIROS/metric/FAIROS-F2-01> a dqv:Metric ; 
+    <http://semanticscience.org/resource/SIO_000234> <https://w3id.org/FAIROS/test/FUJI-F2-02> .

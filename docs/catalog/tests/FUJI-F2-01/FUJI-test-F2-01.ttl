@@ -12,10 +12,10 @@
 
 <https://w3id.org/FAIROS/test/FUJI-test-F2-01> a ftr:Test ;
     dcterms:identifier <https://w3id.org/FAIROS/test/FUJI-test-F2-01> ;
-    dcterms:title "Metadata is available through standard web protocols"^^xsd:string ;
+    dcterms:title "Core data citation metadata is available"^^xsd:string ;
     rdfs:label "FUJI-test-F2-01"^^xsd:string ;
     vivo:abbreviation "FUJI-test-F2-01"^^xsd:string ;
-    dcterms:description """Some metadata (at all) has been made available via common (web) standards."""^^xsd:string ;
+    dcterms:description """Core data citation metadata is available."""^^xsd:string ;
     dcat:keyword "metadata"@en , "web"@en , "standard"@en ;
     dcat:theme  <http://www.fairsharing.org/ontology/subject/SRAO_0000401>; 
     dcat:version "0.0.1"^^xsd:string ;
@@ -45,5 +45,5 @@
     rdfs:label "Universidad Politécnica de Madrid" ;
 	vcard:url <https://www.upm.es/> .
 
-<https://w3id.org/FAIROS/metric/F2-01> a dqv:Metric ; 
+<https://w3id.org/FAIROS/metric/FAIROS-F2-01> a dqv:Metric ; 
     <http://semanticscience.org/resource/SIO_000234> <https://w3id.org/FAIROS/test/FUJI-F2-01> .

@@ -12,13 +12,10 @@
 
 <https://w3id.org/FAIROS/test/FUJI-A1-02> a ftr:Test ;
     dcterms:identifier <https://w3id.org/FAIROS/test/FUJI-A1-02> ;
-    dcterms:title "Access level metadata is machine-readable and uses controlled vocabularies"^^xsd:string ;
+    dcterms:title "Metadata are retrievable via their specified identifier"^^xsd:string ;
     rdfs:label "FUJI-test-A1-02"^^xsd:string ;
     vivo:abbreviation "FUJI-test-A1-02"^^xsd:string ;
-    dcterms:description """Access level metadata is machine-readable, and this is verified against controlled vocabularies:
-http://vocabularies.coar-repositories.org/documentation/access_rights/
-http://purl.org/eprint/accessRights
-http://publications.europa.eu/resource/authority/access-right"""^^xsd:string ;
+    dcterms:description """Metadata are retrievable via their specified identifier"""^^xsd:string ;
     dcat:keyword <http://www.fairsharing.org/ontology/domain/DRAO_0000281>;
     dcat:keyword "metadata"@en , "controlled vocabularies"@en ;
     dcat:theme  <http://www.fairsharing.org/ontology/subject/SRAO_0000401>; 
@@ -50,5 +47,5 @@ http://publications.europa.eu/resource/authority/access-right"""^^xsd:string ;
     rdfs:label "Universidad Politécnica de Madrid" ;
 	vcard:url <https://www.upm.es/> .
 
-<https://w3id.org/FAIROS/metric/A1-01> a dqv:Metric ; 
+<https://w3id.org/FAIROS/metric/FAIROS-A1-01> a dqv:Metric ; 
     <http://semanticscience.org/resource/SIO_000234> <https://w3id.org/FAIROS/test/FUJI-A1-02> .

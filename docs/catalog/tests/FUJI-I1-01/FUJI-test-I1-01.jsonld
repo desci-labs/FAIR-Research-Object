@@ -1,18 +1,28 @@
 [
   {
-    "@id": "https://orcid.org/0000-0003-4112-6825",
+    "@id": "https://oeg.fi.upm.es",
     "@type": [
-      "http://www.w3.org/2006/vcard/ns#Individual"
+      "http://www.w3.org/2006/vcard/ns#Organization"
     ],
-    "http://www.w3.org/2006/vcard/ns#fn": [
+    "http://www.w3.org/2000/01/rdf-schema#label": [
       {
-        "@type": "http://www.w3.org/2001/XMLSchema#string",
-        "@value": "Esteban Gonzalez"
+        "@value": "Ontology Engineering Group"
       }
     ],
-    "http://www.w3.org/2006/vcard/ns#hasEmail": [
+    "http://www.w3.org/2006/vcard/ns#url": [
       {
-        "@id": "mailto:egonzalez@fi.upm.es"
+        "@id": "https://oeg.fi.upm.es/"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/FAIROS/metric/FAIROS-I1-01",
+    "@type": [
+      "http://www.w3.org/ns/dqv#Metric"
+    ],
+    "http://semanticscience.org/resource/SIO_000234": [
+      {
+        "@id": "https://w3id.org/FAIROS/test/FUJI-I1-01"
       }
     ]
   },
@@ -29,7 +39,7 @@
     "http://purl.org/dc/terms/description": [
       {
         "@type": "http://www.w3.org/2001/XMLSchema#string",
-        "@value": "The metadata of the object is available in a formal knowledge representation language, e.g., through at least one of the following mechanisms:\nParsable, structured data is embedded in the landing page\nParsable, formal metadata (e.g., RDF, JSON-LD) is accessible through content negotiation, typed links or sparql endpoint."
+        "@value": "Parsable, structured metadata (JSON-LD, RDFa) is embedded in the landing page XHTML/HTML code."
       }
     ],
     "http://purl.org/dc/terms/identifier": [
@@ -53,7 +63,7 @@
     "http://purl.org/dc/terms/title": [
       {
         "@type": "http://www.w3.org/2001/XMLSchema#string",
-        "@value": "Metadata is available in a formal knowledge representation language"
+        "@value": "Parsable, structured metadata (JSON-LD, RDFa) is embedded in the landing page XHTML/HTML code"
       }
     ],
     "http://vivoweb.org/ontology/core#abbreviation": [
@@ -116,22 +126,6 @@
     ]
   },
   {
-    "@id": "https://oeg.fi.upm.es",
-    "@type": [
-      "http://www.w3.org/2006/vcard/ns#Organization"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@value": "Ontology Engineering Group"
-      }
-    ],
-    "http://www.w3.org/2006/vcard/ns#url": [
-      {
-        "@id": "https://oeg.fi.upm.es/"
-      }
-    ]
-  },
-  {
     "@id": "https://ror.org/03n6nwv02",
     "@type": [
       "http://www.w3.org/2006/vcard/ns#Organization"
@@ -153,13 +147,19 @@
     ]
   },
   {
-    "@id": "https://w3id.org/FAIROS/metric/I1-01",
+    "@id": "https://orcid.org/0000-0003-4112-6825",
     "@type": [
-      "http://www.w3.org/ns/dqv#Metric"
+      "http://www.w3.org/2006/vcard/ns#Individual"
     ],
-    "http://semanticscience.org/resource/SIO_000234": [
+    "http://www.w3.org/2006/vcard/ns#fn": [
       {
-        "@id": "https://w3id.org/FAIROS/test/FUJI-I1-01"
+        "@type": "http://www.w3.org/2001/XMLSchema#string",
+        "@value": "Esteban Gonzalez"
+      }
+    ],
+    "http://www.w3.org/2006/vcard/ns#hasEmail": [
+      {
+        "@id": "mailto:egonzalez@fi.upm.es"
       }
     ]
   }

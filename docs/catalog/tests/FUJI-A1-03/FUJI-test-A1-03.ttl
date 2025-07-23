@@ -12,10 +12,10 @@
 
 <https://w3id.org/FAIROS/test/FUJI-A1-03> a ftr:Test ;
     dcterms:identifier <https://w3id.org/FAIROS/test/FUJI-A1-03> ;
-    dcterms:title "The metadata URI’s scheme is based on a common application protocol."^^xsd:string ;
+    dcterms:title "Data are retrievable via the identifiers given in metadata"^^xsd:string ;
     rdfs:label "FUJI-test-A1-03"^^xsd:string ;
     vivo:abbreviation "FUJI-test-A1-03"^^xsd:string ;
-    dcterms:description """The metadata URI’s scheme is based on a common application protocol."""^^xsd:string ;
+    dcterms:description """Data are retrievable via the identifiers given in metadata."""^^xsd:string ;
     dcat:keyword "metadata"@en , "protocol"@en , "URI’s scheme"@en ;
     dcat:theme  <http://www.fairsharing.org/ontology/subject/SRAO_0000401>; 
     dcat:version "0.0.1"^^xsd:string ;
@@ -46,5 +46,5 @@
     rdfs:label "Universidad Politécnica de Madrid" ;
 	vcard:url <https://www.upm.es/> .
 
-<https://w3id.org/FAIROS/metric/A1-02> a dqv:Metric ; 
+<https://w3id.org/FAIROS/metric/FAIROS-A1-02> a dqv:Metric ; 
     <http://semanticscience.org/resource/SIO_000234> <https://w3id.org/FAIROS/test/FUJI-A1-03> .

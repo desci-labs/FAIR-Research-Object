@@ -46,7 +46,7 @@
 	vcard:url <https://www.upm.es/> .
 
 
-<https://w3id.org/FAIROS/metric/F1-01> a dqv:Metric ; 
+<https://w3id.org/FAIROS/metric/FAIROS-F1-01> a dqv:Metric ; 
     <http://semanticscience.org/resource/SIO_000234> <https://w3id.org/FAIROS/test/FUJI-F1-01> ;
     <http://semanticscience.org/resource/SIO_000234> <https://w3id.org/FAIROS/test/ROCRATE-F1-01> .
 

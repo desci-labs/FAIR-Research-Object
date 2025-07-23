@@ -12,10 +12,10 @@
 
 <https://w3id.org/FAIROS/test/FUJI-I1-02> a ftr:Test ;
     dcterms:identifier <https://w3id.org/FAIROS/test/FUJI-I1-02> ;
-    dcterms:title "Metadata includes namespaces from domain-relevant semantic resources"^^xsd:string ;
+    dcterms:title "Parsable, structured metadata (RDF, JSON-LD) is accessible through content negotiation, typed links or sparql endpoint"^^xsd:string ;
     rdfs:label "FUJI-test-I1-02"^^xsd:string ;
     vivo:abbreviation "FUJI-test-I1-02"^^xsd:string ;
-    dcterms:description """Namespaces of known semantic resources are present in the metadata of an object; exclude common namespaces (e.g., rdf, rdfs, xsd, owl) from the test."""^^xsd:string ;
+    dcterms:description """Parsable, structured metadata (RDF, JSON-LD) is accessible through content negotiation, typed links or sparql endpoint."""^^xsd:string ;
     dcat:keyword "namespaces"@en , "semantic resource"@en ;
     dcat:theme  <http://www.fairsharing.org/ontology/subject/SRAO_0000401>; 
     dcat:version "0.0.1"^^xsd:string ;
@@ -48,5 +48,5 @@
     rdfs:label "Universidad Politécnica de Madrid" ;
 	vcard:url <https://www.upm.es/> .
 
-<https://w3id.org/FAIROS/metric/I1-01> a dqv:Metric ; 
-    <http://semanticscience.org/resource/SIO_000234> <https://w3id.org/FAIROS/test/FUJI-I1-01> .
+<https://w3id.org/FAIROS/metric/FAIROS-I1-01> a dqv:Metric ; 
+    <http://semanticscience.org/resource/SIO_000234> <https://w3id.org/FAIROS/test/FUJI-I1-02> .

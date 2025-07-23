@@ -12,10 +12,10 @@
 
 <https://github.com/OSTrails/assessment-component-metadata-records/tree/main/test/FUJI-TEST-F1-01.ttl> a ftr:Test ;
     dcterms:identifier <https://github.com/OSTrails/assessment-component-metadata-records/tree/main/test/FUJI-TEST-F1-01.ttl> ;
-    dcterms:title "Metadata and data are assigned a globally unique identifier"^^xsd:string ;
+    dcterms:title "Metadata identifier follows a defined unique identifier syntax or scheme (IRI, URL, UUID, HASH or PID)"^^xsd:string ;
     rdfs:label "FUJI-test-F1-01"^^xsd:string ;
     vivo:abbreviation "FUJI-test-F1-01"^^xsd:string ;
-    dcterms:description """A globally unique identifier may be assigned to a landing page containing  metadata, a metadata file or a data file or stream such that it can be referenced  unambiguously by humans or machines. Globally unique means an identifier  should be associated with only one resource at any time. Examples of unique  identifiers are Internationalized Resource Identifier (IRI), Uniform Resource  Identifier (URI) such as URL. Well known persistent identifiers also are globally  unique such as URN, Digital Object Identifier (DOI), the Handle System,  identifiers.org, w3id.org and Archival Resource Key (ARK). Unique identifiers not  necessarily are resolvable but may also be represented by a UUID (Universal  Unique IDentifier) or a Hash code. A data repository may assign a globally unique  identifier to your metadata when you publish and make it available through their  services. """^^xsd:string ;
+    dcterms:description """Metadata identifier follows a defined unique identifier syntax or scheme (IRI, URL, UUID, HASH or PID)."""^^xsd:string ;
     dcat:keyword "globally unique identifier"@en , "metadata"@en ;
     dcat:theme  <http://www.fairsharing.org/ontology/subject/SRAO_0000401>; 
     dcat:version "0.0.1"^^xsd:string ;

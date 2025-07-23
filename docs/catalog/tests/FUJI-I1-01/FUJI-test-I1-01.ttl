@@ -12,12 +12,10 @@
 
 <https://w3id.org/FAIROS/test/FUJI-I1-01> a ftr:Test ;
     dcterms:identifier <https://w3id.org/FAIROS/test/FUJI-I1-01> ;
-    dcterms:title "Metadata is available in a formal knowledge representation language"^^xsd:string ;
+    dcterms:title "Parsable, structured metadata (JSON-LD, RDFa) is embedded in the landing page XHTML/HTML code"^^xsd:string ;
     rdfs:label "FUJI-test-I1-01"^^xsd:string ;
     vivo:abbreviation "FUJI-test-I1-01"^^xsd:string ;
-    dcterms:description """The metadata of the object is available in a formal knowledge representation language, e.g., through at least one of the following mechanisms:
-Parsable, structured data is embedded in the landing page
-Parsable, formal metadata (e.g., RDF, JSON-LD) is accessible through content negotiation, typed links or sparql endpoint."""^^xsd:string ;
+    dcterms:description """Parsable, structured metadata (JSON-LD, RDFa) is embedded in the landing page XHTML/HTML code."""^^xsd:string ;
     dcat:keyword "metadata"@en , "content negotiation"@en , "sparql endpoint"@en ;
     dcat:theme  <http://www.fairsharing.org/ontology/subject/SRAO_0000401>; 
     dcat:version "0.0.1"^^xsd:string ;
@@ -48,5 +46,5 @@ Parsable, formal metadata (e.g., RDF, JSON-LD) is accessible through content neg
     rdfs:label "Universidad Politécnica de Madrid" ;
 	vcard:url <https://www.upm.es/> .
 
-<https://w3id.org/FAIROS/metric/I1-01> a dqv:Metric ; 
+<https://w3id.org/FAIROS/metric/FAIROS-I1-01> a dqv:Metric ; 
     <http://semanticscience.org/resource/SIO_000234> <https://w3id.org/FAIROS/test/FUJI-I1-01> .

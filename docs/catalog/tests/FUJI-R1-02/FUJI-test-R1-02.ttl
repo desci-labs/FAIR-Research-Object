@@ -12,10 +12,10 @@
 
 <https://w3id.org/FAIROS/test/FUJI-R1-02> a ftr:Test ;
     dcterms:identifier <https://w3id.org/FAIROS/test/FUJI-R1-02> ;
-    dcterms:title "Metadata values of the properties comply with the actual data file."^^xsd:string ;
+    dcterms:title "Information on the manner and form (file size and type or service (API) endpoint and protocol) in which data is delivered is provided"^^xsd:string ;
     rdfs:label "FUJI-test-R1-02"^^xsd:string ;
     vivo:abbreviation "FUJI-test-R1-02"^^xsd:string ;
-    dcterms:description """Metadata values of the properties comply with the actual data file."""^^xsd:string ;
+    dcterms:description """Information on the manner and form (file size and type or service (API) endpoint and protocol) in which data is delivered is provided."""^^xsd:string ;
     dcat:keyword "metadata"@en , "properties"@en ;
     dcat:theme  <http://www.fairsharing.org/ontology/subject/SRAO_0000401>; 
     dcat:version "0.0.1"^^xsd:string ;
@@ -46,5 +46,5 @@
     rdfs:label "Universidad Politécnica de Madrid" ;
 	vcard:url <https://www.upm.es/> .
 
-<https://w3id.org/FAIROS/metric/R1-02> a dqv:Metric ; 
+<https://w3id.org/FAIROS/metric/FAIROS-R1-02> a dqv:Metric ; 
     <http://semanticscience.org/resource/SIO_000234> <https://w3id.org/FAIROS/test/FUJI-R1-02> .

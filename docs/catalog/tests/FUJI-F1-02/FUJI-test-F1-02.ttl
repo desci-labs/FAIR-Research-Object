@@ -12,10 +12,10 @@
 
 <https://w3id.org/FAIROS/test/FUJI-F1-02> a ftr:Test ;
     dcterms:identifier <https://w3id.org/FAIROS/test/FUJI-F1-02> ;
-    dcterms:title "Metadata and data are assigned a persistent identifier."^^xsd:string ;
+    dcterms:title "Data identifier follows a defined unique identifier syntax (IRI, URL, UUID, HASH or PID)"^^xsd:string ;
     rdfs:label "FUJI-test-F1-02"^^xsd:string ;
     vivo:abbreviation "FUJI-test-F1-02"^^xsd:string ;
-    dcterms:description """Both, metadata as well as data,should be provided with a persistent identifier. We  make a distinction between the uniqueness and persistence of an identifier: An  HTTP URL (the address of a given unique resource on the web) is globally unique,  but may not be persistent as the URL of data may be not accessible (link rot  problem) or the data available under the original URL may be changed (content  drift problem). Identifiers based on the Handle System, DOI, ARK are both globally  unique and persistent. They are maintained and governed such that they remain  stable and resolvable for the long term. The persistent identifier (PID) may be  resolved (point) to a landing page, metadata or the data content (downloadable  artefact), or none if the data or repository is no longer maintained. Therefore,  ensuring persistence is a shared responsibility between a PID service provider (e.g.,  datacite) and its clients (e.g., data repositories). For example, the DOI system  guarantees the persistence of its identifiers through its social (e.g., policy) and  technical infrastructures, whereas a data provider ensures the availability of the  resource (e.g., landing page, downloadable artefact) associated with the identifier. """^^xsd:string ;
+    dcterms:description """Data identifier follows a defined unique identifier syntax (IRI, URL, UUID, HASH or PID)"""^^xsd:string ;
     dcat:keyword "metadata"@en , "data"@en , "resolvable identifier"@en , "persistant identifier"@en , "http"@en; 
     dcat:theme  <http://www.fairsharing.org/ontology/subject/SRAO_0000401>; 
     dcat:version "0.0.1"^^xsd:string ;
@@ -46,5 +46,5 @@
     rdfs:label "Universidad Politécnica de Madrid" ;
 	vcard:url <https://www.upm.es/> .
 
-<https://w3id.org/FAIROS/metric/F1-02> a dqv:Metric ; 
+<https://w3id.org/FAIROS/metric/FAIROS-F1-01> a dqv:Metric ; 
     <http://semanticscience.org/resource/SIO_000234> <https://w3id.org/FAIROS/test/FUJI-F1-02> .

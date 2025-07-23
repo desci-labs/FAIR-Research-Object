@@ -12,10 +12,10 @@
 
 <https://w3id.org/FAIROS/test/FUJI-A1-05> a ftr:Test ;
     dcterms:identifier <https://w3id.org/FAIROS/test/FUJI-A1-05> ;
-    dcterms:title "The data URI’s scheme is based on a shared application protocol."^^xsd:string ;
+    dcterms:title "Identifier leading to data are matching a schema indicating a standardized web communication protocol."^^xsd:string ;
     rdfs:label "FUJI-test-A1-05"^^xsd:string ;
     vivo:abbreviation "FUJI-test-A1-05"^^xsd:string ;
-    dcterms:description """The data URI’s scheme is based on a shared application protocol."""^^xsd:string ;
+    dcterms:description """Identifier leading to data are matching a schema indicating a standardized web communication protocol."""^^xsd:string ;
     dcat:keyword "URI’s scheme"@en , "protocol"@en ;
     dcat:theme  <http://www.fairsharing.org/ontology/subject/SRAO_0000401>; 
     dcat:version "0.0.1"^^xsd:string ;
@@ -46,5 +46,5 @@
     rdfs:label "Universidad Politécnica de Madrid" ;
 	vcard:url <https://www.upm.es/> .
 
-<https://w3id.org/FAIROS/metric/A1-03> a dqv:Metric ; 
+<https://w3id.org/FAIROS/metric/FAIROS-A1-03> a dqv:Metric ; 
     <http://semanticscience.org/resource/SIO_000234> <https://w3id.org/FAIROS/test/FUJI-A1-05> .

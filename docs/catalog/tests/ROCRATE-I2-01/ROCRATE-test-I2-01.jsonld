@@ -1,5 +1,21 @@
 [
   {
+    "@id": "https://oeg.fi.upm.es",
+    "@type": [
+      "http://www.w3.org/2006/vcard/ns#Organization"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "Ontology Engineering Group"
+      }
+    ],
+    "http://www.w3.org/2006/vcard/ns#url": [
+      {
+        "@id": "https://oeg.fi.upm.es/"
+      }
+    ]
+  },
+  {
     "@id": "https://ror.org/03n6nwv02",
     "@type": [
       "http://www.w3.org/2006/vcard/ns#Organization"
@@ -125,25 +141,14 @@
     ]
   },
   {
-    "@id": "https://oeg.fi.upm.es",
+    "@id": "https://w3id.org/FAIROS/metric/FAIROS-I1-02",
     "@type": [
-      "http://www.w3.org/2006/vcard/ns#Organization"
+      "http://www.w3.org/ns/dqv#Metric"
     ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
+    "http://semanticscience.org/resource/SIO_000234": [
       {
-        "@value": "Ontology Engineering Group"
+        "@id": "https://w3id.org/FAIROS/test/FUJI-I1-02"
       }
-    ],
-    "http://www.w3.org/2006/vcard/ns#url": [
-      {
-        "@id": "https://oeg.fi.upm.es/"
-      }
-    ]
-  },
-  {
-    "@id": "https://w3id.org/FAIROS/test/FUJI-I1-02",
-    "@type": [
-      "https://w3id.org/ftr#Test"
     ]
   }
 ]

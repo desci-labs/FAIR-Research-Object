@@ -1,5 +1,42 @@
 [
   {
+    "@id": "https://oeg.fi.upm.es",
+    "@type": [
+      "http://www.w3.org/2006/vcard/ns#Organization"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "Ontology Engineering Group"
+      }
+    ],
+    "http://www.w3.org/2006/vcard/ns#url": [
+      {
+        "@id": "https://oeg.fi.upm.es/"
+      }
+    ]
+  },
+  {
+    "@id": "https://ror.org/03n6nwv02",
+    "@type": [
+      "http://www.w3.org/2006/vcard/ns#Organization"
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "https://ror.org/03n6nwv02>"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "Universidad Politécnica de Madrid"
+      }
+    ],
+    "http://www.w3.org/2006/vcard/ns#url": [
+      {
+        "@id": "https://www.upm.es/"
+      }
+    ]
+  },
+  {
     "@id": "https://orcid.org/0000-0003-4112-6825",
     "@type": [
       "http://www.w3.org/2006/vcard/ns#Individual"
@@ -29,7 +66,7 @@
     "http://purl.org/dc/terms/description": [
       {
         "@type": "http://www.w3.org/2001/XMLSchema#string",
-        "@value": "Metadata of the object is retrievable programmatically through at least one of the following methods:1) Structured data embedded in the landing page of the data object., 2)Typed Links of metadata document or Signposting header links., 3) Content negotiation with a PID provider service (e.g., DataCite)."
+        "@value": "Metadata is given in a way major search engines can ingest it for their catalogues (Dublin Core or schema.org or DCAT encoded in microdata, RDFa, embedded JSON-LD or meta tags see e.g. Google Dataset Search webmaster guidelines)"
       }
     ],
     "http://purl.org/dc/terms/identifier": [
@@ -120,44 +157,7 @@
     ]
   },
   {
-    "@id": "https://oeg.fi.upm.es",
-    "@type": [
-      "http://www.w3.org/2006/vcard/ns#Organization"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@value": "Ontology Engineering Group"
-      }
-    ],
-    "http://www.w3.org/2006/vcard/ns#url": [
-      {
-        "@id": "https://oeg.fi.upm.es/"
-      }
-    ]
-  },
-  {
-    "@id": "https://ror.org/03n6nwv02",
-    "@type": [
-      "http://www.w3.org/2006/vcard/ns#Organization"
-    ],
-    "http://purl.org/dc/terms/identifier": [
-      {
-        "@value": "https://ror.org/03n6nwv02>"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@value": "Universidad Politécnica de Madrid"
-      }
-    ],
-    "http://www.w3.org/2006/vcard/ns#url": [
-      {
-        "@id": "https://www.upm.es/"
-      }
-    ]
-  },
-  {
-    "@id": "https://w3id.org/FAIROS/metric/F4-01",
+    "@id": "https://w3id.org/FAIROS/metric/FAIROS-F4-01",
     "@type": [
       "http://www.w3.org/ns/dqv#Metric"
     ],

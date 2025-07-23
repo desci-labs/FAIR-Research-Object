@@ -12,10 +12,10 @@
 
 <https://w3id.org/FAIROS/test/FUJI-A1-06> a ftr:Test ;
     dcterms:identifier <https://w3id.org/FAIROS/test/FUJI-A1-06> ;
-    dcterms:title "The data is accessible through the identifier provided."^^xsd:string ;
+    dcterms:title "The communication protocol found in identifiers (IRIs) leading to metadata supports authentication."^^xsd:string ;
     rdfs:label "FUJI-test-A1-06"^^xsd:string ;
     vivo:abbreviation "FUJI-test-A1-06"^^xsd:string ;
-    dcterms:description """The data is accessible through the identifier provided."""^^xsd:string ;
+    dcterms:description """The communication protocol found in identifiers (IRIs) leading to metadata supports authentication."""^^xsd:string ;
     dcat:keyword "data"@en , "protocol"@en ;
     dcat:theme  <http://www.fairsharing.org/ontology/subject/SRAO_0000401>; 
     dcat:version "0.0.1"^^xsd:string ;
@@ -46,5 +46,5 @@
     rdfs:label "Universidad Politécnica de Madrid" ;
 	vcard:url <https://www.upm.es/> .
 
-<https://w3id.org/FAIROS/metric/A1-03> a dqv:Metric ; 
+<https://w3id.org/FAIROS/metric/FAIROS-A1-03> a dqv:Metric ; 
     <http://semanticscience.org/resource/SIO_000234> <https://w3id.org/FAIROS/test/FUJI-A1-06> .
