@@ -1,0 +1,162 @@
+[
+  {
+    "@id": "https://orcid.org/0000-0003-4112-6825",
+    "@type": [
+      "http://www.w3.org/2006/vcard/ns#Individual"
+    ],
+    "http://www.w3.org/2006/vcard/ns#fn": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#string",
+        "@value": "Esteban Gonzalez"
+      }
+    ],
+    "http://www.w3.org/2006/vcard/ns#hasEmail": [
+      {
+        "@id": "mailto:egonzalez@fi.upm.es"
+      }
+    ]
+  },
+  {
+    "@id": "https://oeg.fi.upm.es",
+    "@type": [
+      "http://www.w3.org/2006/vcard/ns#Organization"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "Ontology Engineering Group"
+      }
+    ],
+    "http://www.w3.org/2006/vcard/ns#url": [
+      {
+        "@id": "https://oeg.fi.upm.es/"
+      }
+    ]
+  },
+  {
+    "@id": "https://ror.org/03n6nwv02",
+    "@type": [
+      "http://www.w3.org/2006/vcard/ns#Organization"
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "https://ror.org/03n6nwv02>"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "Universidad Politécnica de Madrid"
+      }
+    ],
+    "http://www.w3.org/2006/vcard/ns#url": [
+      {
+        "@id": "https://www.upm.es/"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/FAIROS/metric/FAIROS-F1-01",
+    "@type": [
+      "http://www.w3.org/ns/dqv#Metric"
+    ],
+    "http://purl.org/dc/terms/creator": [
+      {
+        "@id": "https://ror.org/03n6nwv02"
+      }
+    ],
+    "http://purl.org/dc/terms/description": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#string",
+        "@value": "This metric ensures that a globally unique identifier is assigned to a Research Object so it can be unambiguously referenced by humans and machines.\n\n**What is being measured?**\n\nA globally unique identifier (GUID) is assigned to a Reserch Object.\n\n**Why should we measure it?**\n\nPersistent identifiers are are used to ensure that the Research Object can be reliably cited, discovered, and accessed. Assigning a GUID supports reproducibility, traceability, and long-term data stewardship.\n\n**What must be provided for the measurement?**\n\nA persistent identifier.\n\n**What are considered valid results?**\n\nValid results occur when the resource is assigned a globally unique identifier."
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@id": "https://w3id.org/FAIROS/metric/FAIROS-F1-01"
+      }
+    ],
+    "http://purl.org/dc/terms/license": [
+      {
+        "@id": "http://creativecommons.org/licenses/by/4.0/"
+      }
+    ],
+    "http://purl.org/dc/terms/publisher": [
+      {
+        "@id": "https://oeg.fi.upm.es"
+      },
+      {
+        "@id": "https://ror.org/03n6nwv02"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#string",
+        "@value": "The research object is identified by an unique identifier (GUID or IRI) that follows a proper syntax."
+      }
+    ],
+    "http://semanticscience.org/resource/SIO_000234": [
+      {
+        "@id": "https://w3id.org/FAIROS/test/FUJI-F1-01"
+      },
+      {
+        "@id": "https://w3id.org/FAIROS/test/ROCRATE-F1-01"
+      }
+    ],
+    "http://vivoweb.org/ontology/core#abbreviation": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#string",
+        "@value": "FAIROS-metric-F1-01"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#string",
+        "@value": "FAIROS-metric-F1-01"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#contactPoint": [
+      {
+        "@id": "https://orcid.org/0000-0003-4112-6825"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#keyword": [
+      {
+        "@language": "en",
+        "@value": "persistent identifier"
+      },
+      {
+        "@language": "en",
+        "@value": "unique reference"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#theme": [
+      {
+        "@id": "http://www.fairsharing.org/ontology/subject/SRAO_0000401"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#version": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#string",
+        "@value": "0.0.1"
+      }
+    ],
+    "https://w3id.org/dpv#IsApplicableFor": [
+      {
+        "@id": "https://vocabularies.coar-repositories.org/resource_types/c_1843/"
+      }
+    ],
+    "https://w3id.org/ftr#status": [
+      {
+        "@language": "en",
+        "@value": "Active"
+      }
+    ],
+    "https://w3id.org/ftr#supportedBy": [
+      {
+        "@id": "https://w3id.org/FAIROS"
+      },
+      {
+        "@id": "https://www.f-uji.net/"
+      }
+    ]
+  }
+]

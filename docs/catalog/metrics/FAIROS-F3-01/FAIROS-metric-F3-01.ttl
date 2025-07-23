@@ -1,0 +1,67 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix ftr: <https://w3id.org/ftr#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix doap: <http://usefulinc.com/ns/doap#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dqv: <http://www.w3.org/ns/dqv#> .
+@prefix vivo: <http://vivoweb.org/ontology/core#> .
+@prefix dpv: <https://w3id.org/dpv#> .
+
+<https://w3id.org/FAIROS/metric/FAIROS-F3-01> a dqv:Metric ;
+    dcterms:identifier <https://w3id.org/FAIROS/metric/FAIROS-F3-01> ;
+    dcterms:title "Metadata includes the identifier of the data it describes."^^xsd:string ;
+    rdfs:label "FAIROS-metric-F3-01"^^xsd:string ;
+    vivo:abbreviation "FAIROS-metric-F3-01"^^xsd:string ;
+    dcterms:description """Metadata includes the identifier of the data it describes.
+
+**What is being measured?**
+
+Whether the metadata record includes the identifier (e.g., a URI, DOI, or other persistent ID) of the data resource it describes.
+
+**Why should we measure it?**
+
+Including the data identifier in the metadata is essential for maintaining a clear and unambiguous link between metadata and the data it describes. This allows both humans and machines to access to the corresponding data object.
+
+**What must be provided for the measurement?**
+
+The metadata description file (rocrate-metadata) associated with a Research Object.
+
+**What are considered valid results?**
+
+Valid results occur when the metadata explicitly includes a reference to the data’s identifier, such as a DOI, URI, or other globally unique identifier."""^^xsd:string ;
+    dcat:keyword "persistent identifier"@en , "data reference"@en ;
+    dcat:theme  <http://www.fairsharing.org/ontology/subject/SRAO_0000401>; 
+    dcat:version "0.0.1"^^xsd:string ;
+    
+    dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
+    ftr:status "Active"@en ;
+    
+    
+    
+    ftr:supportedBy  <https://w3id.org/FAIROS>; 
+    dpv:IsApplicableFor<https://vocabularies.coar-repositories.org/resource_types/c_1843/>;
+    dcterms:creator <https://ror.org/03n6nwv02> ;
+    dcterms:publisher <https://oeg.fi.upm.es>, <https://ror.org/03n6nwv02> ;
+    dcat:contactPoint <https://orcid.org/0000-0003-4112-6825>  . 
+   
+
+<https://orcid.org/0000-0003-4112-6825> a vcard:Individual ;
+    vcard:fn "Esteban Gonzalez"^^xsd:string ;
+    vcard:hasEmail <mailto:egonzalez@fi.upm.es> . 
+
+<https://oeg.fi.upm.es> a vcard:Organization ;
+    rdfs:label "Ontology Engineering Group" ;
+	vcard:url <https://oeg.fi.upm.es/> .
+
+<https://ror.org/03n6nwv02> a vcard:Organization ;
+    dcterms:identifier  "https://ror.org/03n6nwv02>" ;
+    rdfs:label "Universidad Politécnica de Madrid" ;
+	vcard:url <https://www.upm.es/> .
+
+<https://w3id.org/FAIROS/metric/FAIROS-F3-01> a dqv:Metric ; 
+    <http://semanticscience.org/resource/SIO_000234> <https://w3id.org/FAIROS/test/FUJI-F3-01> ;
+    <http://semanticscience.org/resource/SIO_000234> <https://w3id.org/FAIROS/test/FUJI-F3-02> ;
+    <http://semanticscience.org/resource/SIO_000234> <https://w3id.org/FAIROS/test/ROCRATE-F3-01> .
