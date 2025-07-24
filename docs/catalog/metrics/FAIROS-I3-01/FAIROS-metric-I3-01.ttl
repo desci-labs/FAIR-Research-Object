@@ -67,5 +67,4 @@ The metadata includes explicit links (preferably using persistent identifiers) t
 
 <https://w3id.org/FAIROS/metric/FAIROS-I3-01> a dqv:Metric ; 
     <http://semanticscience.org/resource/SIO_000234> <https://w3id.org/FAIROS/test/FUJI-I3-01> ;
-    <http://semanticscience.org/resource/SIO_000234> <https://w3id.org/FAIROS/test/FUJI-I3-02> ;
-    <http://semanticscience.org/resource/SIO_000234> <https://w3id.org/FAIROS/test/FUJI-I3-03> .
+    <http://semanticscience.org/resource/SIO_000234> <https://w3id.org/FAIROS/test/FUJI-I3-02> .

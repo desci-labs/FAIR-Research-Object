@@ -61,5 +61,4 @@ The Research Object includes a license declaration using a standardized and reco
 	vcard:url <https://www.upm.es/> .
 
 <https://w3id.org/FAIROS/metric/FAIROS-R1.1-01> a dqv:Metric ; 
-    <http://semanticscience.org/resource/SIO_000234> <https://w3id.org/FAIROS/test/FUJI-R1.1-01> ;
-    <http://semanticscience.org/resource/SIO_000234> <https://w3id.org/FAIROS/test/FUJI-R1.1-02> .
+    <http://semanticscience.org/resource/SIO_000234> <https://w3id.org/FAIROS/test/FUJI-R1.1-01> .

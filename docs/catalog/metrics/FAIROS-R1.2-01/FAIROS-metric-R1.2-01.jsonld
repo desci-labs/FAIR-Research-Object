@@ -1,5 +1,22 @@
 [
   {
+    "@id": "https://orcid.org/0000-0003-4112-6825",
+    "@type": [
+      "http://www.w3.org/2006/vcard/ns#Individual"
+    ],
+    "http://www.w3.org/2006/vcard/ns#fn": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#string",
+        "@value": "Esteban Gonzalez"
+      }
+    ],
+    "http://www.w3.org/2006/vcard/ns#hasEmail": [
+      {
+        "@id": "mailto:egonzalez@fi.upm.es"
+      }
+    ]
+  },
+  {
     "@id": "https://w3id.org/FAIROS/metric/FAIROS-R1.2-01",
     "@type": [
       "http://www.w3.org/ns/dqv#Metric"
@@ -106,23 +123,6 @@
     "https://w3id.org/ftr#supportedBy": [
       {
         "@id": "https://w3id.org/FAIROS"
-      }
-    ]
-  },
-  {
-    "@id": "https://orcid.org/0000-0003-4112-6825",
-    "@type": [
-      "http://www.w3.org/2006/vcard/ns#Individual"
-    ],
-    "http://www.w3.org/2006/vcard/ns#fn": [
-      {
-        "@type": "http://www.w3.org/2001/XMLSchema#string",
-        "@value": "Esteban Gonzalez"
-      }
-    ],
-    "http://www.w3.org/2006/vcard/ns#hasEmail": [
-      {
-        "@id": "mailto:egonzalez@fi.upm.es"
       }
     ]
   },
