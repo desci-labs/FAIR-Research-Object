@@ -15,7 +15,9 @@
     dcterms:title "Parsable, structured metadata (JSON-LD, RDFa) is embedded in the landing page XHTML/HTML code"^^xsd:string ;
     rdfs:label "FUJI-test-I1-01"^^xsd:string ;
     vivo:abbreviation "FUJI-test-I1-01"^^xsd:string ;
-    dcterms:description """Parsable, structured metadata (JSON-LD, RDFa) is embedded in the landing page XHTML/HTML code."""^^xsd:string ;
+    dcterms:description """This test evaluates if the metadata is structured data and use RDF serialization formats. Also, it verifies if is embedded within the data page
+    
+    Source: Since FAIROS uses [F-UJI](https://f-uji.net) to assess a Research Object, this test is an instance of the test **FsF-I1-01M-1**. You can find more information in the european project FAIR IMPACT(https://fair-impact.eu/metrics-data)"""^^xsd:string ;
     dcat:keyword "metadata"@en , "content negotiation"@en , "sparql endpoint"@en ;
     dcat:theme  <http://www.fairsharing.org/ontology/subject/SRAO_0000401>; 
     dcat:version "0.0.1"^^xsd:string ;

@@ -15,7 +15,10 @@
     dcterms:title "Core descriptive metadata is available"^^xsd:string ;
     rdfs:label "FUJI-test-F2-02"^^xsd:string ;
     vivo:abbreviation "FUJI-test-F2-02"^^xsd:string ;
-    dcterms:description """Minimum core citation metadata is specified ( creator, title, publication date, publisher, and identifier)"""^^xsd:string ;
+    dcterms:description """This test resolves the DOI and attempts to retrieve and analyze the core descriptive metadata from both the DOI landing page and its target HTML page. Multiple metadata standards are checked, including schema.org (JSON-LD), Dublin Core, OpenGraph, Highwire/eprints, and RDFa.
+    The core metadata elements include creator, title, object identifier, publication date, publisher, object type, summary, and keywords.
+    
+    Source: Since FAIROS uses [F-UJI](https://f-uji.net) to assess a Research Object, this test is an instance of the test **FsF-F2-01M-3**. You can find more information in the european project FAIR IMPACT(https://fair-impact.eu/metrics-data)"""^^xsd:string ;
     dcat:keyword "minimum metadata"@en ;
     dcat:theme  <http://www.fairsharing.org/ontology/subject/SRAO_0000401>; 
     dcat:version "0.0.1"^^xsd:string ;

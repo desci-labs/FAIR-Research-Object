@@ -15,7 +15,9 @@
     dcterms:title "Metadata contains a PID or URL which indicates the location of the downloadable data content"^^xsd:string ;
     rdfs:label "FUJI-test-F3-01"^^xsd:string ;
     vivo:abbreviation "FUJI-test-F3-01"^^xsd:string ;
-    dcterms:description """Metadata contains a PID or URL which indicates the location of the downloadable data content"""^^xsd:string ;
+    dcterms:description """This test verifies if the downloadable data contains a valid PID or URL. It doesn't verify if the data is there or not. 
+    
+    Source: Since FAIROS uses [F-UJI](https://f-uji.net) to assess a Research Object, this test is an instance of the test **FsF-F3-01M-2**. You can find more information in the european project FAIR IMPACT(https://fair-impact.eu/metrics-data)"""^^xsd:string ;
     dcat:keyword "metadata"@en , "persistent identifier"@en , "downloadable data"@en ;
     dcat:theme  <http://www.fairsharing.org/ontology/subject/SRAO_0000401>; 
     dcat:version "0.0.1"^^xsd:string ;

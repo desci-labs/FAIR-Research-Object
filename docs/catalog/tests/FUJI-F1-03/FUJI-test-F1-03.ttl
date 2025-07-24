@@ -15,7 +15,9 @@
     dcterms:title "Metadata identifier follows a defined persistent identifier syntax."^^xsd:string ;
     rdfs:label "FUJI-test-F1-03"^^xsd:string ;
     vivo:abbreviation "FUJI-test-F1-03"^^xsd:string ;
-    dcterms:description """Metadata identifier follows a defined persistent identifier syntax."""^^xsd:string ;
+    dcterms:description """The test assesses the persistent identifier supports one of the following schemes: ark, arXiv, BioProject, BioSample, DOI, Ensembl, Genome, GND, Handle, LSID, PMID, PMCID, PURL, RefSeq, SRA, UniProt, URN, Identifiers.org, and W3ID.
+    
+    Source: Since FAIROS uses [F-UJI](https://f-uji.net) to assess a Research Object, this test is an instance of the test **FsF-F1-02MD-1**. You can find more information in the european project FAIR IMPACT(https://fair-impact.eu/metrics-data)."""^^xsd:string ;
     dcat:keyword "metadata"@en , "data"@en , "resolvable identifier"@en , "persistant identifier"@en , "http"@en; 
     dcat:theme  <http://www.fairsharing.org/ontology/subject/SRAO_0000401>; 
     dcat:version "0.0.1"^^xsd:string ;

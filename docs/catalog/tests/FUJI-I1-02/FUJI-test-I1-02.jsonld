@@ -49,23 +49,6 @@
     ]
   },
   {
-    "@id": "https://orcid.org/0000-0003-4112-6825",
-    "@type": [
-      "http://www.w3.org/2006/vcard/ns#Individual"
-    ],
-    "http://www.w3.org/2006/vcard/ns#fn": [
-      {
-        "@type": "http://www.w3.org/2001/XMLSchema#string",
-        "@value": "Esteban Gonzalez"
-      }
-    ],
-    "http://www.w3.org/2006/vcard/ns#hasEmail": [
-      {
-        "@id": "mailto:egonzalez@fi.upm.es"
-      }
-    ]
-  },
-  {
     "@id": "https://w3id.org/FAIROS/test/FUJI-I1-02",
     "@type": [
       "https://w3id.org/ftr#Test"
@@ -78,7 +61,7 @@
     "http://purl.org/dc/terms/description": [
       {
         "@type": "http://www.w3.org/2001/XMLSchema#string",
-        "@value": "Parsable, structured metadata (RDF, JSON-LD) is accessible through content negotiation, typed links or sparql endpoint."
+        "@value": "This test evaluates if the metadata follows one of these formats: RDF or JSON-LD and accesebile through content negotiation.\n    \n    Source: Since FAIROS uses [F-UJI](https://f-uji.net) to assess a Research Object, this test is an instance of the test **FsF-I1-01M-2**. You can find more information in the european project FAIR IMPACT(https://fair-impact.eu/metrics-data)"
       }
     ],
     "http://purl.org/dc/terms/identifier": [
@@ -157,6 +140,23 @@
     "https://w3id.org/ftr#supportedBy": [
       {
         "@id": "https://www.f-uji.net/"
+      }
+    ]
+  },
+  {
+    "@id": "https://orcid.org/0000-0003-4112-6825",
+    "@type": [
+      "http://www.w3.org/2006/vcard/ns#Individual"
+    ],
+    "http://www.w3.org/2006/vcard/ns#fn": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#string",
+        "@value": "Esteban Gonzalez"
+      }
+    ],
+    "http://www.w3.org/2006/vcard/ns#hasEmail": [
+      {
+        "@id": "mailto:egonzalez@fi.upm.es"
       }
     ]
   }

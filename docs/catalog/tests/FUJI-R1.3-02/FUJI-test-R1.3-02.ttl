@@ -12,10 +12,12 @@
 
 <https://w3id.org/FAIROS/test/FUJI-R1.3-02> a ftr:Test ;
     dcterms:identifier <https://w3id.org/FAIROS/test/FUJI-R1.3-02> ;
-    dcterms:title "Data is available in a long-term file format as defined in ISO/TR 22299 "^^xsd:string ;
+    dcterms:title "Data is available in a file format recommended by the research community (long term file formats, open file formats or scientific file format) "^^xsd:string ;
     rdfs:label "FUJI-test-R1.3-02"^^xsd:string ;
     vivo:abbreviation "FUJI-test-R1.3-02"^^xsd:string ;
-    dcterms:description """Data is available in a long-term file format as defined in ISO/TR 22299 """^^xsd:string ;
+    dcterms:description """This test verifies if the format is any of this [list](https://f-uji.net/vocab/data/format)
+    
+    Source: Since FAIROS uses [F-UJI](https://f-uji.net) to assess a Research Object, this test is an instance of the test **FsF-R1.3-02D-1**. You can find more information in the european project FAIR IMPACT(https://fair-impact.eu/metrics-data)"""^^xsd:string ;
     dcat:keyword "data"@en , "long-term file format"@en , "ISO/TR 22299"@en ;
     dcat:theme  <http://www.fairsharing.org/ontology/subject/SRAO_0000401>; 
     dcat:version "0.0.1"^^xsd:string ;

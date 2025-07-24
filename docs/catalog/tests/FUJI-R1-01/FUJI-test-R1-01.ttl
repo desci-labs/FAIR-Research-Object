@@ -15,7 +15,9 @@
     dcterms:title "Minimum information (resource type) about the available data content is specified in the metadata."^^xsd:string ;
     rdfs:label "FUJI-test-R1-01"^^xsd:string ;
     vivo:abbreviation "FUJI-test-R1-01"^^xsd:string ;
-    dcterms:description """Minimum information (resource type) about the available data content is specified in the metadata."""^^xsd:string ;
+    dcterms:description """This test verifies if the type of the resource is available. It uses the field CreativeWork (from schema.org), the field type from Duclin Core or the field resourceType from DataCite.
+    
+    Source: Since FAIROS uses [F-UJI](https://f-uji.net) to assess a Research Object, this test is an instance of the test **FsF-R1-01M-1**. You can find more information in the european project FAIR IMPACT(https://fair-impact.eu/metrics-data)"""^^xsd:string ;
     dcat:keyword "metadata"@en , "technical properties"@en  ;
     dcat:theme  <http://www.fairsharing.org/ontology/subject/SRAO_0000401>; 
     dcat:version "0.0.1"^^xsd:string ;

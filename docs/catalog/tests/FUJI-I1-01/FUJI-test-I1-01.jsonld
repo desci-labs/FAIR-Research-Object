@@ -1,32 +1,5 @@
 [
   {
-    "@id": "https://oeg.fi.upm.es",
-    "@type": [
-      "http://www.w3.org/2006/vcard/ns#Organization"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@value": "Ontology Engineering Group"
-      }
-    ],
-    "http://www.w3.org/2006/vcard/ns#url": [
-      {
-        "@id": "https://oeg.fi.upm.es/"
-      }
-    ]
-  },
-  {
-    "@id": "https://w3id.org/FAIROS/metric/FAIROS-I1-01",
-    "@type": [
-      "http://www.w3.org/ns/dqv#Metric"
-    ],
-    "http://semanticscience.org/resource/SIO_000234": [
-      {
-        "@id": "https://w3id.org/FAIROS/test/FUJI-I1-01"
-      }
-    ]
-  },
-  {
     "@id": "https://w3id.org/FAIROS/test/FUJI-I1-01",
     "@type": [
       "https://w3id.org/ftr#Test"
@@ -39,7 +12,7 @@
     "http://purl.org/dc/terms/description": [
       {
         "@type": "http://www.w3.org/2001/XMLSchema#string",
-        "@value": "Parsable, structured metadata (JSON-LD, RDFa) is embedded in the landing page XHTML/HTML code."
+        "@value": "This test evaluates if the metadata is structured data and use RDF serialization formats. Also, it verifies if is embedded within the data page\n    \n    Source: Since FAIROS uses [F-UJI](https://f-uji.net) to assess a Research Object, this test is an instance of the test **FsF-I1-01M-1**. You can find more information in the european project FAIR IMPACT(https://fair-impact.eu/metrics-data)"
       }
     ],
     "http://purl.org/dc/terms/identifier": [
@@ -122,6 +95,33 @@
     "https://w3id.org/ftr#supportedBy": [
       {
         "@id": "https://www.f-uji.net/"
+      }
+    ]
+  },
+  {
+    "@id": "https://oeg.fi.upm.es",
+    "@type": [
+      "http://www.w3.org/2006/vcard/ns#Organization"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "Ontology Engineering Group"
+      }
+    ],
+    "http://www.w3.org/2006/vcard/ns#url": [
+      {
+        "@id": "https://oeg.fi.upm.es/"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/FAIROS/metric/FAIROS-I1-01",
+    "@type": [
+      "http://www.w3.org/ns/dqv#Metric"
+    ],
+    "http://semanticscience.org/resource/SIO_000234": [
+      {
+        "@id": "https://w3id.org/FAIROS/test/FUJI-I1-01"
       }
     ]
   },

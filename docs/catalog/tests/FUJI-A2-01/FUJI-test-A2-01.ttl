@@ -15,7 +15,9 @@
     dcterms:title "Repository supports long-term preservation of metadata for deprecated or deleted objects"^^xsd:string ;
     rdfs:label "FUJI-test-A2-01"^^xsd:string ;
     vivo:abbreviation "FUJI-test-A2-01"^^xsd:string ;
-    dcterms:description """Programmatic assessment of the preservation of metadata of a data object can only be tested if the object is deleted or replaced. So this test is only applicable for deleted, replaced or obsolete objects. Importantly, continued access to metadata depends on a data repository’s preservation practice. Therefore, we regard that the assessment of metric applies to at the level of a repository, not at the level of individual objects. For this reason, we excluded its assessment details from the F-UJI implementation."""^^xsd:string ;
+    dcterms:description """This test verifies that the data specified in the metadata is accessible via a standard protocol (https) that supports TLS (Transport Layer Security) and Basic authentication. For that, checks the HEADER of the response from the identifier.
+    
+    Source: Since FAIROS uses [F-UJI](https://f-uji.net) to assess a Research Object, this test is an instance of the test **FsF-A1.2-01MD-1**. You can find more information in the european project FAIR IMPACT(https://fair-impact.eu/metrics-data)"""^^xsd:string ;
     dcat:keyword "metadata"@en , "preservation"@en ;
     dcat:theme  <http://www.fairsharing.org/ontology/subject/SRAO_0000401>; 
     dcat:version "0.0.1"^^xsd:string ;

@@ -15,7 +15,10 @@
     dcterms:title "Metadata identifier follows a defined unique identifier syntax or scheme (IRI, URL, UUID, HASH or PID)"^^xsd:string ;
     rdfs:label "FUJI-test-F1-01"^^xsd:string ;
     vivo:abbreviation "FUJI-test-F1-01"^^xsd:string ;
-    dcterms:description """Metadata identifier follows a defined unique identifier syntax or scheme (IRI, URL, UUID, HASH or PID)."""^^xsd:string ;
+    dcterms:description """The test assesses whether the provided URL includes a unique or persistent identifier, using a tool called [IDUTILS](https://pypi.org/project/idutils/) to detect known identifier schemes. 
+    The system successfully identifies two types of unique identifier schemes present: a DOI (Digital Object Identifier) or a URL.
+    
+    Source: Since FAIROS uses [F-UJI](https://f-uji.net) to assess a Research Object, this test is an instance of the test **FsF-F1-01MD-1**. You can find more information in the european project FAIR IMPACT(https://fair-impact.eu/metrics-data)"""^^xsd:string ;
     dcat:keyword "globally unique identifier"@en , "metadata"@en ;
     dcat:theme  <http://www.fairsharing.org/ontology/subject/SRAO_0000401>; 
     dcat:version "0.0.1"^^xsd:string ;

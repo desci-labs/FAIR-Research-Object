@@ -15,7 +15,9 @@
     dcterms:title "Metadata are retrievable via their specified identifier"^^xsd:string ;
     rdfs:label "FUJI-test-A1-02"^^xsd:string ;
     vivo:abbreviation "FUJI-test-A1-02"^^xsd:string ;
-    dcterms:description """Metadata are retrievable via their specified identifier"""^^xsd:string ;
+    dcterms:description """This test tries to resolve the identifier by performing content negotiation. The test is passed if the metadata is received. 
+    
+    Source: Since FAIROS uses [F-UJI](https://f-uji.net) to assess a Research Object, this test is an instance of the test **FsF-A1-02MD-1**. You can find more information in the european project FAIR IMPACT(https://fair-impact.eu/metrics-data)"""^^xsd:string ;
     dcat:keyword <http://www.fairsharing.org/ontology/domain/DRAO_0000281>;
     dcat:keyword "metadata"@en , "controlled vocabularies"@en ;
     dcat:theme  <http://www.fairsharing.org/ontology/subject/SRAO_0000401>; 

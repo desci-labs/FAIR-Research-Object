@@ -16,17 +16,6 @@
     ]
   },
   {
-    "@id": "https://w3id.org/FAIROS/metric/FAIROS-I3-02",
-    "@type": [
-      "http://www.w3.org/ns/dqv#Metric"
-    ],
-    "http://semanticscience.org/resource/SIO_000234": [
-      {
-        "@id": "https://w3id.org/FAIROS/test/FUJI-I3-02"
-      }
-    ]
-  },
-  {
     "@id": "https://ror.org/03n6nwv02",
     "@type": [
       "http://www.w3.org/2006/vcard/ns#Organization"
@@ -48,19 +37,13 @@
     ]
   },
   {
-    "@id": "https://orcid.org/0000-0003-4112-6825",
+    "@id": "https://w3id.org/FAIROS/metric/FAIROS-I3-02",
     "@type": [
-      "http://www.w3.org/2006/vcard/ns#Individual"
+      "http://www.w3.org/ns/dqv#Metric"
     ],
-    "http://www.w3.org/2006/vcard/ns#fn": [
+    "http://semanticscience.org/resource/SIO_000234": [
       {
-        "@type": "http://www.w3.org/2001/XMLSchema#string",
-        "@value": "Esteban Gonzalez"
-      }
-    ],
-    "http://www.w3.org/2006/vcard/ns#hasEmail": [
-      {
-        "@id": "mailto:egonzalez@fi.upm.es"
+        "@id": "https://w3id.org/FAIROS/test/FUJI-I3-02"
       }
     ]
   },
@@ -77,7 +60,7 @@
     "http://purl.org/dc/terms/description": [
       {
         "@type": "http://www.w3.org/2001/XMLSchema#string",
-        "@value": "The relation is expressed using a relation type according to PROV-O or DataCite relation types."
+        "@value": "This test verifies is a related resource is available as metadata (depending on the metadata schema used), as well as the type of the relation. It must be specified in a machine readable format, such as URI. Note: The test doesn't resolve the URI.\n    \n    Source: Since FAIROS uses [F-UJI](https://f-uji.net) to assess a Research Object, this test is an instance of the test **FsF-I3-01M-2**. You can find more information in the european project FAIR IMPACT(https://fair-impact.eu/metrics-data)"
       }
     ],
     "http://purl.org/dc/terms/identifier": [
@@ -101,7 +84,7 @@
     "http://purl.org/dc/terms/title": [
       {
         "@type": "http://www.w3.org/2001/XMLSchema#string",
-        "@value": "The relation is expressed using a relation type according to PROV-O or DataCite relation types."
+        "@value": "Relations are preferably be expressed as actionable unique or persistent identifiers."
       }
     ],
     "http://vivoweb.org/ontology/core#abbreviation": [
@@ -160,6 +143,23 @@
     "https://w3id.org/ftr#supportedBy": [
       {
         "@id": "https://www.f-uji.net/"
+      }
+    ]
+  },
+  {
+    "@id": "https://orcid.org/0000-0003-4112-6825",
+    "@type": [
+      "http://www.w3.org/2006/vcard/ns#Individual"
+    ],
+    "http://www.w3.org/2006/vcard/ns#fn": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#string",
+        "@value": "Esteban Gonzalez"
+      }
+    ],
+    "http://www.w3.org/2006/vcard/ns#hasEmail": [
+      {
+        "@id": "mailto:egonzalez@fi.upm.es"
       }
     ]
   }

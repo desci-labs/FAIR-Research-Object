@@ -12,10 +12,12 @@
 
 <https://w3id.org/FAIROS/test/FUJI-R1.3-01> a ftr:Test ;
     dcterms:identifier <https://w3id.org/FAIROS/test/FUJI-R1.3-01> ;
-    dcterms:title "Metadata conforms to a domain-relevant standard from the RDA Metadata Standards Catalog"^^xsd:string ;
+    dcterms:title "Multidisciplinary but community endorsed metadata (RDA Metadata Standards Catalog, fairsharing) standard is detected by namespace"^^xsd:string ;
     rdfs:label "FUJI-test-R1.3-01"^^xsd:string ;
     vivo:abbreviation "FUJI-test-R1.3-01"^^xsd:string ;
-    dcterms:description """Metadata is available through at least one of the domain metadata standards listed in RDA Metadata Standards Catalog."""^^xsd:string ;
+    dcterms:description """This test verifies if namespaces from the metadata are registered in RDA Metadata Standards Catalog and FAIRSHARING.
+    
+    Source: Since FAIROS uses [F-UJI](https://f-uji.net) to assess a Research Object, this test is an instance of the test **FsF-R1.3-01M-3**. You can find more information in the european project FAIR IMPACT(https://fair-impact.eu/metrics-data)"""^^xsd:string ;
     dcat:keyword "metadata"@en , "standards"@en , "RDA Metadata Standards Catalog"@en ;
     dcat:theme  <http://www.fairsharing.org/ontology/subject/SRAO_0000401>; 
     dcat:version "0.0.1"^^xsd:string ;

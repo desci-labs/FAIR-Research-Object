@@ -28,7 +28,7 @@
     "http://purl.org/dc/terms/description": [
       {
         "@type": "http://www.w3.org/2001/XMLSchema#string",
-        "@value": "Metadata uses terms from registered vocabularies that are identified by their namespaces."
+        "@value": "This test analyzes the vocabulary namespaces used in the structured metadata (e.g., RDF, XML) to determine whether they are recognized within Linked Open Data (LOD) registries. The namespaces are listed [here](https://f-uji.net/vocab/semantic_resource)\n    \n    Source: Since FAIROS uses [F-UJI](https://f-uji.net) to assess a Research Object, this test is an instance of the test **FsF-I2-01M-2**. You can find more information in the european project FAIR IMPACT(https://fair-impact.eu/metrics-data)"
       }
     ],
     "http://purl.org/dc/terms/identifier": [
@@ -115,20 +115,6 @@
     ]
   },
   {
-    "@id": "https://w3id.org/FAIROS/metric/FAIROS-I2-01",
-    "@type": [
-      "http://www.w3.org/ns/dqv#Metric"
-    ],
-    "http://semanticscience.org/resource/SIO_000234": [
-      {
-        "@id": "https://w3id.org/FAIROS/test/FUJI-I2-01"
-      },
-      {
-        "@id": "https://w3id.org/FAIROS/test/ROCRATE-I2-01"
-      }
-    ]
-  },
-  {
     "@id": "https://ror.org/03n6nwv02",
     "@type": [
       "http://www.w3.org/2006/vcard/ns#Organization"
@@ -146,6 +132,20 @@
     "http://www.w3.org/2006/vcard/ns#url": [
       {
         "@id": "https://www.upm.es/"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/FAIROS/metric/FAIROS-I2-01",
+    "@type": [
+      "http://www.w3.org/ns/dqv#Metric"
+    ],
+    "http://semanticscience.org/resource/SIO_000234": [
+      {
+        "@id": "https://w3id.org/FAIROS/test/FUJI-I2-01"
+      },
+      {
+        "@id": "https://w3id.org/FAIROS/test/ROCRATE-I2-01"
       }
     ]
   },

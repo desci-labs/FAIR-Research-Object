@@ -1,5 +1,16 @@
 [
   {
+    "@id": "https://w3id.org/FAIROS/metric/FAIROS-F3-01",
+    "@type": [
+      "http://www.w3.org/ns/dqv#Metric"
+    ],
+    "http://semanticscience.org/resource/SIO_000234": [
+      {
+        "@id": "https://w3id.org/FAIROS/test/FUJI-F3-01"
+      }
+    ]
+  },
+  {
     "@id": "https://oeg.fi.upm.es",
     "@type": [
       "http://www.w3.org/2006/vcard/ns#Organization"
@@ -16,13 +27,23 @@
     ]
   },
   {
-    "@id": "https://w3id.org/FAIROS/metric/FAIROS-F3-01",
+    "@id": "https://ror.org/03n6nwv02",
     "@type": [
-      "http://www.w3.org/ns/dqv#Metric"
+      "http://www.w3.org/2006/vcard/ns#Organization"
     ],
-    "http://semanticscience.org/resource/SIO_000234": [
+    "http://purl.org/dc/terms/identifier": [
       {
-        "@id": "https://w3id.org/FAIROS/test/FUJI-F3-01"
+        "@value": "https://ror.org/03n6nwv02>"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "Universidad Politécnica de Madrid"
+      }
+    ],
+    "http://www.w3.org/2006/vcard/ns#url": [
+      {
+        "@id": "https://www.upm.es/"
       }
     ]
   },
@@ -39,7 +60,7 @@
     "http://purl.org/dc/terms/description": [
       {
         "@type": "http://www.w3.org/2001/XMLSchema#string",
-        "@value": "Metadata contains a PID or URL which indicates the location of the downloadable data content"
+        "@value": "This test verifies if the downloadable data contains a valid PID or URL. It doesn't verify if the data is there or not. \n    \n    Source: Since FAIROS uses [F-UJI](https://f-uji.net) to assess a Research Object, this test is an instance of the test **FsF-F3-01M-2**. You can find more information in the european project FAIR IMPACT(https://fair-impact.eu/metrics-data)"
       }
     ],
     "http://purl.org/dc/terms/identifier": [
@@ -122,27 +143,6 @@
     "https://w3id.org/ftr#supportedBy": [
       {
         "@id": "https://www.f-uji.net/"
-      }
-    ]
-  },
-  {
-    "@id": "https://ror.org/03n6nwv02",
-    "@type": [
-      "http://www.w3.org/2006/vcard/ns#Organization"
-    ],
-    "http://purl.org/dc/terms/identifier": [
-      {
-        "@value": "https://ror.org/03n6nwv02>"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@value": "Universidad Politécnica de Madrid"
-      }
-    ],
-    "http://www.w3.org/2006/vcard/ns#url": [
-      {
-        "@id": "https://www.upm.es/"
       }
     ]
   },

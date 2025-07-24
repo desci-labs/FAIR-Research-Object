@@ -12,11 +12,13 @@
 
 <https://w3id.org/FAIROS/test/FUJI-R1.2-01> a ftr:Test ;
     dcterms:identifier <https://w3id.org/FAIROS/test/FUJI-R1.2-01> ;
-    dcterms:title "Metadata includes provenance information about data creation"^^xsd:string ;
+    dcterms:title "Metadata contains elements which hold provenance information which can be mapped to PROV based on PROV-DC."^^xsd:string ;
     rdfs:label "FUJI-test-R1.2-01"^^xsd:string ;
     vivo:abbreviation "FUJI-test-R1.2-01"^^xsd:string ;
-    dcterms:description """Metadata includes properties representing data creation such as creator, contributors, creation and modification dates and version, source, and relations that indicate data creation activities."""^^xsd:string ;
-    dcat:keyword "metadata"@en , "data creation properties"@en  ;
+    dcterms:description """This test verifies the presence of the following metadata fields: name, creator, publisher, right_holder, created_date, publication_date, accepted_date, submitted_date, modified_date, hasFormat, isFormatOf, isVersionOf, isNewVersionOf, isReferencedBy, isReplacedBy, References, IsDerivedFrom, isBasedOn, hasVersion, Obsoletes, Replaces
+    
+    Source: Since FAIROS uses [F-UJI](https://f-uji.net) to assess a Research Object, this test is an instance of the test **FsF-R1.2-01M-1**. You can find more information in the european project FAIR IMPACT(https://fair-impact.eu/metrics-data)"""^^xsd:string ;
+    dcat:keyword "metadata"@en , "provenance"@en , "PROV-O"@en , "PAV"@en  ;
     dcat:theme  <http://www.fairsharing.org/ontology/subject/SRAO_0000401>; 
     dcat:version "0.0.1"^^xsd:string ;
     

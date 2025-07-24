@@ -15,7 +15,9 @@
     dcterms:title "Information about access restrictions or rights can be identified in metadata"^^xsd:string ;
     rdfs:label "FUJI-test-A1-01"^^xsd:string ;
     vivo:abbreviation "FUJI-test-A1-01"^^xsd:string ;
-    dcterms:description """Information about access restrictions or rights can be identified in metadata"""^^xsd:string ;
+    dcterms:description """This test assesses if there is a license in the metadata. The license must be provided in a URL format. It explores the existance of dc:rights, in the case of Dublin Core or conditionsOfAccess in the case of schema.org 
+    
+    Source: Since FAIROS uses [F-UJI](https://f-uji.net) to assess a Research Object, this test is an instance of the test **FsF-A1-01M-1**. You can find more information in the european project FAIR IMPACT(https://fair-impact.eu/metrics-data)"""^^xsd:string ;
     dcat:keyword "metadata"@en , "data access"@en , "access conditions"@en ;
     dcat:theme  <http://www.fairsharing.org/ontology/subject/SRAO_0000401>; 
     dcat:version "0.0.1"^^xsd:string ;

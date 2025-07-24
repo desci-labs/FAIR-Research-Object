@@ -15,7 +15,9 @@
     dcterms:title "The communication protocol found in identifiers (IRIs) leading to metadata supports authentication."^^xsd:string ;
     rdfs:label "FUJI-test-A1-06"^^xsd:string ;
     vivo:abbreviation "FUJI-test-A1-06"^^xsd:string ;
-    dcterms:description """The communication protocol found in identifiers (IRIs) leading to metadata supports authentication."""^^xsd:string ;
+    dcterms:description """This test verifies that metadata is accessible via a standard protocol (https) that supports TLS (Transport Layer Security) and Basic authentication. For that, checks the HEADER of the response from the identifier.
+    
+    Source: Since FAIROS uses [F-UJI](https://f-uji.net) to assess a Research Object, this test is an instance of the test **FsF-A1.2-01MD-1**. You can find more information in the european project FAIR IMPACT(https://fair-impact.eu/metrics-data)"""^^xsd:string ;
     dcat:keyword "data"@en , "protocol"@en ;
     dcat:theme  <http://www.fairsharing.org/ontology/subject/SRAO_0000401>; 
     dcat:version "0.0.1"^^xsd:string ;

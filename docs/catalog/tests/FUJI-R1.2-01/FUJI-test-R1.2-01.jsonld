@@ -1,5 +1,16 @@
 [
   {
+    "@id": "https://w3id.org/FAIROS/metric/FAIROS-R1.2-01",
+    "@type": [
+      "http://www.w3.org/ns/dqv#Metric"
+    ],
+    "http://semanticscience.org/resource/SIO_000234": [
+      {
+        "@id": "https://w3id.org/FAIROS/test/FUJI-R1.2-01"
+      }
+    ]
+  },
+  {
     "@id": "https://oeg.fi.upm.es",
     "@type": [
       "http://www.w3.org/2006/vcard/ns#Organization"
@@ -16,6 +27,27 @@
     ]
   },
   {
+    "@id": "https://ror.org/03n6nwv02",
+    "@type": [
+      "http://www.w3.org/2006/vcard/ns#Organization"
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "https://ror.org/03n6nwv02>"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "Universidad Politécnica de Madrid"
+      }
+    ],
+    "http://www.w3.org/2006/vcard/ns#url": [
+      {
+        "@id": "https://www.upm.es/"
+      }
+    ]
+  },
+  {
     "@id": "https://w3id.org/FAIROS/test/FUJI-R1.2-01",
     "@type": [
       "https://w3id.org/ftr#Test"
@@ -28,7 +60,7 @@
     "http://purl.org/dc/terms/description": [
       {
         "@type": "http://www.w3.org/2001/XMLSchema#string",
-        "@value": "Metadata includes properties representing data creation such as creator, contributors, creation and modification dates and version, source, and relations that indicate data creation activities."
+        "@value": "This test verifies the presence of the following metadata fields: name, creator, publisher, right_holder, created_date, publication_date, accepted_date, submitted_date, modified_date, hasFormat, isFormatOf, isVersionOf, isNewVersionOf, isReferencedBy, isReplacedBy, References, IsDerivedFrom, isBasedOn, hasVersion, Obsoletes, Replaces\n    \n    Source: Since FAIROS uses [F-UJI](https://f-uji.net) to assess a Research Object, this test is an instance of the test **FsF-R1.2-01M-1**. You can find more information in the european project FAIR IMPACT(https://fair-impact.eu/metrics-data)"
       }
     ],
     "http://purl.org/dc/terms/identifier": [
@@ -52,7 +84,7 @@
     "http://purl.org/dc/terms/title": [
       {
         "@type": "http://www.w3.org/2001/XMLSchema#string",
-        "@value": "Metadata includes provenance information about data creation"
+        "@value": "Metadata contains elements which hold provenance information which can be mapped to PROV based on PROV-DC."
       }
     ],
     "http://vivoweb.org/ontology/core#abbreviation": [
@@ -79,7 +111,15 @@
       },
       {
         "@language": "en",
-        "@value": "data creation properties"
+        "@value": "provenance"
+      },
+      {
+        "@language": "en",
+        "@value": "PROV-O"
+      },
+      {
+        "@language": "en",
+        "@value": "PAV"
       }
     ],
     "http://www.w3.org/ns/dcat#theme": [
@@ -107,38 +147,6 @@
     "https://w3id.org/ftr#supportedBy": [
       {
         "@id": "https://www.f-uji.net/"
-      }
-    ]
-  },
-  {
-    "@id": "https://w3id.org/FAIROS/metric/FAIROS-R1.2-01",
-    "@type": [
-      "http://www.w3.org/ns/dqv#Metric"
-    ],
-    "http://semanticscience.org/resource/SIO_000234": [
-      {
-        "@id": "https://w3id.org/FAIROS/test/FUJI-R1.2-01"
-      }
-    ]
-  },
-  {
-    "@id": "https://ror.org/03n6nwv02",
-    "@type": [
-      "http://www.w3.org/2006/vcard/ns#Organization"
-    ],
-    "http://purl.org/dc/terms/identifier": [
-      {
-        "@value": "https://ror.org/03n6nwv02>"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@value": "Universidad Politécnica de Madrid"
-      }
-    ],
-    "http://www.w3.org/2006/vcard/ns#url": [
-      {
-        "@id": "https://www.upm.es/"
       }
     ]
   },

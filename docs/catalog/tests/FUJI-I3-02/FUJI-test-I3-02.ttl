@@ -12,10 +12,12 @@
 
 <https://w3id.org/FAIROS/test/FUJI-I3-02> a ftr:Test ;
     dcterms:identifier <https://w3id.org/FAIROS/test/FUJI-I3-02> ;
-    dcterms:title "The relation is expressed using a relation type according to PROV-O or DataCite relation types."^^xsd:string ;
+    dcterms:title "Relations are preferably be expressed as actionable unique or persistent identifiers."^^xsd:string ;
     rdfs:label "FUJI-test-I3-02"^^xsd:string ;
     vivo:abbreviation "FUJI-test-I3-02"^^xsd:string ;
-    dcterms:description """The relation is expressed using a relation type according to PROV-O or DataCite relation types."""^^xsd:string ;
+    dcterms:description """This test verifies is a related resource is available as metadata (depending on the metadata schema used), as well as the type of the relation. It must be specified in a machine readable format, such as URI. Note: The test doesn't resolve the URI.
+    
+    Source: Since FAIROS uses [F-UJI](https://f-uji.net) to assess a Research Object, this test is an instance of the test **FsF-I3-01M-2**. You can find more information in the european project FAIR IMPACT(https://fair-impact.eu/metrics-data)"""^^xsd:string ;
     dcat:keyword "PROV-O"@en , "relation types"@en , "Datacite"@en  ;
     dcat:theme  <http://www.fairsharing.org/ontology/subject/SRAO_0000401>; 
     dcat:version "0.0.1"^^xsd:string ;

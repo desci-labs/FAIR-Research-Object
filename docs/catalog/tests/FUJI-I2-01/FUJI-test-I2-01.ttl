@@ -15,7 +15,9 @@
     dcterms:title "Metadata uses terms from registered vocabularies that are identified by their namespaces"^^xsd:string ;
     rdfs:label "FUJI-test-I2-01"^^xsd:string ;
     vivo:abbreviation "FUJI-test-I2-01"^^xsd:string ;
-    dcterms:description """Metadata uses terms from registered vocabularies that are identified by their namespaces."""^^xsd:string ;
+    dcterms:description """This test analyzes the vocabulary namespaces used in the structured metadata (e.g., RDF, XML) to determine whether they are recognized within Linked Open Data (LOD) registries. The namespaces are listed [here](https://f-uji.net/vocab/semantic_resource)
+    
+    Source: Since FAIROS uses [F-UJI](https://f-uji.net) to assess a Research Object, this test is an instance of the test **FsF-I2-01M-2**. You can find more information in the european project FAIR IMPACT(https://fair-impact.eu/metrics-data)"""^^xsd:string ;
     dcat:keyword "metadata"@en , "data"@en , "vocabularies"@en ;
     dcat:theme  <http://www.fairsharing.org/ontology/subject/SRAO_0000401>; 
     dcat:version "0.0.1"^^xsd:string ;

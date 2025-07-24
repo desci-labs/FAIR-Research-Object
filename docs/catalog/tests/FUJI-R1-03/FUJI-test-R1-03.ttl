@@ -15,7 +15,9 @@
     dcterms:title "Measured variables or observation types are specified in metadata"^^xsd:string ;
     rdfs:label "FUJI-test-R1-03"^^xsd:string ;
     vivo:abbreviation "FUJI-test-R1-03"^^xsd:string ;
-    dcterms:description """Measured variables or observation types are specified in metadata."""^^xsd:string ;
+    dcterms:description """This test verifies if the file size metadata field is available. Dublin Core uses as measured variables or observation types fields such as dc:subject, dc:description, or dc:type. Schema.org uses  variableMeasured  and measurementTechnique. 
+    
+    Source: Since FAIROS uses [F-UJI](https://f-uji.net) to assess a Research Object, this test is an instance of the test **FsF-R1-01M-3**. You can find more information in the european project FAIR IMPACT(https://fair-impact.eu/metrics-data)"""^^xsd:string ;
     dcat:keyword "metadata"@en , "properties"@en ;
     dcat:theme  <http://www.fairsharing.org/ontology/subject/SRAO_0000401>; 
     dcat:version "0.0.1"^^xsd:string ;

@@ -1,5 +1,19 @@
 [
   {
+    "@id": "https://w3id.org/FAIROS/metric/FAIROS-F1-01",
+    "@type": [
+      "http://www.w3.org/ns/dqv#Metric"
+    ],
+    "http://semanticscience.org/resource/SIO_000234": [
+      {
+        "@id": "https://w3id.org/FAIROS/test/FUJI-F1-01"
+      },
+      {
+        "@id": "https://w3id.org/FAIROS/test/ROCRATE-F1-01"
+      }
+    ]
+  },
+  {
     "@id": "https://oeg.fi.upm.es",
     "@type": [
       "http://www.w3.org/2006/vcard/ns#Organization"
@@ -151,20 +165,6 @@
     "http://www.w3.org/2006/vcard/ns#hasEmail": [
       {
         "@id": "mailto:egonzalez@fi.upm.es"
-      }
-    ]
-  },
-  {
-    "@id": "https://w3id.org/FAIROS/metric/FAIROS-F1-01",
-    "@type": [
-      "http://www.w3.org/ns/dqv#Metric"
-    ],
-    "http://semanticscience.org/resource/SIO_000234": [
-      {
-        "@id": "https://w3id.org/FAIROS/test/FUJI-F1-01"
-      },
-      {
-        "@id": "https://w3id.org/FAIROS/test/ROCRATE-F1-01"
       }
     ]
   }

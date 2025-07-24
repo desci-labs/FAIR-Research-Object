@@ -15,7 +15,9 @@
     dcterms:title "Identifier leading to metadata matches a scheme indicating a standardized web communication protocol."^^xsd:string ;
     rdfs:label "FUJI-test-A1-04"^^xsd:string ;
     vivo:abbreviation "FUJI-test-A1-04"^^xsd:string ;
-    dcterms:description """Identifier leading to metadata matches a scheme indicating a standardized web communication protocol.."""^^xsd:string ;
+    dcterms:description """This test get the protocol from the identifier. The test is passed if the protocol is http or https.
+    
+    Source: Since FAIROS uses [F-UJI](https://f-uji.net) to assess a Research Object, this test is an instance of the test **FsF-A1.1-01MD-1**. You can find more information in the european project FAIR IMPACT(https://fair-impact.eu/metrics-data)"""^^xsd:string ;
     dcat:keyword "metadata"@en , "identifier"@en ;
     dcat:theme  <http://www.fairsharing.org/ontology/subject/SRAO_0000401>; 
     dcat:version "0.0.1"^^xsd:string ;

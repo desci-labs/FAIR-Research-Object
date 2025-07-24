@@ -1,5 +1,16 @@
 [
   {
+    "@id": "https://w3id.org/FAIROS/metric/FAIROS-R1.3-01",
+    "@type": [
+      "http://www.w3.org/ns/dqv#Metric"
+    ],
+    "http://semanticscience.org/resource/SIO_000234": [
+      {
+        "@id": "https://w3id.org/FAIROS/test/FUJI-R1.3-01"
+      }
+    ]
+  },
+  {
     "@id": "https://oeg.fi.upm.es",
     "@type": [
       "http://www.w3.org/2006/vcard/ns#Organization"
@@ -12,17 +23,6 @@
     "http://www.w3.org/2006/vcard/ns#url": [
       {
         "@id": "https://oeg.fi.upm.es/"
-      }
-    ]
-  },
-  {
-    "@id": "https://w3id.org/FAIROS/metric/FAIROS-R1.3-01",
-    "@type": [
-      "http://www.w3.org/ns/dqv#Metric"
-    ],
-    "http://semanticscience.org/resource/SIO_000234": [
-      {
-        "@id": "https://w3id.org/FAIROS/test/FUJI-R1.3-01"
       }
     ]
   },
@@ -78,7 +78,7 @@
     "http://purl.org/dc/terms/description": [
       {
         "@type": "http://www.w3.org/2001/XMLSchema#string",
-        "@value": "Metadata is available through at least one of the domain metadata standards listed in RDA Metadata Standards Catalog."
+        "@value": "This test verifies if namespaces from the metadata are registered in RDA Metadata Standards Catalog and FAIRSHARING.\n    \n    Source: Since FAIROS uses [F-UJI](https://f-uji.net) to assess a Research Object, this test is an instance of the test **FsF-R1.3-01M-3**. You can find more information in the european project FAIR IMPACT(https://fair-impact.eu/metrics-data)"
       }
     ],
     "http://purl.org/dc/terms/identifier": [
@@ -102,7 +102,7 @@
     "http://purl.org/dc/terms/title": [
       {
         "@type": "http://www.w3.org/2001/XMLSchema#string",
-        "@value": "Metadata conforms to a domain-relevant standard from the RDA Metadata Standards Catalog"
+        "@value": "Multidisciplinary but community endorsed metadata (RDA Metadata Standards Catalog, fairsharing) standard is detected by namespace"
       }
     ],
     "http://vivoweb.org/ontology/core#abbreviation": [
