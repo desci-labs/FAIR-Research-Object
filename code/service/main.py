@@ -1,10 +1,13 @@
-from fastapi import FastAPI, Request, HTTPException, Depends, Body
+from fastapi import FastAPI, Request, HTTPException, Depends, Body, UploadFile, File
+from pathlib import Path
 from datetime import datetime, UTC
 import sqlite3
 import random
 import os
 import logging
 from logging.handlers import TimedRotatingFileHandler
+from config import settings
+import paho.mqtt.client as mqtt
 
 # Create logs directory if it doesn't exist
 LOG_DIR = "../../logs"
@@ -36,16 +39,6 @@ logger.addHandler(handler)
 
 DB_PATH = "api_control.db"
 
-#FILE_STORAGE_DIR = os.getenv("FILE_STORAGE_DIR")
-
-#if not FILE_STORAGE_DIR:
-#    raise RuntimeError("Environment variable 'FILE_STORAGE_DIR' is not set")
-
-#if not os.path.exists(FILE_STORAGE_DIR):
-#    os.makedirs(FILE_STORAGE_DIR)
-
-FILE_STORAGE_DIR = "C:\\Users\\egonzalez\\rocrates"
-
 app = FastAPI()
 
 @app.get("/")
@@ -69,8 +62,10 @@ def check_access(request: Request):
     if token:
         cursor.execute("SELECT token FROM tokens WHERE token = ?", (token,))
         if cursor.fetchone():
-            return  # Authorized, no rate limit
+            conn.close
+            return  "private"
         else:
+            conn.close()
             raise HTTPException(status_code=403, detail="Invalid token")
 
     # IP-based access (rate limited)
@@ -88,18 +83,35 @@ def check_access(request: Request):
 
     conn.commit()
     conn.close()
+    return "public"
     
 
-@app.post("/algorithms")
+@app.post("/assess/algorithm/{algorithm_id}")
 def execute_algorithm(
-    identifier: str = Body(..., embed=True),
-    _: None = Depends(check_access),  # This ensures check_access runs
+    algorithm_id: str,
+    file: UploadFile = File(...),
+    storage_mode: str = Depends(check_access),  # This ensures check_access runs
     request: Request = None,  # Optional, only if you need request inside
 ):
     timestamp = datetime.now(UTC).strftime("%Y%m%d%H%M%S")
     random_suffix = random.randint(1000, 9999)
     ticket_id = f"{timestamp}-{random_suffix}"
-    logger.info(f"New request arrived to execute algorithm. New ticket generated: {ticket_id}")
+    logger.info(f"New request arrived to execute algorithm '{algorithm_id}'. New ticket generated: {ticket_id}")
+    
+        # Determine directory based on access type
+    target_dir = Path(settings.FILE_STORAGE_DIR if storage_mode == "private" else settings.NO_TOKEN_DIRECTORY)
+    target_dir.mkdir(parents=True, exist_ok=True)  # Ensure it exists
+
+    # Save the uploaded file to the FILE_STORAGE_DIR
+    filename = f"{ticket_id}_{file.filename}"
+    save_path = target_dir / filename
+
+    with open(save_path, "wb") as f:
+        f.write(file.file.read())
+
+    logger.info(
+        f"File '{file.filename}' uploaded from IP {request.client.host} → ticket {ticket_id}"
+    )
     return {
         "ticket_id": ticket_id
     }
