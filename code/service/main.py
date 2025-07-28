@@ -8,6 +8,10 @@ import logging
 from logging.handlers import TimedRotatingFileHandler
 from config import settings
 import paho.mqtt.client as mqtt
+from contextlib import asynccontextmanager
+from pathlib import Path
+from rdflib import Graph, URIRef, RDF
+import json
 
 # Create logs directory if it doesn't exist
 LOG_DIR = "../../logs"
@@ -39,12 +43,42 @@ logger.addHandler(handler)
 
 DB_PATH = "api_control.db"
 
-app = FastAPI()
+def extract_metric_uris(metrics_root: Path) -> list[str]:
+    metric_uris = []
+    METRIC_TYPE = URIRef("http://www.w3.org/ns/dqv#Metric")
+
+    for ttl_file in metrics_root.rglob("*.ttl"):
+        g = Graph()
+        try:
+            g.parse(ttl_file, format="turtle")
+        except Exception as e:
+            print(f"Skipping {ttl_file} (parse error): {e}")
+            continue
+
+        for s in g.subjects(RDF.type, METRIC_TYPE):
+            if isinstance(s, URIRef):
+                metric_uris.append(str(s))
+
+    return metric_uris
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    logger.info("Starting service")
+    logger.info("Loading metrics")
+    metric_uris = extract_metric_uris(settings.METRICS_DIRECTORY)
+    app.state.metric_uris = metric_uris
+    logger.info(f" {len(metric_uris)} metrics loaded")
+    yield
+
+app = FastAPI(lifespan=lifespan)
 
 @app.get("/")
 def read_root():
     return {"message": "Welcome to FAIROs, a service to assess Research Objects."}
 
+@app.get("/metrics")
+def get_tests():
+    return app.state.metric_uris
 #@app.get("/tests")
 #def get_tests():
 def get_db():
