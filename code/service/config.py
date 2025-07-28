@@ -4,6 +4,7 @@ from pathlib import Path
 class Settings(BaseSettings):
     FILE_STORAGE_DIR: Path
     NO_TOKEN_DIRECTORY: Path
+    METRICS_DIRECTORY: Path
 
     class Config:
         env_file = ".env"
