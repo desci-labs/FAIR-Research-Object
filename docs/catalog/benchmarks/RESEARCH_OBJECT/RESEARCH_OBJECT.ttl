@@ -9,9 +9,10 @@
 @prefix dqv: <http://www.w3.org/ns/dqv#> .
 @prefix vivo: <http://vivoweb.org/ontology/core#> .
 @prefix dpv: <https://w3id.org/dpv#> .
+@prefix ro: <http://purl.org/wf4ever/ro#> .
 
-<https://w3id.org/foops/benchmark/RESEARCH_OBJECT> a ftr:Benchmark ;
-    dcterms:identifier <https://w3id.org/foops/benchmark/RESEARCH_OBJECT> ;
+<https://w3id.org/FAIROS/benchmark/RESEARCH_OBJECT> a ftr:Benchmark ;
+    dcterms:identifier <https://w3id.org/FAIROS/benchmark/RESEARCH_OBJECT> ;
     dcterms:title "FAIROS-benchmark"^^xsd:string ;
     rdfs:label "FAIROS-benchmark"^^xsd:string ;
     vivo:abbreviation "FAIROS-benchmark"^^xsd:string ;
@@ -24,7 +25,7 @@
     dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
     ftr:status "Active"@en ;
     
-    dpv:IsApplicableFor<https://vocabularies.coar-repositories.org/resource_types/c_1843/>;
+    dpv:IsApplicableFor ro:ROCrate;
     dcterms:creator <https://ror.org/03n6nwv02> ;
     dcterms:publisher <https://oeg.fi.upm.es>, <https://ror.org/03n6nwv02> ;
         ftr:hasAssociatedMetric 
