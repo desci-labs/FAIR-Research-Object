@@ -1,0 +1,65 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix ftr: <https://w3id.org/ftr#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix doap: <http://usefulinc.com/ns/doap#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dqv: <http://www.w3.org/ns/dqv#> .
+@prefix vivo: <http://vivoweb.org/ontology/core#> .
+@prefix dpv: <https://w3id.org/dpv#> .
+@prefix ro: <http://purl.org/wf4ever/ro#> .
+
+<https://w3id.org/FAIROS/metric/FAIROS-F2-01> a dqv:Metric ;
+    dcterms:identifier <https://w3id.org/FAIROS/metric/FAIROS-F2-01> ;
+    dcterms:title "Metadata includes descriptive core elements to support data findability."^^xsd:string ;
+    rdfs:label "FAIROS-metric-F2-01"^^xsd:string ;
+    vivo:abbreviation "FAIROS-metric-F2-01"^^xsd:string ;
+    dcterms:description """This metric evaluates whether the metadata describing a Research Object contains a sufficient set of core descriptive elements that allow both humans and machines to discover, understand, and differentiate the data.
+
+**What is being measured?**
+
+The presence and completeness of core descriptive metadata elements that enable effective discovery, understanding, and differentiation of a digital object.
+
+**Why should we measure it?**
+Rich and standardized metadata is essential for making data Findable, Accessible, Interoperable, and Reusable (FAIR). 
+
+**What must be provided for the measurement?**
+The metadata description file (rocrate-metadata) associated with a Research Object.
+
+**What are considered valid results?**
+
+Valid results occur when the metadata contains a defined minimum set of core elements defined by a Research Object."""^^xsd:string ;
+    dcat:keyword "metadata"@en , "core metadata"@en , "completeness"@en , "metadata standards"@en;
+    dcat:theme  <http://www.fairsharing.org/ontomlogy/subject/SRAO_0000401>; 
+    dcat:version "0.0.1"^^xsd:string ;
+    
+    dcterms:license <http://creativecommons.org/licenses/by/4.0/> ;
+    ftr:status "Active"@en ;
+    
+    
+    
+    ftr:supportedBy  <https://w3id.org/FAIROS>; 
+    dpv:IsApplicableFor ro:ROCrate;
+    dcterms:creator <https://ror.org/03n6nwv02> ;
+    dcterms:publisher <https://oeg.fi.upm.es>, <https://ror.org/03n6nwv02> ;
+    
+    dcat:contactPoint <https://orcid.org/0000-0003-4112-6825>  . 
+  
+<https://orcid.org/0000-0003-4112-6825> a vcard:Individual ;
+    vcard:fn "Esteban Gonzalez"^^xsd:string ;
+    vcard:hasEmail <mailto:egonzalez@fi.upm.es> . 
+
+<https://oeg.fi.upm.es> a vcard:Organization ;
+    rdfs:label "Ontology Engineering Group" ;
+	vcard:url <https://oeg.fi.upm.es/> .
+<https://ror.org/03n6nwv02> a vcard:Organization ;
+    dcterms:identifier  "https://ror.org/03n6nwv02>" ;
+    rdfs:label "Universidad Politécnica de Madrid" ;
+	vcard:url <https://www.upm.es/> .
+
+<https://w3id.org/FAIROS/metric/FAIROS-F2-01> a dqv:Metric ; 
+    <http://semanticscience.org/resource/SIO_000234> <https://w3id.org/FAIROS/test/FUJI-F2-01> ;
+    <http://semanticscience.org/resource/SIO_000234> <https://w3id.org/FAIROS/test/FUJI-F2-02> ;
+    <http://semanticscience.org/resource/SIO_000234> <https://w3id.org/FAIROS/test/ROCRATE-F2-01> .

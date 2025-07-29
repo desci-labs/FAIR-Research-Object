@@ -1,0 +1,164 @@
+[
+  {
+    "@id": "https://ror.org/03n6nwv02",
+    "@type": [
+      "http://www.w3.org/2006/vcard/ns#Organisation",
+      "http://www.w3.org/2006/vcard/ns#Organization"
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@value": "https://ror.org/03n6nwv02>"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "Universidad Politécnica de Madrid"
+      }
+    ],
+    "http://www.w3.org/2006/vcard/ns#url": [
+      {
+        "@id": "https://www.upm.es/"
+      }
+    ]
+  },
+  {
+    "@id": "https://oeg.fi.upm.es",
+    "@type": [
+      "http://www.w3.org/2006/vcard/ns#Organization"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@value": "Ontology Engineering Group"
+      }
+    ],
+    "http://www.w3.org/2006/vcard/ns#url": [
+      {
+        "@id": "https://oeg.fi.upm.es/"
+      }
+    ]
+  },
+  {
+    "@id": "https://orcid.org/0000-0003-4112-6825",
+    "@type": [
+      "http://www.w3.org/2006/vcard/ns#Individual"
+    ],
+    "http://www.w3.org/2006/vcard/ns#fn": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#string",
+        "@value": "Esteban Gonzalez"
+      }
+    ],
+    "http://www.w3.org/2006/vcard/ns#hasEmail": [
+      {
+        "@id": "mailto:egonzalez@fi.upm.es"
+      }
+    ]
+  },
+  {
+    "@id": "https://w3id.org/FAIROS/metric/FAIROS-I2-01",
+    "@type": [
+      "http://www.w3.org/ns/dqv#Metric"
+    ],
+    "http://purl.org/dc/terms/creator": [
+      {
+        "@id": "https://ror.org/03n6nwv02"
+      }
+    ],
+    "http://purl.org/dc/terms/description": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#string",
+        "@value": "This metric ensures that the vocabularies used in metadata or data themselves adhere to the FAIR principles, promoting interoperability, transparency, and reuse.\n\n**What is being measured?**\n\nWhether the vocabularies or ontologies referenced in the Research Object  (meta)data follow FAIR principles.\n\n**Why should we measure it?**\n\nUsing FAIR-compliant vocabularies ensures that terms and classifications used in metadata and data can be understood, retrieved, and reused by machines and humans. \n\n**What must be provided for the measurement?**\n\nA metadata or data record that references external vocabularies or ontologies.\n\n**What are considered valid results?**\n\nThe vocabularies or ontologies referenced follow the FAIR principles (e.g, persistent identifiers published with resolvable identifiers, license and provenance information included, etc.)"
+      }
+    ],
+    "http://purl.org/dc/terms/identifier": [
+      {
+        "@id": "https://w3id.org/FAIROS/metric/FAIROS-I2-01"
+      }
+    ],
+    "http://purl.org/dc/terms/license": [
+      {
+        "@id": "http://creativecommons.org/licenses/by/4.0/"
+      }
+    ],
+    "http://purl.org/dc/terms/publisher": [
+      {
+        "@id": "https://oeg.fi.upm.es"
+      },
+      {
+        "@id": "https://ror.org/03n6nwv02"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#string",
+        "@value": "(Meta)data use vocabularies that follow FAIR principles"
+      }
+    ],
+    "http://semanticscience.org/resource/SIO_000234": [
+      {
+        "@id": "https://w3id.org/FAIROS/test/FUJI-I2-01"
+      },
+      {
+        "@id": "https://w3id.org/FAIROS/test/ROCRATE-I2-01"
+      }
+    ],
+    "http://vivoweb.org/ontology/core#abbreviation": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#string",
+        "@value": "FAIROS-metric-I2-01"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#string",
+        "@value": "FAIROS-metric-I2-01"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#contactPoint": [
+      {
+        "@id": "https://orcid.org/0000-0003-4112-6825"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#keyword": [
+      {
+        "@language": "en",
+        "@value": "FAIR"
+      },
+      {
+        "@language": "en",
+        "@value": "persistent identifiers"
+      },
+      {
+        "@language": "en",
+        "@value": "provenance"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#theme": [
+      {
+        "@id": "http://www.fairsharing.org/ontology/subject/SRAO_0000401"
+      }
+    ],
+    "http://www.w3.org/ns/dcat#version": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#string",
+        "@value": "0.0.1"
+      }
+    ],
+    "https://w3id.org/dpv#IsApplicableFor": [
+      {
+        "@id": "http://purl.org/wf4ever/ro#ROCrate"
+      }
+    ],
+    "https://w3id.org/ftr#status": [
+      {
+        "@language": "en",
+        "@value": "Active"
+      }
+    ],
+    "https://w3id.org/ftr#supportedBy": [
+      {
+        "@id": "https://w3id.org/FAIROS"
+      }
+    ]
+  }
+]
