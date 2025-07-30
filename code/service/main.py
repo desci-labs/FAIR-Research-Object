@@ -211,14 +211,14 @@ def execute_algorithm(
     logger.info(f"Creating job to process ticket {ticket_id}")
     conn = get_db()
     cursor = conn.cursor()                
-    instruction = f"INSERT INTO jobs VALUES ('{ticket_id}','{file.filename}',{JOB_SCHEDULED})"
+    instruction = f"INSERT INTO jobs VALUES ('{ticket_id}','{file.filename}',{JOB_SCHEDULED},'{algorithm_id}')"
     cursor.execute(instruction)
     conn.commit()
     conn.close()
     logger.info(f"Job created to process ticket {ticket_id}")
 
     #Publish job in mqtt server
-    mqtt_message={"ticket":ticket_id, "file":file.filename}
+    mqtt_message={"ticket":ticket_id, "file":file.filename, "algorithm":algorithm_id}
     logger.info(f"Sending message to broker: {str(mqtt_message)}")
     client = mqtt.Client()
     client.connect(settings.MQTT_HOST,settings.MQTT_PORT) 
