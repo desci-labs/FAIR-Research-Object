@@ -17,6 +17,11 @@ import json
 LOG_DIR = "../../logs"
 os.makedirs(LOG_DIR, exist_ok=True)
 
+JOB_SCHEDULED = 0
+JOB_RUNNING = 1
+JOB_COMPLETED = 2
+JOB_ERROR = 3
+
 # Define log file path with date suffix
 log_file = os.path.join(LOG_DIR, "service.log")
 
@@ -61,13 +66,61 @@ def extract_metric_uris(metrics_root: Path) -> list[str]:
 
     return metric_uris
 
+def extract_test_uris(tests_root: Path) -> list[str]:
+    test_uris = []
+    TEST_TYPE = URIRef("https://w3id.org/ftr#Test")
+
+    for ttl_file in tests_root.rglob("*.ttl"):
+        g = Graph()
+        try:
+            g.parse(ttl_file, format="turtle")
+        except Exception as e:
+            print(f"Skipping {ttl_file} (parse error): {e}")
+            continue
+
+        for s in g.subjects(RDF.type, TEST_TYPE):
+            if isinstance(s, URIRef):
+                test_uris.append(str(s))
+
+    return test_uris
+
+def extract_benchmark_uris(benchmarks_root: Path) -> list[str]:
+    benchmark_uris = []
+    TEST_TYPE = URIRef("https://w3id.org/ftr#Benchmark")
+
+    for ttl_file in benchmarks_root.rglob("*.ttl"):
+        g = Graph()
+        try:
+            g.parse(ttl_file, format="turtle")
+        except Exception as e:
+            print(f"Skipping {ttl_file} (parse error): {e}")
+            continue
+
+        for s in g.subjects(RDF.type, TEST_TYPE):
+            if isinstance(s, URIRef):
+                benchmark_uris.append(str(s))
+
+    return benchmark_uris
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     logger.info("Starting service")
+
     logger.info("Loading metrics")
     metric_uris = extract_metric_uris(settings.METRICS_DIRECTORY)
     app.state.metric_uris = metric_uris
     logger.info(f" {len(metric_uris)} metrics loaded")
+
+    logger.info("Loading tests")
+    test_uris = extract_test_uris(settings.TESTS_DIRECTORY)
+    app.state.test_uris = test_uris
+    logger.info(f" {len(test_uris)} tests loaded")
+
+    logger.info("Loading benchmarks")
+    benchmark_uris = extract_benchmark_uris(settings.BENCHMARKS_DIRECTORY)
+    app.state.benchmark_uris = benchmark_uris
+    logger.info(f" {len(benchmark_uris)} benchmarks loaded")
+
     yield
 
 app = FastAPI(lifespan=lifespan)
@@ -79,8 +132,15 @@ def read_root():
 @app.get("/metrics")
 def get_tests():
     return app.state.metric_uris
-#@app.get("/tests")
-#def get_tests():
+
+@app.get("/tests")
+def get_tests():
+    return app.state.test_uris
+
+@app.get("/benchmarks")
+def get_benchmarks():
+    return app.state.benchmark_uris
+
 def get_db():
     return sqlite3.connect(DB_PATH)
 
@@ -146,6 +206,27 @@ def execute_algorithm(
     logger.info(
         f"File '{file.filename}' uploaded from IP {request.client.host} → ticket {ticket_id}"
     )
+
+    #Creating job in database
+    logger.info(f"Creating job to process ticket {ticket_id}")
+    conn = get_db()
+    cursor = conn.cursor()                
+    instruction = f"INSERT INTO jobs VALUES ('{ticket_id}','{file.filename}',{JOB_SCHEDULED})"
+    cursor.execute(instruction)
+    conn.commit()
+    conn.close()
+    logger.info(f"Job created to process ticket {ticket_id}")
+
+    #Publish job in mqtt server
+    mqtt_message={"ticket":ticket_id, "file":file.filename}
+    logger.info(f"Sending message to broker: {str(mqtt_message)}")
+    client = mqtt.Client()
+    client.connect(settings.MQTT_HOST,settings.MQTT_PORT) 
+    client.publish("job/create",json.dumps(mqtt_message))
+    client.disconnect()
+    client.loop_stop()
+    logger.info("Message published")
+    
     return {
         "ticket_id": ticket_id
     }
