@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>FOOPS! Catalogue</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <style>
+    .foops-header {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .foops-logo {
+      height: 50px;
+      margin-bottom: 10px;
+    }Å
+    .panel-title {
+      font-size: 18px;
+      font-weight: bold;
+    }
+    .panel-body {
+      min-height: 100px;
+    }
+    .panel-t { background-color: #08b4cc; color: white; }
+    .panel-m { background-color: #208b99; color: white; }
+    .panel-b { background-color: #055c68; color: white; }
+    .panel-heading { font-weight: bold; text-align: center; }
+    .panel-body { background-color: white; color: #333; }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Header -->
+    <div class="foops-header">
+      <img src="fairos_logo.png" alt="FAIROS Logo" class="foops-logo">
+      <h1>FAIROS Catalogue</h1>
+    </div>
+
+    <!-- Panels -->
+    <div class="row" style="margin-top: 30px;">
+      <div class="col-md-4">
+        <div class="panel panel-t">
+          <div class="panel-heading text-center">
+            <span class="panel-title">TESTS</span>
+          </div>
+          <div class="panel-body text-center">
+            <p>Explore all available FAIROS tests.</p>
+            <p style="font-size: 22px;">{{number_test}}</p>
+            <a href="https://oeg-upm.github.io/fairos/doc/catalog.html#test" class="btn btn-default">Go to Tests</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="panel panel-m">
+          <div class="panel-heading text-center">
+            <span class="panel-title">METRICS</span>
+          </div>
+          <div class="panel-body text-center">
+            <p>Explore the metrics used in </p>
+            <p style="font-size: 22px;">{{number_metric}}</p>
+            <a href="https://oeg-upm.github.io/fairos/doc/catalog.html#test" class="btn btn-default">Go to Metrics</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="panel panel-b">
+          <div class="panel-heading text-center">
+            <span class="panel-title">BENCHMARKS</span>
+          </div>
+          <div class="panel-body text-center">
+            <p>View benchmarks.</p>
+            <p style="font-size: 22px;">{{number_benchmark}}</p>
+            <a href="https://oeg-upm.github.io/fairos/doc/catalog.html#benchmark" class="btn btn-default">Go to Benchmarks</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+<div class="row">
+  <div class="col-md-12 text-center" style="margin-top: 40px;">
+
+    <!-- Title -->
+    <h2 style="margin-top: 10px;">FAIR-Research-Object (FAIROs)</h2>
+
+    <!-- DOI badge -->
+    <p>
+      <a href="https://zenodo.org/badge/latestdoi/431199041" target="_blank">
+        <img src="https://zenodo.org/badge/431199041.svg" alt="DOI badge" style="vertical-align: middle;">
+      </a>
+    </p>
+
+    <!-- Authors -->
+    <p style="margin-top: 20px; font-size: 16px;">
+      <strong>Authors:</strong> Daniel Garijo and Esteban González.
+    </p>
+    <!-- Description -->
+    <p style="max-width: 700px; margin: 0 auto; font-size: 16px;">
+      <strong>FAIROs</strong> is a tool to calculate the FAIRness of 
+      <a href="https://www.researchobject.org/" target="_blank">Research Objects</a>, 
+      serialized as 
+      <a href="https://www.researchobject.org/ro-crate/" target="_blank">RO-Crates</a>.
+    </p>
+
+    <!-- Citation -->
+    <p style="margin-top: 20px; font-size: 14px;">
+      If you use FAIROs, please cite our TPDL publication:  
+      <a href="https://doi.org/10.1007/978-3-031-16802-4_6" target="_blank">FAIROs: Towards FAIR Assessment in Research Objects</a>.
+    </p>
+  </div>
+</div>
+
+
+
+  </div>
+
+</body>
+</html>
