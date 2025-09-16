@@ -18,7 +18,7 @@
     vivo:abbreviation "FAIROS-benchmark"^^xsd:string ;
     dcterms:description """This is the benchmark used to assess a Research Object."""^^xsd:string ;
     
-    dcat:theme  <Research Object>; 
+    dcat:theme  "Research Object"; 
         
     dcat:version "0.0.1"^^xsd:string ;
     
