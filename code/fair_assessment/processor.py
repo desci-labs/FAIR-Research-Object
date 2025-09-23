@@ -7,6 +7,7 @@ import paho.mqtt.client as mqtt
 import json
 import sqlite3
 import importlib
+import traceback
 
 
 # Create logs directory if it doesn't exist
@@ -88,7 +89,7 @@ def on_message(client, userdata, msg):  # The callback for when a PUBLISH messag
     logger.info("Message received-> " + msg.topic + " " + str(msg.payload))  # Print a received msg
     message_json = json.loads(msg.payload)
     logger.info(str(message_json["ticket"])+" ticket added to queue")
-    fifo_queue.put(message_json["ticket"])
+    fifo_queue.put(message_json)
 
 def run_fairos():
     while 1:
@@ -96,13 +97,16 @@ def run_fairos():
         next_job = fifo_queue.get()
         logger.info(f"New job: {next_job}")
 
-        update_job(next_job,JOB_RUNNING)
+        update_job(next_job["ticket"],JOB_RUNNING)
 
         try:
             logger.info(f"Calculating FAIRness of job {next_job}")
-            algorithm_id = get_db_algorithm(next_job)
+            algorithm_id = get_db_algorithm(next_job["ticket"])
             algorithm = load_class('algorithms.'+algorithm_id,algorithm_id)
             logger.info(f"Algorithm {algorithm.get_id()} loaded")
+            filename = next_job["file"]
+            logger.info(f"File to process {filename}")
+            algorithm.execute_algorithm(filename, next_job["ticket"])
             '''
             ROFairnessCalculator(ro_path).\
                 calculate_fairness(evaluate_ro_metadata,
@@ -115,9 +119,14 @@ def run_fairos():
             
             os.system("rm -rf /tmp/"+next_job)
             '''
-        except:
+        except Exception as e:
+    
             logger.error("Job status updated to ERROR")
-            update_job(next_job,JOB_ERROR)
+            update_job(next_job["ticket"],JOB_ERROR)
+
+            traceback.print_exc()  # prints directly to stderr
+            # or
+            print(traceback.format_exc())  # returns traceback as a string
 
 logger.info("Initializing processor")
 
