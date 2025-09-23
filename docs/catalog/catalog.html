@@ -26,6 +26,82 @@
             .label.label-success {
                 font-size: 12px;
             }
+               .btn-deactivate {
+                background-color: #9c9b9b;    
+                border: 4px solid #7a7979;       
+                color: white !important;         
+                font-weight: bold;
+                padding: 6px 12px;
+                border-radius: 4px;
+                transition: all 0.2s ease-in-out;
+            }
+
+            .btn-deactivate:hover {
+                background-color: #737272;       
+                border-color: #3e3e3e;           
+            }
+
+            .btn-active-t {
+                font-weight: bold;
+                color: white !important;
+                background-color: #08b4cc !important;
+                border: 4px solid #0690a2 !important;
+                transition: all 0.2s ease-in-out;
+            }
+            
+            .btn-active-t:hover {
+                background-color: #034852 !important;       
+                border-color: #08b4cc !important;          
+            }
+
+            .btn-active-m {
+                font-weight: bold;
+                color: white !important;
+                background-color: #208b99 !important;
+                border: 4px solid #15606a !important;
+                transition: all 0.2s ease-in-out;
+            }
+            .btn-active-m:hover {
+                background-color: #196b76  !important;    
+                border-color: #0a6975 !important;         
+            }
+            .btn-active-b {
+                font-weight: bold;
+                color: white !important;
+                background-color: #055c68 !important;
+                border: 4px solid #04444d !important;
+                transition: all 0.2s ease-in-out;
+            }
+            .btn-active-b:hover {
+                background-color: #04739f !important;    
+                border-color: #08b4cc !important;         
+            }
+            .btn-active-about {
+                font-weight: bold;
+                color: white !important;
+                background-color: #08b4cc !important;
+                border: 4px solid #0695a8 !important;
+                transition: all 0.2s ease-in-out;
+            }
+            .btn-active-about:hover {
+                background-color: #048191 !important;       
+                border-color: #045b67 !important;          
+            }
+            .btn-active-t:focus {
+                background-color: #5990a9 !important;
+                border-color: #375b6b !important;
+                outline: none !important;
+            }
+            .btn-active-m:focus {
+                background-color: #208b99 !important;
+                border-color: #15606a !important;
+                outline: none !important;
+            }
+            .btn-active-b:focus {
+                background-color: #83d2f7 !important;
+                border-color: #578da6 !important;
+                outline: none !important;
+            }
             h1 {
                 margin-bottom: 25px; 
             }
@@ -50,7 +126,7 @@
                     $keywords.html(formattedKeywords);
                 });
 
-                function showSection(sectionId) { 
+                 function showSection(sectionId) { 
                     $("#test, #metric, #benchmark").hide(); // Mostrar la sección correspondiente 
                     $(sectionId).show();
                 } 
@@ -59,43 +135,54 @@
                     window.location.hash = sectionId;
                 } 
 
+                function highlightButton(buttonId) {
+        
+                    $("#btn_test").removeClass("btn-active-t");
+                    $("#btn_metric").removeClass("btn-active-m");
+                    $("#btn_benchmark").removeClass("btn-active-b");
+
+                
+                    if (buttonId === "#btn_test") {
+                        $(buttonId).addClass("btn-active-t");
+                    } else if (buttonId === "#btn_metric") {
+                        $(buttonId).addClass("btn-active-m");
+                    } else if (buttonId === "#btn_benchmark") {
+                        $(buttonId).addClass("btn-active-b");
+                    }
+                }
+
                 const currentHash = window.location.hash; 
-                if (!currentHash) { 
-                    // Si no hay marcador en la URL, actualizar a #test 
-                    updateURL("test"); 
-                } 
+
+                let sectionToShow = "#test"; // Por defecto, mostrar el test
+                let buttonToHighlight = "#btn_test";
+
+                if (currentHash === "#metric" || currentHash === "#benchmark") {
+                    sectionToShow = currentHash;
+                    buttonToHighlight = "#btn_" + currentHash.substring(1);
+                }
                 showSection(currentHash || "#test");
-
-                // function showSection(uri) {
-                //     const sections = {
-                //         "https://w3id.org/foops/test/": "#div_test",
-                //         "https://w3id.org/foops/metric/": "#div_metric",
-                //         "https://w3id.org/foops/benchmark/": "#div_benchmark"
-                //     };
-
-                //     $("#div_test, #div_metric, #div_benchmark").hide();
-
-                //     // Mostrar el div correspondiente al URI o la de "Test" por defecto
-                //     const sectionToShow = sections[uri] || "#div_test";
-                //     $(sectionToShow).show();
-                // }
-       
-                // const currentURI = window.location.href;
-                // showSection(currentURI);
+                highlightButton(buttonToHighlight);
 
                 $("#btn_metric").click(function(){
                     updateURL("metric"); 
                     showSection("#metric");
+                    highlightButton("#btn_metric");
                 });
                 
                 $("#btn_test").click(function(){
                     updateURL("test"); 
                     showSection("#test");
+                    highlightButton("#btn_test");
                 });
 
                 $("#btn_benchmark").click(function(){
                     updateURL("benchmark"); 
                     showSection("#benchmark");
+                    highlightButton("#btn_benchmark");
+                });
+                          
+                $("#btn_about").click(function(){
+                    window.location.href = 'about.html';
                 });
             });
             
@@ -105,10 +192,10 @@
         <div style="margin-top: 20px;">
             <div class="row">
                 <div class="col-md-12" style="display: flex; justify-content: flex-end; margin-bottom: 10px;">
-                    <button id="btn_test" type="button" class="btn btn-primary"  style="margin-right: 10px;"">Test</button>
-                    <button id="btn_metric" type="button" class="btn btn-primary"  style="margin-right: 10px;"">Metric</button>
-                    <button id="btn_benchmark" type="button" class="btn btn-primary" style="margin-right: 10px;"">Benchmark</button>
-                    <button id="btn_about" type="button" class="btn btn-primary" style="margin-right: 10px;"">About</button>
+                    <button id="btn_test" type="button" class="btn btn-deactivate"  style="margin-right: 10px;"">Test</button>
+                    <button id="btn_metric" type="button" class="btn btn-deactivate"  style="margin-right: 10px;"">Metric</button>
+                    <button id="btn_benchmark" type="button" class="btn btn-deactivate" style="margin-right: 10px;"">Benchmark</button>
+                    <button id="btn_about" type="button" class="btn btn-active-about" style="margin-right: 10px;"">About</button>
                 </div>
             </div>
             <div id = "test" class="container">
@@ -139,10 +226,12 @@
                 <table class="table" style="margin-top: 30px;">
                     <thead>
                         <tr>
-                            <th>Name</th>
+                            <th>Short Name</th>
                             <th>Title</th>
-                            <th>License</th>
-                            <th>Version</th>
+                            <th>Category</th>
+                            <th>Principle</th>
+                            <!-- <th>License</th>
+                            <th>Version</th> -->
                             <th>Keywords</th>
                         </tr>
                     </thead>
@@ -151,280 +240,350 @@
                             <!-- <td><a href="https://w3id.org/FAIROS/test/FUJI-A1-01">https://w3id.org/FAIROS/test/FUJI-A1-01</a></td> -->
                             <td><a href="https://w3id.org/FAIROS/test/FUJI-A1-01"><strong>FUJI-A1-01</strong></a></td>
                             <td class="titles">Information about access restrictions or rights can be identified in metadata</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
+                            <td></td>
+                            <td></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
                             <td class="keywords">metadata, data access, access conditions</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/FAIROS/test/FUJI-A1-02">https://w3id.org/FAIROS/test/FUJI-A1-02</a></td> -->
                             <td><a href="https://w3id.org/FAIROS/test/FUJI-A1-02"><strong>FUJI-A1-02</strong></a></td>
                             <td class="titles">Metadata are retrievable via their specified identifier</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
+                            <td></td>
+                            <td></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
                             <td class="keywords">http://www.fairsharing.org/ontology/domain/DRAO_0000281, metadata, controlled vocabularies</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/FAIROS/test/FUJI-A1-03">https://w3id.org/FAIROS/test/FUJI-A1-03</a></td> -->
                             <td><a href="https://w3id.org/FAIROS/test/FUJI-A1-03"><strong>FUJI-A1-03</strong></a></td>
                             <td class="titles">Data are retrievable via the identifiers given in metadata</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
+                            <td></td>
+                            <td></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
                             <td class="keywords">metadata, protocol, URI’s scheme</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/FAIROS/test/FUJI-A1-04">https://w3id.org/FAIROS/test/FUJI-A1-04</a></td> -->
                             <td><a href="https://w3id.org/FAIROS/test/FUJI-A1-04"><strong>FUJI-A1-04</strong></a></td>
                             <td class="titles">Identifier leading to metadata matches a scheme indicating a standardized web communication protocol.</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
+                            <td></td>
+                            <td></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
                             <td class="keywords">metadata, identifier</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/FAIROS/test/FUJI-A1-05">https://w3id.org/FAIROS/test/FUJI-A1-05</a></td> -->
                             <td><a href="https://w3id.org/FAIROS/test/FUJI-A1-05"><strong>FUJI-A1-05</strong></a></td>
                             <td class="titles">Identifier leading to data are matching a schema indicating a standardized web communication protocol.</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
+                            <td></td>
+                            <td></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
                             <td class="keywords">URI’s scheme, protocol</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/FAIROS/test/FUJI-A1-06">https://w3id.org/FAIROS/test/FUJI-A1-06</a></td> -->
                             <td><a href="https://w3id.org/FAIROS/test/FUJI-A1-06"><strong>FUJI-A1-06</strong></a></td>
                             <td class="titles">The communication protocol found in identifiers (IRIs) leading to metadata supports authentication.</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
+                            <td></td>
+                            <td></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
                             <td class="keywords">data, protocol</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/FAIROS/test/FUJI-A2-01">https://w3id.org/FAIROS/test/FUJI-A2-01</a></td> -->
                             <td><a href="https://w3id.org/FAIROS/test/FUJI-A2-01"><strong>FUJI-A2-01</strong></a></td>
                             <td class="titles">Repository supports long-term preservation of metadata for deprecated or deleted objects</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
+                            <td></td>
+                            <td></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
                             <td class="keywords">metadata, preservation</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/FAIROS/test/FUJI-F1-01">https://w3id.org/FAIROS/test/FUJI-F1-01</a></td> -->
                             <td><a href="https://w3id.org/FAIROS/test/FUJI-F1-01"><strong>FUJI-F1-01</strong></a></td>
                             <td class="titles">Metadata identifier follows a defined unique identifier syntax or scheme (IRI, URL, UUID, HASH or PID)</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
+                            <td></td>
+                            <td></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
                             <td class="keywords">globally unique identifier, metadata</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/FAIROS/test/FUJI-F1-02">https://w3id.org/FAIROS/test/FUJI-F1-02</a></td> -->
                             <td><a href="https://w3id.org/FAIROS/test/FUJI-F1-02"><strong>FUJI-F1-02</strong></a></td>
                             <td class="titles">Data identifier follows a defined unique identifier syntax (IRI, URL, UUID, HASH or PID)</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
+                            <td></td>
+                            <td></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
                             <td class="keywords">metadata, data, resolvable identifier, persistant identifier, http</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/FAIROS/test/FUJI-F1-03">https://w3id.org/FAIROS/test/FUJI-F1-03</a></td> -->
                             <td><a href="https://w3id.org/FAIROS/test/FUJI-F1-03"><strong>FUJI-F1-03</strong></a></td>
                             <td class="titles">Metadata identifier follows a defined persistent identifier syntax.</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
+                            <td></td>
+                            <td></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
                             <td class="keywords">metadata, data, resolvable identifier, persistant identifier, http</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/FAIROS/test/FUJI-F1-04">https://w3id.org/FAIROS/test/FUJI-F1-04</a></td> -->
                             <td><a href="https://w3id.org/FAIROS/test/FUJI-F1-04"><strong>FUJI-F1-04</strong></a></td>
                             <td class="titles">Persistent identifier for metadata is registered and maintained by a PID authority</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
+                            <td></td>
+                            <td></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
                             <td class="keywords">metadata, data, resolvable identifier, persistant identifier, http</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/FAIROS/test/FUJI-F1-05">https://w3id.org/FAIROS/test/FUJI-F1-05</a></td> -->
                             <td><a href="https://w3id.org/FAIROS/test/FUJI-F1-05"><strong>FUJI-F1-05</strong></a></td>
                             <td class="titles">Data identifier follows a defined persistent identifier syntax</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
+                            <td></td>
+                            <td></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
                             <td class="keywords">metadata, data, resolvable identifier, persistant identifier, http</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/FAIROS/test/FUJI-F1-06">https://w3id.org/FAIROS/test/FUJI-F1-06</a></td> -->
                             <td><a href="https://w3id.org/FAIROS/test/FUJI-F1-06"><strong>FUJI-F1-06</strong></a></td>
                             <td class="titles">Persistent identifier for data is registered and maintained by a PID authority</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
+                            <td></td>
+                            <td></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
                             <td class="keywords">metadata, data, resolvable identifier, persistant identifier, http</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/FAIROS/test/FUJI-test-F2-01">https://w3id.org/FAIROS/test/FUJI-test-F2-01</a></td> -->
                             <td><a href="https://w3id.org/FAIROS/test/FUJI-test-F2-01"><strong>FUJI-F2-01</strong></a></td>
                             <td class="titles">Core data citation metadata is available</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
+                            <td></td>
+                            <td></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
                             <td class="keywords">metadata, web, standard</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/FAIROS/test/FUJI-test-F2-02">https://w3id.org/FAIROS/test/FUJI-test-F2-02</a></td> -->
                             <td><a href="https://w3id.org/FAIROS/test/FUJI-test-F2-02"><strong>FUJI-F2-02</strong></a></td>
                             <td class="titles">Core descriptive metadata is available</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
+                            <td></td>
+                            <td></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
                             <td class="keywords">minimum metadata</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/FAIROS/test/FUJI-F3-01">https://w3id.org/FAIROS/test/FUJI-F3-01</a></td> -->
                             <td><a href="https://w3id.org/FAIROS/test/FUJI-F3-01"><strong>FUJI-F3-01</strong></a></td>
                             <td class="titles">Metadata contains a PID or URL which indicates the location of the downloadable data content</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
+                            <td></td>
+                            <td></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
                             <td class="keywords">metadata, persistent identifier, downloadable data</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/FAIROS/test/FUJI-F4-01">https://w3id.org/FAIROS/test/FUJI-F4-01</a></td> -->
                             <td><a href="https://w3id.org/FAIROS/test/FUJI-F4-01"><strong>FUJI-F4-01</strong></a></td>
                             <td class="titles">Metadata is programmatically retrievable via standard web mechanisms</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
+                            <td></td>
+                            <td></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
                             <td class="keywords">metadata, persistent identifier, signposting, PID provider</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/FAIROS/test/FUJI-I1-01">https://w3id.org/FAIROS/test/FUJI-I1-01</a></td> -->
                             <td><a href="https://w3id.org/FAIROS/test/FUJI-I1-01"><strong>FUJI-I1-01</strong></a></td>
                             <td class="titles">Parsable, structured metadata (JSON-LD, RDFa) is embedded in the landing page XHTML/HTML code</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
+                            <td></td>
+                            <td></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
                             <td class="keywords">metadata, content negotiation, sparql endpoint</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/FAIROS/test/FUJI-I1-02">https://w3id.org/FAIROS/test/FUJI-I1-02</a></td> -->
                             <td><a href="https://w3id.org/FAIROS/test/FUJI-I1-02"><strong>FUJI-I1-02</strong></a></td>
                             <td class="titles">Parsable, structured metadata (RDF, JSON-LD) is accessible through content negotiation, typed links or sparql endpoint</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
+                            <td></td>
+                            <td></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
                             <td class="keywords">namespaces, semantic resource</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/FAIROS/test/FUJI-test-I2-01">https://w3id.org/FAIROS/test/FUJI-test-I2-01</a></td> -->
                             <td><a href="https://w3id.org/FAIROS/test/FUJI-test-I2-01"><strong>FUJI-I2-01</strong></a></td>
                             <td class="titles">Metadata uses terms from registered vocabularies that are identified by their namespaces</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
+                            <td></td>
+                            <td></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
                             <td class="keywords">metadata, data, vocabularies</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/FAIROS/test/FUJI-test-I3-01">https://w3id.org/FAIROS/test/FUJI-test-I3-01</a></td> -->
                             <td><a href="https://w3id.org/FAIROS/test/FUJI-test-I3-01"><strong>FUJI-I3-01</strong></a></td>
                             <td class="titles">Metadata captures the relation between a data object and its related entity.</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
+                            <td></td>
+                            <td></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
                             <td class="keywords">metadata, data object</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/FAIROS/test/FUJI-I3-02">https://w3id.org/FAIROS/test/FUJI-I3-02</a></td> -->
                             <td><a href="https://w3id.org/FAIROS/test/FUJI-I3-02"><strong>FUJI-I3-02</strong></a></td>
                             <td class="titles">Relations are preferably be expressed as actionable unique or persistent identifiers.</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
+                            <td></td>
+                            <td></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
                             <td class="keywords">PROV-O, relation types, Datacite</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/FAIROS/test/FUJI-R1-01">https://w3id.org/FAIROS/test/FUJI-R1-01</a></td> -->
                             <td><a href="https://w3id.org/FAIROS/test/FUJI-R1-01"><strong>FUJI-R1-01</strong></a></td>
                             <td class="titles">Minimum information (resource type) about the available data content is specified in the metadata.</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
+                            <td></td>
+                            <td></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
                             <td class="keywords">metadata, technical properties</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/FAIROS/test/FUJI-R1-02">https://w3id.org/FAIROS/test/FUJI-R1-02</a></td> -->
                             <td><a href="https://w3id.org/FAIROS/test/FUJI-R1-02"><strong>FUJI-R1-02</strong></a></td>
                             <td class="titles">Information on the manner and form (file size and type or service (API) endpoint and protocol) in which data is delivered is provided</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
+                            <td></td>
+                            <td></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
                             <td class="keywords">metadata, properties</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/FAIROS/test/FUJI-R1-03">https://w3id.org/FAIROS/test/FUJI-R1-03</a></td> -->
                             <td><a href="https://w3id.org/FAIROS/test/FUJI-R1-03"><strong>FUJI-R1-03</strong></a></td>
                             <td class="titles">Measured variables or observation types are specified in metadata</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
+                            <td></td>
+                            <td></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
                             <td class="keywords">metadata, properties</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/FAIROS/test/FUJI-R1.1-01">https://w3id.org/FAIROS/test/FUJI-R1.1-01</a></td> -->
                             <td><a href="https://w3id.org/FAIROS/test/FUJI-R1.1-01"><strong>FUJI-R1.1-01</strong></a></td>
                             <td class="titles">Metadata contains license information represented using an appropriate metadata element.</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
+                            <td></td>
+                            <td></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
                             <td class="keywords">metadata, license</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/FAIROS/test/FUJI-R1.2-01">https://w3id.org/FAIROS/test/FUJI-R1.2-01</a></td> -->
                             <td><a href="https://w3id.org/FAIROS/test/FUJI-R1.2-01"><strong>FUJI-R1.2-01</strong></a></td>
                             <td class="titles">Metadata contains elements which hold provenance information which can be mapped to PROV based on PROV-DC.</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
+                            <td></td>
+                            <td></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
                             <td class="keywords">metadata, provenance, PROV-O, PAV</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/FAIROS/test/FUJI-R1.2-02">https://w3id.org/FAIROS/test/FUJI-R1.2-02</a></td> -->
                             <td><a href="https://w3id.org/FAIROS/test/FUJI-R1.2-02"><strong>FUJI-R1.2-02</strong></a></td>
                             <td class="titles">Metadata contains elements which hold provenance information using formal provenance ontologies (PROV, PAV).</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
+                            <td></td>
+                            <td></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
                             <td class="keywords">metadata, provenance, PROV-O, PAV</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/FAIROS/test/FUJI-R1.3-01">https://w3id.org/FAIROS/test/FUJI-R1.3-01</a></td> -->
                             <td><a href="https://w3id.org/FAIROS/test/FUJI-R1.3-01"><strong>FUJI-R1.3-01</strong></a></td>
                             <td class="titles">Multidisciplinary but community endorsed metadata (RDA Metadata Standards Catalog, fairsharing) standard is detected by namespace</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
+                            <td></td>
+                            <td></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
                             <td class="keywords">metadata, standards, RDA Metadata Standards Catalog</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/FAIROS/test/FUJI-R1.3-02">https://w3id.org/FAIROS/test/FUJI-R1.3-02</a></td> -->
                             <td><a href="https://w3id.org/FAIROS/test/FUJI-R1.3-02"><strong>FUJI-R1.3-02</strong></a></td>
                             <td class="titles">Data is available in a file format recommended by the research community (long term file formats, open file formats or scientific file format) </td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
+                            <td></td>
+                            <td></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
                             <td class="keywords">data, long-term file format, ISO/TR 22299</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/FAIROS/test/ROCRATE-F1-01.ttl">https://w3id.org/FAIROS/test/ROCRATE-F1-01.ttl</a></td> -->
                             <td><a href="https://w3id.org/FAIROS/test/ROCRATE-F1-01.ttl"><strong>ROCRATE-F1-01</strong></a></td>
                             <td class="titles">Presence of a persistent identifier</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
+                            <td></td>
+                            <td></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
                             <td class="keywords">persistant identifier</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/FAIROS/test/ROCRATE-F2-01">https://w3id.org/FAIROS/test/ROCRATE-F2-01</a></td> -->
                             <td><a href="https://w3id.org/FAIROS/test/ROCRATE-F2-01"><strong>ROCRATE-F2-01</strong></a></td>
                             <td class="titles">Presence of minimum metadata</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
+                            <td></td>
+                            <td></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
                             <td class="keywords">minimum metadata</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/FAIROS/test/ROCRATE-F3-01">https://w3id.org/FAIROS/test/ROCRATE-F3-01</a></td> -->
                             <td><a href="https://w3id.org/FAIROS/test/ROCRATE-F3-01"><strong>ROCRATE-F3-01</strong></a></td>
                             <td class="titles">Inclusion and description of hasPart elements</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
+                            <td></td>
+                            <td></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
                             <td class="keywords">hasPart element</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/FAIROS/test/ROCRATE-I2-01">https://w3id.org/FAIROS/test/ROCRATE-I2-01</a></td> -->
                             <td><a href="https://w3id.org/FAIROS/test/ROCRATE-I2-01"><strong>ROCRATE-I2-01</strong></a></td>
                             <td class="titles">Verification of using schema.org</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
+                            <td></td>
+                            <td></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
                             <td class="keywords">Research Object, FAIR context, schema.org</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/FAIROS/test/ROCRATE-R1.2-01">https://w3id.org/FAIROS/test/ROCRATE-R1.2-01</a></td> -->
                             <td><a href="https://w3id.org/FAIROS/test/ROCRATE-R1.2-01"><strong>ROCRATE-R1.2-01</strong></a></td>
                             <td class="titles">Verification of provenance metadata fields.</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
+                            <td></td>
+                            <td></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
                             <td class="keywords">Research Object</td>
                         </tr>
                     </tbody>
@@ -455,10 +614,12 @@
                 <table class="table" style="margin-top: 30px;">
                     <thead>
                         <tr>
-                            <th>Name</th>
+                            <th>Short Name</th>
                             <th>Title</th>
-                            <th>License</th>
-                            <th>Version</th>
+                            <th>Category</th>
+                            <th>Principle</th>
+                            <!-- <th>License</th>
+                            <th>Version</th> -->
                             <th>Keywords</th>
                         </tr>
                     </thead>
@@ -467,144 +628,180 @@
                             <!-- <td><a href="https://w3id.org/FAIROS/metric/FAIROS-A1-01">https://w3id.org/FAIROS/metric/FAIROS-A1-01</a></td> -->
                             <td><a href="https://w3id.org/FAIROS/metric/FAIROS-A1-01"><strong>FAIROS-metric-A1-01</strong></a></td>
                             <td class="titles">Metadata contains access level and access conditions of the data.</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
+                            <td></td>
+                            <td></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
                             <td class="keywords">metadata, access level, access conditions</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/FAIROS/metric/FAIROS-A1-02">https://w3id.org/FAIROS/metric/FAIROS-A1-02</a></td> -->
                             <td><a href="https://w3id.org/FAIROS/metric/FAIROS-A1-02"><strong>FAIROS-metric-A1-02</strong></a></td>
                             <td class="titles">Metadata is accessible through a standardized communication protocol</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
+                            <td></td>
+                            <td></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
                             <td class="keywords">metadata, protocols</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/FAIROS/metric/FAIROS-A1-03">https://w3id.org/FAIROS/metric/FAIROS-A1-03</a></td> -->
                             <td><a href="https://w3id.org/FAIROS/metric/FAIROS-A1-03"><strong>FAIROS-metric-A1-03</strong></a></td>
                             <td class="titles">Data is accessible through a standardized communication protocol</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
+                            <td></td>
+                            <td></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
                             <td class="keywords">data access, protocols</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/FAIROS/metric/FAIROS-A2-01">https://w3id.org/FAIROS/metric/FAIROS-A2-01</a></td> -->
                             <td><a href="https://w3id.org/FAIROS/metric/FAIROS-A2-01"><strong>FAIROS-metric-A2-01</strong></a></td>
                             <td class="titles">Metadata remains available, even if the data is no longer available.</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
+                            <td></td>
+                            <td></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
                             <td class="keywords">persistent identifier, provenance</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/FAIROS/metric/FAIROS-F1-01">https://w3id.org/FAIROS/metric/FAIROS-F1-01</a></td> -->
                             <td><a href="https://w3id.org/FAIROS/metric/FAIROS-F1-01"><strong>FAIROS-metric-F1-01</strong></a></td>
                             <td class="titles">The research object is identified by an unique identifier (GUID or IRI) that follows a proper syntax.</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
+                            <td></td>
+                            <td></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
                             <td class="keywords">persistent identifier, unique reference</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/FAIROS/metric/FAIROS-F1-02">https://w3id.org/FAIROS/metric/FAIROS-F1-02</a></td> -->
                             <td><a href="https://w3id.org/FAIROS/metric/FAIROS-F1-02"><strong>FAIROS-metric-F1-02</strong></a></td>
                             <td class="titles">To ensure both the metadata and the data (if separate) have persistent, unique identifiers.</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
+                            <td></td>
+                            <td></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
                             <td class="keywords">persistent identifier, resolvability, identifier governance</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/FAIROS/metric/FAIROS-F2-01">https://w3id.org/FAIROS/metric/FAIROS-F2-01</a></td> -->
                             <td><a href="https://w3id.org/FAIROS/metric/FAIROS-F2-01"><strong>FAIROS-metric-F2-01</strong></a></td>
                             <td class="titles">Metadata includes descriptive core elements to support data findability.</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
+                            <td></td>
+                            <td></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
                             <td class="keywords">metadata, core metadata, completeness, metadata standards</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/FAIROS/metric/FAIROS-F3-01">https://w3id.org/FAIROS/metric/FAIROS-F3-01</a></td> -->
                             <td><a href="https://w3id.org/FAIROS/metric/FAIROS-F3-01"><strong>FAIROS-metric-F3-01</strong></a></td>
                             <td class="titles">Metadata includes the identifier of the data it describes.</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
+                            <td></td>
+                            <td></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
                             <td class="keywords">persistent identifier, data reference</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/FAIROS/metric/FAIROS-F4-01">https://w3id.org/FAIROS/metric/FAIROS-F4-01</a></td> -->
                             <td><a href="https://w3id.org/FAIROS/metric/FAIROS-F4-01"><strong>FAIROS-metric-F4-01</strong></a></td>
                             <td class="titles">Metadata is offered in such a way that it can be retrieved by machines.</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
+                            <td></td>
+                            <td></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
                             <td class="keywords">metadata, protocols, content negotiation</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/FAIROS/metric/FAIROS-I1-01">https://w3id.org/FAIROS/metric/FAIROS-I1-01</a></td> -->
                             <td><a href="https://w3id.org/FAIROS/metric/FAIROS-I1-01"><strong>FAIROS-metric-I1-01</strong></a></td>
                             <td class="titles">Metadata is represented using a formal knowledge representation language.</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
+                            <td></td>
+                            <td></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
                             <td class="keywords">semantic standards, knowledge representation</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/FAIROS/metric/FAIROS-I1-02">https://w3id.org/FAIROS/metric/FAIROS-I1-02</a></td> -->
                             <td><a href="https://w3id.org/FAIROS/metric/FAIROS-I1-02"><strong>FAIROS-metric-I1-02</strong></a></td>
                             <td class="titles">Metadata uses semantic resources.</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
+                            <td></td>
+                            <td></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
                             <td class="keywords">semantic standards, domain interoperability</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/FAIROS/metric/FAIROS-I2-01">https://w3id.org/FAIROS/metric/FAIROS-I2-01</a></td> -->
                             <td><a href="https://w3id.org/FAIROS/metric/FAIROS-I2-01"><strong>FAIROS-metric-I2-01</strong></a></td>
                             <td class="titles">(Meta)data use vocabularies that follow FAIR principles</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
+                            <td></td>
+                            <td></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
                             <td class="keywords">FAIR, persistent identifiers, provenance</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/FAIROS/metric/FAIROS-I3-01">https://w3id.org/FAIROS/metric/FAIROS-I3-01</a></td> -->
                             <td><a href="https://w3id.org/FAIROS/metric/FAIROS-I3-01"><strong>FAIROS-metric-I3-01</strong></a></td>
                             <td class="titles">Metadata includes links between the data and its related entities.</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
+                            <td></td>
+                            <td></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
                             <td class="keywords">linked data, provenance, persistent identifiers</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/FAIROS/metric/FAIROS-R1-01">https://w3id.org/FAIROS/metric/FAIROS-R1-01</a></td> -->
                             <td><a href="https://w3id.org/FAIROS/metric/FAIROS-R1-01"><strong>FAIROS-metric-R1-01</strong></a></td>
                             <td class="titles">Metadata specifies the content of the data.</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
+                            <td></td>
+                            <td></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
                             <td class="keywords">core metadata, understandability</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/FAIROS/metric/FAIROS-R1.1-01">https://w3id.org/FAIROS/metric/FAIROS-R1.1-01</a></td> -->
                             <td><a href="https://w3id.org/FAIROS/metric/FAIROS-R1.1-01"><strong>FAIROS-metric-R1.1-01</strong></a></td>
                             <td class="titles">Metadata includes license information under which data can be reused.</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
+                            <td></td>
+                            <td></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
                             <td class="keywords">license, legal, responsible reuse, access conditions</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/FAIROS/metric/FAIROS-R1.2-01">https://w3id.org/FAIROS/metric/FAIROS-R1.2-01</a></td> -->
                             <td><a href="https://w3id.org/FAIROS/metric/FAIROS-R1.2-01"><strong>FAIROS-metric-R1.2-01</strong></a></td>
                             <td class="titles">Metadata includes provenance information about data creation or generation.</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
+                            <td></td>
+                            <td></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
                             <td class="keywords">provenance, transparency, standard vocabularies</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/FAIROS/metric/FAIROS-R1.3-01">https://w3id.org/FAIROS/metric/FAIROS-R1.3-01</a></td> -->
                             <td><a href="https://w3id.org/FAIROS/metric/FAIROS-R1.3-01"><strong>FAIROS-metric-R1.3-01</strong></a></td>
                             <td class="titles">Metadata follows a standard recommended by the target research community of the data.</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
+                            <td></td>
+                            <td></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
                             <td class="keywords">community metadata standards, research community</td>
                         </tr>
                         <tr>
                             <!-- <td><a href="https://w3id.org/FAIROS/metric/FAIROS-R1.3-02">https://w3id.org/FAIROS/metric/FAIROS-R1.3-02</a></td> -->
                             <td><a href="https://w3id.org/FAIROS/metric/FAIROS-R1.3-02"><strong>FAIROS-metric-R1.3-02</strong></a></td>
                             <td class="titles">Data is available in a file format recommended by the target research community.</td>
-                            <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
-                            <td>0.0.1</td>
+                            <td></td>
+                            <td></td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
                             <td class="keywords">file formats, research community, open formats</td>
                         </tr>
                     </tbody>
@@ -635,14 +832,21 @@
                 <table class="table" style="margin-top: 30px;">
                     <thead>
                         <tr>
-                            <th>Name</th>
+                            <th>-Short Name</th>
                             <th>Title</th>
-                            <th>License</th>
-                            <th>Version</th>
+                            <!-- <th>License</th>
+                            <th>Version</th> -->
                             <th>Keywords</th>
                         </tr>
                     </thead>
                     <tbody>
+                        <tr>
+                            <td><a href="https://w3id.org/FAIROS/benchmark/RESEARCH_OBJECT"><strong>FAIROS-benchmark</strong></a></td>
+                            <td class="titles">FAIROS-benchmark</td>
+                            <!-- <td><a href="http://creativecommons.org/licenses/by/4.0/" target="_blank"><span class="label label-success">CC-BY-4.0</span></a></td>
+                            <td>0.0.1</td> -->
+                            <td class="keywords">None</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>

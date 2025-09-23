@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+    <title>About FAIR-Reserch-Object</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+  table.outer {
+    width: 100%;
+    border-collapse: collapse;
+    border: 2px solid #444;
+  }
+  table.outer th,
+  table.outer td {
+    padding: 8px;
+    vertical-align: top;
+    border: 1px solid #444;
+  }
+  table.outer td:first-child {
+    min-width: 300px; 
+  }
+
+  table.inner {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  table.inner td {
+    padding: 4px;
+    border: none; 
+  }
+
+</style>
+<body style="position: relative; min-height: 100vh; padding-top: 60px;">
+  <button id="btn_back"
+          type="button"
+          class="btn btn-primary"
+          onclick="window.location.href='catalog.html#test';"
+          style="position: absolute; top: 10px; right: 10px;">
+    Back
+  </button>
+  <section style="max-width: 800px; margin: auto; line-height: 1.6;">
+    <h1>About FAIR-Reserch-Object (FAIROS)</h1>
+
+    <p>
+    Tool to calculate the FAIRness of 
+    <a href="https://www.researchobject.org/" target="_blank">Research Objects</a>, 
+    serialized as 
+    <a href="https://www.researchobject.org/ro-crate/" target="_blank">RO-Crates</a>.
+    </p>
+    <p>
+    FAIROS is a framework designed to evaluate the <strong>FAIRness</strong> of 
+    <a href="https://www.researchobject.org/" target="_blank">Research Objects (ROs)</a>, 
+    which are complex aggregations of data, software, and metadata. It provides:
+    <ul>
+    <li>Two scoring approaches to assess the FAIRness of an RO.</li>
+    <li>An initial implementation of these methods within the FAIROS framework.</li>
+    <li>A clear, explanatory approach to visualize the obtained scores.</li>
+    </ul>
+    The framework was validated on a collection of 165 ROs, highlighting strengths and limitations of different scoring systems.
+    </p>
+    <p>More information on FAIROS is available here: <a href="https://zenodo.org/records/7795727" target="_blank">10.5281/zenodo.7795727</a></p>
+
+    <h2>Authors & Maintainers</h2>
+    <p>
+    Daniel Garijo (OEG‑UPM)<br>
+    Esteban González (OEG‑UPM)<br>
+    Alejandro Benítez (OEG‑UPM)<br>
+    </p>
+
+    <h2>Citing FAIROs</h2>
+        <p>If you use FAIROs, please refer to our TPDL publication:</p>
+
+        <pre><code>@inproceedings{10.1007/978-3-031-16802-4_6,
+        author    = {Gonz{\'a}lez, Esteban and Ben{\'i}tez, Alejandro and Garijo, Daniel},
+        editor    = {Silvello, Gianmaria and Corcho, Oscar and Manghi, Paolo and Di Nunzio, Giorgio Maria and Golub, Koraljka and Ferro, Nicola and Poggi, Antonella},
+        title     = {FAIROs: Towards FAIR Assessment in Research Objects},
+        booktitle = {Linking Theory and Practice of Digital Libraries},
+        year      = {2022},
+        publisher = {Springer International Publishing},
+        address   = {Cham},
+        pages     = {68--80},
+        isbn      = {978-3-031-16802-4},
+        doi       = {https://doi.org/10.1007/978-3-031-16802-4_6}
+        }</code></pre>
+    <h2>More information</h2>
+    <p>Explore the project on <a href="https://github.com/oeg-upm/FAIR-Research-Object" target="_blank">GitHub</a> or visit the <a href="https://oeg.fi.upm.es" target="_blank">OEG‑UPM homepage</a>.</p>
+  </section>
+</body>
+</html>
