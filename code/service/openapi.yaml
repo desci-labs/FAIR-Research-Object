@@ -1,0 +1,203 @@
+openapi: 3.1.0
+info:
+  title: FAIROs Assessment API
+  version: 1.0.0
+  description: |
+    Service to assess Research Objects.
+
+    ## Access modes
+    - **Token (Authorization header)** → treated as **private** access with no daily limit.
+    - **No token** → **public** access, limited to 100 requests/day per IP (HTTP 429 when exceeded).
+
+    Tokens are validated against the service database. Invalid tokens return HTTP 403.
+
+    Notes:
+    - Files are stored per-request; a job is created and an MQTT message is published for downstream processing.
+    - Responses intentionally return only a `ticket_id` for asynchronous tracking.
+
+  contact:
+    name: FAIROs Team
+servers:
+  - url: https://api.example.com
+    description: Production
+  - url: https://staging.api.example.com
+    description: Staging
+
+tags:
+  - name: System
+  - name: Catalog
+  - name: Assessment
+
+paths:
+  /:
+    get:
+      tags: [System]
+      summary: Service welcome
+      operationId: readRoot
+      responses:
+        '200':
+          description: Welcome message
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Welcome'
+              examples:
+                default:
+                  value: { message: "Welcome to FAIROs, a service to assess Research Objects." }
+
+  /metrics:
+    get:
+      tags: [Catalog]
+      summary: List metric URIs
+      description: Returns URIs of resources of type `dqv:Metric` discovered under the configured metrics directory.
+      operationId: listMetrics
+      responses:
+        '200':
+          description: Array of metric URIs
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+                  format: uri
+
+  /tests:
+    get:
+      tags: [Catalog]
+      summary: List test URIs
+      description: Returns URIs of resources of type `ftr:Test` discovered under the configured tests directory.
+      operationId: listTests
+      responses:
+        '200':
+          description: Array of test URIs
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+                  format: uri
+
+  /benchmarks:
+    get:
+      tags: [Catalog]
+      summary: List benchmark URIs
+      description: Returns URIs of resources of type `ftr:Benchmark` discovered under the configured benchmarks directory.
+      operationId: listBenchmarks
+      responses:
+        '200':
+          description: Array of benchmark URIs
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+                  format: uri
+
+  /assess/algorithm/{algorithm_id}:
+    post:
+      tags: [Assessment]
+      summary: Submit a Research Object for assessment by algorithm
+      description: |
+        Upload a Research Object metadata file (`ro-crate-metadata.json`) and specify the target algorithm.
+        - If an **Authorization** token is provided and valid, the request is treated as **private**.
+        - Without a token, the request is **public** and subject to a daily per-IP limit (100/day). Exceeding the limit returns **429**.
+      operationId: executeAlgorithm
+      parameters:
+        - name: algorithm_id
+          in: path
+          required: true
+          description: Identifier of the assessment algorithm to execute.
+          schema:
+            type: string
+        - name: Authorization
+          in: header
+          required: false
+          description: |
+            Optional access token. If valid, removes rate limiting for the request (private mode).
+            Format: opaque token string (not necessarily "Bearer").
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required: [file]
+              properties:
+                file:
+                  type: string
+                  format: binary
+                  description: The uploaded `ro-crate-metadata.json` file for the Research Object.
+            encoding:
+              file:
+                contentType: application/json
+      responses:
+        '200':
+          description: Ticket created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TicketResponse'
+              examples:
+                example:
+                  value: { ticket_id: "20250101T120001-4321" }
+        '400':
+          description: Bad request (e.g., missing file field). May be returned by the framework validation.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Error' }
+        '403':
+          description: Invalid token supplied in Authorization header.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Error' }
+              examples:
+                invalidToken:
+                  value: { detail: "Invalid token" }
+        '429':
+          description: Daily request limit reached for this IP (public mode).
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Error' }
+              examples:
+                rateLimited:
+                  value: { detail: "Daily request limit reached for this IP" }
+      # Security note: Auth is optional. Defining the scheme for documentation:
+      security: []  # no auth required; token is optional via header parameter
+
+components:
+  securitySchemes:
+    apiKeyAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: Optional token to enable private (unlimited) access.
+
+  schemas:
+    Welcome:
+      type: object
+      properties:
+        message:
+          type: string
+      required: [message]
+
+    TicketResponse:
+      type: object
+      properties:
+        ticket_id:
+          type: string
+          description: Unique ticket identifier for tracking the asynchronous job.
+      required: [ticket_id]
+
+    Error:
+      type: object
+      properties:
+        detail:
+          oneOf:
+            - type: string
+            - type: object
+      required: [detail]
