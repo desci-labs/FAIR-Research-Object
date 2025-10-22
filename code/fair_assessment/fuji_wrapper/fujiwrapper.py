@@ -54,8 +54,9 @@ class FujiWrapper:
 	def __calculate_tests_and_status(self, result):
 		tests = result["metric_tests"]
 		passed, total = 0, len(tests)
-		for test in tests:
-			print(result["metric_tests"][test]);passed += 1 if result["metric_tests"][test]["metric_test_status"] == "pass" else 0
+		results = []
+		#for test in tests:
+		#	print(result["metric_tests"][test]);passed += 1 if result["metric_tests"][test]["metric_test_status"] == "pass" else 0
 		
 		return passed, total
   
@@ -65,6 +66,9 @@ class FujiWrapper:
 		for test in tests:
 			output.append(f"{result['metric_tests'][test]['metric_test_status'].upper()}: {result['metric_tests'][test]['metric_test_name']}")
 		return output
+	
+	def get_results(self):
+		return self.raw_output
 
 	def __unify_output(self):
 		raw = self.raw_output
