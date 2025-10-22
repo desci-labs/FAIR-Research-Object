@@ -91,6 +91,11 @@ def on_message(client, userdata, msg):  # The callback for when a PUBLISH messag
     logger.info(str(message_json["ticket"])+" ticket added to queue")
     fifo_queue.put(message_json)
 
+def is_url(s: str) -> bool:
+    if not isinstance(s, str) or len(s) < 5:
+        return False
+    return s.startswith("http://") or s.startswith("https://")
+    
 def run_fairos():
     while 1:
         logger.debug("Waiting for new job")
@@ -105,8 +110,12 @@ def run_fairos():
             algorithm = load_class('algorithms.'+algorithm_id,algorithm_id)
             logger.info(f"Algorithm {algorithm.get_id()} loaded")
             filename = next_job["file"]
-            logger.info(f"File to process {filename}")
-            algorithm.execute_algorithm(filename, next_job["ticket"])
+            if is_url(filename):
+                logger.info(f"URL to process {filename}")
+                algorithm.execute_algorithm_uri(filename, next_job["ticket"])
+            else:
+                logger.info(f"File to process {filename}")
+                algorithm.execute_algorithm(filename, next_job["ticket"])
             '''
             ROFairnessCalculator(ro_path).\
                 calculate_fairness(evaluate_ro_metadata,
