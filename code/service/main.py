@@ -1,5 +1,7 @@
-from fastapi import FastAPI, Request, HTTPException, Depends, Body, UploadFile, File
+from fastapi import FastAPI, Request, HTTPException, Depends, Body, UploadFile, File, status, Form
+from fastapi.responses import JSONResponse
 from pathlib import Path
+from fastapi.responses import FileResponse
 from datetime import datetime, UTC
 import sqlite3
 import random
@@ -12,6 +14,7 @@ from contextlib import asynccontextmanager
 from pathlib import Path
 from rdflib import Graph, URIRef, RDF
 import json
+from typing import Optional
 
 # Create logs directory if it doesn't exist
 LOG_DIR = "../../logs"
@@ -183,7 +186,8 @@ def check_access(request: Request):
 @app.post("/assess/algorithm/{algorithm_id}")
 def execute_algorithm(
     algorithm_id: str,
-    file: UploadFile = File(...),
+    file: Optional[UploadFile] = File(None),
+    resource_id: Optional[str] = Form(None),
     storage_mode: str = Depends(check_access),  # This ensures check_access runs
     request: Request = None,  # Optional, only if you need request inside
 ):
@@ -192,44 +196,94 @@ def execute_algorithm(
     ticket_id = f"{timestamp}-{random_suffix}"
     logger.info(f"New request arrived to execute algorithm '{algorithm_id}'. New ticket generated: {ticket_id}")
     
-        # Determine directory based on access type
-    target_dir = Path(settings.FILE_STORAGE_DIR if storage_mode == "private" else settings.NO_TOKEN_DIRECTORY)
-    target_dir.mkdir(parents=True, exist_ok=True)  # Ensure it exists
+    if file is None and not resource_id:
+        raise HTTPException(status_code=400, detail="Either a file or a resource_identifier must be provided.")
 
-    # Save the uploaded file to the FILE_STORAGE_DIR
-    filename = f"{ticket_id}_{file.filename}"
-    save_path = target_dir / filename
+    if file and not resource_id:
+        filename = f"{ticket_id}_{file.filename}"
+        filename_without_ext = Path(filename).stem
+        
+            # Determine directory based on access type
+        target_dir = Path(settings.FILE_STORAGE_DIR if storage_mode == "private" else settings.NO_TOKEN_DIRECTORY / filename_without_ext)
+        target_dir.mkdir(parents=True, exist_ok=True)  # Ensure it exists
 
-    with open(save_path, "wb") as f:
-        f.write(file.file.read())
+        # Save the uploaded file to the FILE_STORAGE_DIR
 
-    logger.info(
-        f"File '{file.filename}' uploaded from IP {request.client.host} → ticket {ticket_id}"
+        save_path = target_dir / "ro-crate-metadata.json"
+
+        with open(save_path, "wb") as f:
+            f.write(file.file.read())
+
+        logger.info(f"Metadata file stored in {save_path}")
+
+        logger.info(
+            f"File '{file.filename}' uploaded from IP {request.client.host} → ticket {ticket_id}"
+        )
+
+        #Creating job in database
+        logger.info(f"Creating job to process a file with ticket {ticket_id}")
+        conn = get_db()
+        cursor = conn.cursor()                
+        instruction = f"INSERT INTO jobs VALUES ('{ticket_id}','{file.filename}',{JOB_SCHEDULED},'{algorithm_id}')"
+        cursor.execute(instruction)
+        conn.commit()
+        conn.close()
+        logger.info(f"Job created to process ticket {ticket_id}")
+
+        #Publish job in mqtt server
+        #mqtt_message={"ticket":ticket_id, "file":file.filename, "algorithm":algorithm_id}
+        mqtt_message={"ticket":ticket_id, "file":str(target_dir), "algorithm":algorithm_id}
+        logger.info(f"Sending message to broker: {str(mqtt_message)}")
+        client = mqtt.Client()
+        client.connect(settings.MQTT_HOST,settings.MQTT_PORT) 
+        client.publish("job/create",json.dumps(mqtt_message))
+        client.disconnect()
+        client.loop_stop()
+        logger.info("Message published")
+
+    if not file and resource_id:
+        #Creating job in database
+        logger.info(f"Creating job to process a url with ticket {ticket_id}")
+        conn = get_db()
+        cursor = conn.cursor()                
+        instruction = f"INSERT INTO jobs VALUES ('{ticket_id}','{resource_id}',{JOB_SCHEDULED},'{algorithm_id}')"
+        cursor.execute(instruction)
+        conn.commit()
+        conn.close()
+        logger.info(f"Job created to process ticket {ticket_id}")
+
+        #Publish job in mqtt server
+        #mqtt_message={"ticket":ticket_id, "file":file.filename, "algorithm":algorithm_id}
+        mqtt_message={"ticket":ticket_id, "file":str(resource_id), "algorithm":algorithm_id}
+        logger.info(f"Sending message to broker: {str(mqtt_message)}")
+        client = mqtt.Client()
+        client.connect(settings.MQTT_HOST,settings.MQTT_PORT) 
+        client.publish("job/create",json.dumps(mqtt_message))
+        client.disconnect()
+        client.loop_stop()
+        logger.info("Message published")
+
+    # Build absolute URL to the polling endpoint
+    location = str(request.url_for("get_score", ticket_id=ticket_id))
+
+    # Return 202 + Location header
+    return JSONResponse(
+        status_code=status.HTTP_202_ACCEPTED,
+        content={"ticket_id": ticket_id},
+        headers={"Location": location},
     )
-
-    #Creating job in database
-    logger.info(f"Creating job to process ticket {ticket_id}")
-    conn = get_db()
-    cursor = conn.cursor()                
-    instruction = f"INSERT INTO jobs VALUES ('{ticket_id}','{file.filename}',{JOB_SCHEDULED},'{algorithm_id}')"
-    cursor.execute(instruction)
-    conn.commit()
-    conn.close()
-    logger.info(f"Job created to process ticket {ticket_id}")
-
-    #Publish job in mqtt server
-    mqtt_message={"ticket":ticket_id, "file":file.filename, "algorithm":algorithm_id}
-    logger.info(f"Sending message to broker: {str(mqtt_message)}")
-    client = mqtt.Client()
-    client.connect(settings.MQTT_HOST,settings.MQTT_PORT) 
-    client.publish("job/create",json.dumps(mqtt_message))
-    client.disconnect()
-    client.loop_stop()
-    logger.info("Message published")
     
-    return {
+'''  return {
         "ticket_id": ticket_id
-    }
+    }'''
 
-#@app.get("/assessment/{assessment_id}")
-#def get_assessment(assessment_id: str):
+@app.get("/assess/score/{ticket_id}")
+def get_score(ticket_id: str):
+    filename = app.config['DOWNLOAD_FOLDER'] + '/' +ticket_id+'.json'
+    logger(f"Requesting score {ticket_id}")
+
+    path = Path(filename)
+    if not path.is_file():
+        raise HTTPException(status_code=404, detail="Not found")
+    # filename -> sets Content-Disposition for download; omit it to serve inline
+    return FileResponse(path, media_type="application/json", filename=ticket_id+".json")
