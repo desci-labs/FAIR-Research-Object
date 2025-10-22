@@ -8,6 +8,7 @@ import json
 from datetime import datetime, timezone
 from pathlib import Path
 from rdflib.namespace import DCTERMS
+from kg.knowledge_base import get_title, get_description
 
 logger = logging.getLogger(__name__)
 
@@ -40,26 +41,87 @@ class FAIROS_DATASET_FUJI:
         "Metadata contains provenance information using formal provenance ontologies (PROV-O)":"https://w3id.org/FAIROS/test/FUJI-R1.2-02",
         "Multidisciplinary but community endorsed metadata (RDA Metadata Standards Catalog, fairsharing) standard is listed in the re3data record or detected by namespace":"https://w3id.org/FAIROS/test/FUJI-R1.3-01",
         "The format of a data file given in the metadata is listed in the long term file formats, open file formats or scientific file formats controlled list":"https://w3id.org/FAIROS/test/FUJI-R1.3-02"
-    }   
+    }
 
-    def __init__(self):
+    def execute_algorithm_uri(self, resource_uri, ticket):
+       
+        logger.info("Invoking F-UJI")
 
-        FTR = Namespace("https://w3id.org/ftr#")
+        fuji = FujiWrapper(resource_uri)
 
-        logger.info("Load Algorithm description")
-        self.tests_graph = Graph()
-        self.tests_graph.parse("fair_assessment/algorithms/descriptions/FAIROS_DATASET_FUJI.ttl", format="turtle")
+        # Current UTC time
+        now = datetime.now(timezone.utc)
+        formatted = now.strftime("%a %b %d %H:%M:%S UTC %Y")
 
-        tests_directories = ["C:\\Users\\egonzalez\\projects\\FAIR-Research-Object\\docs\\catalog\\tests"]
+        doc = {
+            "@context": "https://w3id.org/ftr/context",
+            "@id": f"urn:fairos:{ticket}",
+            "@type": "https://w3id.org/ftr#TestResultSet",
+            "description": (
+                "Set of test results that includes all tests included "
+                "in the Algorithm FAIROS_DATASET"
+            ),
+            "identifier": {
+                "@id": f"urn:fairos:{ticket}"
+            },
+            "assessmentTarget": {
+                "@id": f"{resource_uri}"
+            },
+            "license": {
+                "@id": "http://creativecommons.org/licenses/by/4.0/"
+            },
+            "title": "Results from running FAIROS DATASETS!",
+            "generatedAtTime": {
+                "@type": "http://www.w3.org/2001/XMLSchema#date",
+                "@value": f"{formatted}"
+            },
+            "hadMember":[]
+        }
 
-        # Recursively find and load all .ttl files of tests
-        logger.info("Loading test description files")
-        for directory in tests_directories:
-            for ttl_file in Path(directory).rglob("*.ttl"):
-                logger.info(f"Loading {ttl_file}...")
-                self.tests_graph.parse(ttl_file, format="turtle")
+        #Get results from f-uji
+        results_json = fuji.get_checks()
 
-        print(f"Loaded {len(self.tests_graph)} triples from all TTL files.")
+        #Explore results, divided in metrics
+        for item in results_json:
+            explanations = []
+            for src in item.get("sources", []):
+                explanations.extend(src.get("explanation", []))
+                #Each explanation is a test results
+                for explanation in explanations:
+                    if ":" in explanation:
+                        #The result is an string with PASS: test_name or FAIL: test_name
+                        value, test_text = explanation.split(':', 1)
+                        test_text = test_text.strip()
+
+                        test_uri = self.mappings.get(test_text)
+
+                        if test_uri:
+                            description = get_description(test_uri)
+                            title = get_title(test_uri)
+
+                            test = {
+                                "@id": f"urn:fairos:{ticket}",
+                                "@type": "https://w3id.org/ftr#TestResult",
+                                "description": f"{description}",
+                                "identifier": {
+                                    "@id": f"urn:fairos:{ticket}"
+                                },
+                                "license": {
+                                    "@id": "http://creativecommons.org/licenses/by/4.0/"
+                                },
+                                    "title": f"{title}",
+                                    "value": f"{value}",
+                                    "completion": {
+                                        "@value": 100
+                                    },
+                                    "log": "N/A"
+                                }
+                                
+                            doc["hadMember"].append(test)
+                    else:
+                        logger.error(f"Invalid format for explanation:{explanation}")
+
+        return doc   
 
     def execute_algorithm(self, rocrate_dataset, ticket):
        
@@ -115,8 +177,8 @@ class FAIROS_DATASET_FUJI:
                             test_uri = self.mappings.get(test_text)
 
                             if test_uri:
-                                description = self.tests_graph.value(subject=URIRef(test_uri), predicate=DCTERMS.description)
-                                title = self.tests_graph.value(subject=URIRef(test_uri), predicate=DCTERMS.title)
+                                description = get_description(test_uri)
+                                title = get_title(test_uri)
 
                                 test = {
                                     "@id": f"urn:fairos:{ticket}",
@@ -138,4 +200,6 @@ class FAIROS_DATASET_FUJI:
                                 
                                 doc["hadMember"].append(test)
                         else:
-                            logger.error("Invalid url")
+                            logger.error(f"Invalid format for explanation:{explanation}")
+
+            return doc
