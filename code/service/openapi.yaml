@@ -136,8 +136,15 @@ paths:
               file:
                 contentType: application/json
       responses:
-        '200':
-          description: Ticket created
+        202':
+          description: Ticket created; check result at the URL in the Location header.
+          headers:
+            Location:
+              description: Absolute or relative URL where the job status/result can be polled. Must be `/assess/score/{ticket_id}`.
+              schema:
+                type: string
+                format: uri
+              example: /assess/score/20250101T120001-4321
           content:
             application/json:
               schema:
@@ -145,6 +152,12 @@ paths:
               examples:
                 example:
                   value: { ticket_id: "20250101T120001-4321" }
+          links:
+            GetAssessmentScore:
+              description: Follow this link to retrieve the status/result for the created ticket.
+              operationId: getAssessmentScore   # <-- ensure your GET /assess/score/{ticket_id} uses this operationId
+              parameters:
+                ticket_id: "$response.body#/ticket_id"
         '400':
           description: Bad request (e.g., missing file field). May be returned by the framework validation.
           content:
@@ -168,6 +181,22 @@ paths:
                   value: { detail: "Daily request limit reached for this IP" }
       # Security note: Auth is optional. Defining the scheme for documentation:
       security: []  # no auth required; token is optional via header parameter
+  /assess/score/{ticket_id}:
+    get:
+      tags: [Score]
+      summary: The scores of one algorithm
+      description: Returns the scores of each test, its logs, and an overall of all scores.
+      operationId: getScores
+      responses:
+        '200':
+          description: Return the scores plus the testsresults
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+                  format: string
 
 components:
   securitySchemes:
