@@ -5,6 +5,8 @@
 <img src="https://raw.githubusercontent.com/oeg-upm/FAIR-Research-Object/main/docs/fairos_logo.png" alt="logo" width="200"/>
 
 Tool to calculate the FAIRness of [Research Objects](https://www.researchobject.org/), serialized as [RO-Crates](https://www.researchobject.org/ro-crate/).
+**Status:** Ongoing development happens in the `dev-ostrails` branch. New feature: Assessment outputs aligned with FTR specification 1.2.0
+
 
 ## Requirements
 
