@@ -197,6 +197,8 @@ somef configure --help
 
 ## Running FAIROs
 
+### Option A: Command Line Assessment
+
 ### 1. Start the F-UJI Server
 
 In a **separate terminal**:
@@ -241,6 +243,53 @@ python code/fair_assessment/full_ro_fairness.py \
 | `-m` | Evaluate RO metadata components | `false` |
 | `-a` | Aggregation mode (0 or 1) | `0` |
 | `-d` | Generate diagram | `false` |
+
+### Option B: REST API Server
+
+FAIROs can also run as a REST API server for integration with web applications.
+
+**Terminal 1 - F-UJI Server:**
+```bash
+cd /path/to/fuji
+source venv/bin/activate
+python -m fuji_server -c fuji_server/config/server.ini
+```
+
+**Terminal 2 - FAIROs API:**
+```bash
+cd /path/to/FAIR-Research-Object
+source venv/bin/activate
+python fairos_api.py
+```
+
+**API Endpoints:**
+
+| Endpoint | Method | Description |
+|----------|--------|-------------|
+| `/` | GET | Health check |
+| `/health` | GET | Detailed service status |
+| `/assess` | POST | Generic assessment (URL, JSON-LD, or dPID) |
+| `/assess/url` | POST | Assess URL with F-UJI |
+| `/assess/rocrate` | POST | Assess RO-Crate JSON-LD |
+| `/docs` | GET | Interactive API documentation |
+
+**Example API Call:**
+```bash
+# Assess a DOI
+curl -X POST http://localhost:8000/assess/url \
+  -H "Content-Type: application/json" \
+  -d '{"url": "https://doi.org/10.5281/zenodo.3966161"}'
+
+# Assess a dPID
+curl -X POST http://localhost:8000/assess \
+  -H "Content-Type: application/json" \
+  -d '{"dpid": 123, "dpid_api_url": "http://localhost:5461"}'
+```
+
+**Integration with dpid.org:**
+
+The FAIROs API integrates with dpid.org-v2 to display FAIR scores on dPID pages.
+See the dpid.org-v2 CONFIG.md for setup instructions.
 
 ---
 
