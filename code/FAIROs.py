@@ -1,11 +1,7 @@
 from rocrate.rocrate import ROCrate
 from rocrate_fairness.ro_fairness import ROCrateFAIRnessCalculator
 from fuji_wrapper.fujiwrapper import FujiWrapper
-<<<<<<<< HEAD:code/FAIROs.py
 from somefFAIR.somefFAIR import SoftwareFAIRnessCalculator
-========
-from somef_wrapper.somefFAIR import SoftwareFAIRnessCalculator
->>>>>>>> dev-reliance:code/fair_assessment/full_ro_fairness.py
 from foops_wrapper.foopswrapper import FoopsWrapper
 import json
 import validators
