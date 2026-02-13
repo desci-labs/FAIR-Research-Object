@@ -34,6 +34,13 @@ from datetime import datetime
 # Add the code path for FAIROs imports
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "code/fair_assessment"))
 
+# ============================================================================
+# Configuration (overridable via environment variables)
+# ============================================================================
+
+FUJI_SERVER_URL = os.environ.get("FUJI_SERVER_URL", "http://localhost:1071")
+DPID_API_URL = os.environ.get("DPID_API_URL", "http://localhost:5461")
+
 from fastapi import FastAPI, HTTPException, BackgroundTasks
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
@@ -74,7 +81,7 @@ class AssessRequest(BaseModel):
     url: Optional[str] = Field(None, description="URL to assess")
     jsonld: Optional[Dict[str, Any]] = Field(None, description="RO-Crate JSON-LD data")
     dpid: Optional[int] = Field(None, description="dPID number to assess")
-    dpid_api_url: Optional[str] = Field("http://localhost:5461", description="dPID API base URL")
+    dpid_api_url: Optional[str] = Field(default=None, description="dPID API base URL (defaults to DPID_API_URL env var)")
 
 class FAIRScore(BaseModel):
     """FAIR assessment score result"""
@@ -132,7 +139,7 @@ app.add_middleware(
 def check_fuji_server() -> bool:
     """Check if F-UJI server is running"""
     try:
-        resp = requests.get("http://localhost:1071/fuji/api/v1/", timeout=2)
+        resp = requests.get(f"{FUJI_SERVER_URL}/fuji/api/v1/", timeout=2)
         return resp.status_code in [200, 404]  # 404 is OK, means server is running
     except:
         return False
@@ -274,10 +281,12 @@ async def assess(request: AssessRequest):
         
         # Option 1: Assess by dPID
         if request.dpid is not None:
+            # Use provided dpid_api_url or fall back to env-configured default
+            dpid_base_url = request.dpid_api_url or DPID_API_URL
             # Fetch JSON-LD from dPID resolver
-            jsonld_url = f"{request.dpid_api_url}/{request.dpid}?format=jsonld"
+            jsonld_url = f"{dpid_base_url}/{request.dpid}?format=jsonld"
             identifier = f"dpid://{request.dpid}"
-            resolve_url = f"{request.dpid_api_url}/{request.dpid}"
+            resolve_url = f"{dpid_base_url}/{request.dpid}"
             
             # Always try F-UJI first for dPIDs (more comprehensive)
             if check_fuji_server():
@@ -384,7 +393,9 @@ if __name__ == "__main__":
     print("=" * 60)
     print(f"RO-Crate Calculator: {'✅' if ROCRATE_AVAILABLE else '❌'}")
     print(f"F-UJI Wrapper: {'✅' if FUJI_AVAILABLE else '❌'}")
+    print(f"F-UJI Server URL: {FUJI_SERVER_URL}")
     print(f"F-UJI Server: {'✅' if check_fuji_server() else '❌ (start with: python -m fuji_server)'}")
+    print(f"dPID API URL: {DPID_API_URL}")
     print("=" * 60)
     print("Starting server on http://localhost:8000")
     print("API docs: http://localhost:8000/docs")
