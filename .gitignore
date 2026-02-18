@@ -1,0 +1,11 @@
+test-ro-crates/
+venv
+__pycache__/
+
+.DS_Store
+
+results
+*.md
+!README.md
+*.pdf
+*.png

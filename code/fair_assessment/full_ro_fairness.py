@@ -1,11 +1,7 @@
 from rocrate.rocrate import ROCrate
 from rocrate_fairness.ro_fairness import ROCrateFAIRnessCalculator
 from fuji_wrapper.fujiwrapper import FujiWrapper
-<<<<<<<< HEAD:code/FAIROs.py
-from somefFAIR.somefFAIR import SoftwareFAIRnessCalculator
-========
 from somef_wrapper.somefFAIR import SoftwareFAIRnessCalculator
->>>>>>>> dev-reliance:code/fair_assessment/full_ro_fairness.py
 from foops_wrapper.foopswrapper import FoopsWrapper
 import json
 import validators
@@ -44,8 +40,9 @@ class FAIROs:
 
     def evaluate_ro(self):
         
-        name = self.ro["title"]
-        identifier = self.ro["identifier"]
+        # RO-Crate spec uses "name", fallback to "title" for compatibility
+        name = self.ro.get("name") or self.ro.get("title", "Unknown")
+        identifier = self.ro.get("identifier", self.ro.get("@id", ""))
         identifier_rocrate = self.ro["@id"]
 
         element = self.create_component_output(
@@ -70,8 +67,9 @@ class FAIROs:
 
     def extract_ro(self):
         ro_output = self.ro_calculator.calculate_fairness()
-        name = self.ro["title"]
-        identifier = self.ro["identifier"]
+        # RO-Crate spec uses "name", fallback to "title" for compatibility
+        name = self.ro.get("name") or self.ro.get("title", "Unknown")
+        identifier = self.ro.get("identifier", self.ro.get("@id", ""))
 
         element = self.create_component_output(
             name, identifier, "ro-crate", "ro-crate-FAIR"

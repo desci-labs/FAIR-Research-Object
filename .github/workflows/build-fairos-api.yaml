@@ -1,0 +1,57 @@
+on:
+  push:
+    paths:
+      - .github/workflows/**
+      - fairos_api.py
+      - code/**
+      - requirements.txt
+      - Dockerfile
+    branches:
+      - main
+
+env:
+  AWS_DEFAULT_REGION: us-east-2
+  AWS_DEFAULT_OUTPUT: json
+  AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
+  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+  CONTAINER_IMAGE: fairos-api
+  DOCKER_BUILDKIT: 1
+
+jobs:
+  build-and-push:
+    name: Build and deploy
+    runs-on: blacksmith-4vcpu-ubuntu-2204
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - uses: prepor/action-aws-iam-authenticator@master
+      - run: aws-iam-authenticator version
+
+      - name: Build and tag the image
+        if: github.ref == 'refs/heads/main'
+        run: |
+          # Build and tag the image
+          docker build \
+            -t $CONTAINER_IMAGE:latest \
+            -t $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$CONTAINER_IMAGE \
+             .
+
+      - name: Push image
+        if: github.ref == 'refs/heads/main'
+        run: |
+          aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com
+
+          # Used for sorting newest builds in flux image scanning
+          TIMESTAMP="$(date +%s)"
+          SHORT_SHA="$(git rev-parse --short ${{ github.sha }})"
+          LOCAL_TAG="$CONTAINER_IMAGE:latest"
+          BUILD_TAG="$SHORT_SHA-$TIMESTAMP"
+          ECR_IMAGE="$AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$CONTAINER_IMAGE"
+
+          docker tag $LOCAL_TAG "$ECR_IMAGE:$BUILD_TAG"
+          docker tag $LOCAL_TAG "$ECR_IMAGE:latest"
+
+          docker push "$ECR_IMAGE:$BUILD_TAG"
+          docker push "$ECR_IMAGE:latest"
