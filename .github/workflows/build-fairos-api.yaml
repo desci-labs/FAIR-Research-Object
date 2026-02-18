@@ -1,5 +1,4 @@
 on:
-  workflow_dispatch:
   push:
     paths:
       - .github/workflows/**
@@ -24,7 +23,6 @@ jobs:
     name: Build and deploy
     runs-on: blacksmith-4vcpu-ubuntu-2204
     steps:
-      - uses: hashicorp/setup-terraform@v1
       - name: Checkout
         uses: actions/checkout@v4
 
@@ -44,7 +42,16 @@ jobs:
         if: github.ref == 'refs/heads/main'
         run: |
           aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com
-          docker tag $CONTAINER_IMAGE:latest $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$CONTAINER_IMAGE:${{ github.sha }}
-          docker tag $CONTAINER_IMAGE:latest $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$CONTAINER_IMAGE:latest
-          docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$CONTAINER_IMAGE:${{ github.sha }}
-          docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$CONTAINER_IMAGE:latest
+
+          # Used for sorting newest builds in flux image scanning
+          TIMESTAMP="$(date +%s)"
+          SHORT_SHA="$(git rev-parse --short ${{ github.sha }})"
+          LOCAL_TAG="$CONTAINER_IMAGE:latest"
+          BUILD_TAG="$SHORT_SHA-$TIMESTAMP"
+          ECR_IMAGE="$AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$CONTAINER_IMAGE"
+
+          docker tag $LOCAL_TAG "$ECR_IMAGE:$BUILD_TAG"
+          docker tag $LOCAL_TAG "$ECR_IMAGE:latest"
+
+          docker push "$ECR_IMAGE:$BUILD_TAG"
+          docker push "$ECR_IMAGE:latest"
