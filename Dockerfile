@@ -1,4 +1,4 @@
-FROM python:3.11-slim AS base
+FROM python:3.9-slim AS base
 
 # Install system dependencies required by graphviz and other packages
 RUN apt-get -qy update && apt-get -qy install --no-install-recommends \
@@ -11,6 +11,7 @@ WORKDIR /app
 
 # Install Python dependencies first (for layer caching)
 COPY requirements.txt .
+RUN pip install --no-cache-dir --upgrade pip setuptools wheel
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy application code
